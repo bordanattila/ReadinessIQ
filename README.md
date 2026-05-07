@@ -1,6 +1,8 @@
 ReadinessIQ
 A full-stack logistics readiness platform that ingests shipment, inventory, maintenance, and supplier data to identify readiness risk, supply constraints, backlog growth, and emerging operational issues.
 
+![Tests](https://github.com/bordanattila/ReadinessIQ/actions/workflows/test.yml/badge.svg)
+
 readiness-iq/
 ├── backend/
 │   ├── app/
