@@ -1,0 +1,101 @@
+site_id,site_name,site_region,site_type,site_mission_priority,site_active_flag
+SITE-001,Fort Liberty Sustainment Hub,Southeast,Depot,5,True
+SITE-002,Fort Cavazos Readiness Center,Southwest,Readiness Center,5,True
+SITE-003,Camp Pendleton Logistics Node,West,Logistics Node,5,True
+SITE-004,Joint Base Lewis-McChord Supply Hub,Pacific Northwest,Supply Hub,5,True
+SITE-005,Fort Stewart Maintenance Depot,Southeast,Depot,5,True
+SITE-006,Fort Drum Sustainment Center,Northeast,Sustainment Center,4,True
+SITE-007,Fort Carson Regional Supply Hub,Mountain West,Supply Hub,4,True
+SITE-008,Fort Riley Equipment Readiness Site,Midwest,Readiness Center,4,True
+SITE-009,Fort Bliss Mobility Support Depot,Southwest,Depot,5,True
+SITE-010,Fort Campbell Logistics Support Center,Southeast,Logistics Center,5,True
+SITE-011,Fort Moore Sustainment Yard,Southeast,Sustainment Yard,4,True
+SITE-012,Fort Leonard Wood Supply Center,Midwest,Supply Center,3,True
+SITE-013,Fort Sill Field Maintenance Site,Southwest,Maintenance Site,3,True
+SITE-014,Fort Huachuca Communications Parts Hub,Southwest,Supply Hub,4,True
+SITE-015,Fort Irwin Training Logistics Node,West,Logistics Node,4,True
+SITE-016,Fort Novosel Aviation Sustainment Center,Southeast,Aviation Sustainment Center,5,True
+SITE-017,Fort Johnson Readiness Support Site,South Central,Readiness Center,4,True
+SITE-018,Fort Wainwright Arctic Logistics Hub,Alaska,Logistics Hub,5,True
+SITE-019,Joint Base Elmendorf-Richardson Supply Depot,Alaska,Depot,5,True
+SITE-020,Schofield Barracks Pacific Readiness Hub,Pacific,Readiness Hub,5,True
+SITE-021,Pearl Harbor Fleet Supply Center,Pacific,Supply Center,5,True
+SITE-022,San Diego Naval Logistics Facility,West,Logistics Facility,5,True
+SITE-023,Norfolk Fleet Sustainment Depot,Mid-Atlantic,Depot,5,True
+SITE-024,Mayport Maritime Supply Node,Southeast,Supply Node,4,True
+SITE-025,Jacksonville Aviation Parts Center,Southeast,Aviation Parts Center,4,True
+SITE-026,Pensacola Training Supply Hub,Southeast,Supply Hub,3,True
+SITE-027,Eglin Range Support Depot,Southeast,Depot,4,True
+SITE-028,Tyndall Equipment Recovery Site,Southeast,Recovery Site,3,True
+SITE-029,MacDill Joint Logistics Center,Southeast,Logistics Center,5,True
+SITE-030,Patrick Space Systems Supply Hub,Southeast,Supply Hub,4,True
+SITE-031,Robins Air Logistics Complex,Southeast,Air Logistics Complex,5,True
+SITE-032,Warner Robins Component Repair Depot,Southeast,Repair Depot,5,True
+SITE-033,Charleston Strategic Lift Support Site,Southeast,Support Site,4,True
+SITE-034,Shaw Regional Readiness Center,Southeast,Readiness Center,4,True
+SITE-035,Seymour Johnson Maintenance Support Hub,Southeast,Maintenance Hub,4,True
+SITE-036,Cherry Point Aviation Sustainment Depot,Mid-Atlantic,Aviation Sustainment Depot,5,True
+SITE-037,Quantico Mission Support Center,Mid-Atlantic,Mission Support Center,4,True
+SITE-038,Dahlgren Systems Readiness Site,Mid-Atlantic,Readiness Site,4,True
+SITE-039,Aberdeen Proving Ground Supply Depot,Mid-Atlantic,Depot,4,True
+SITE-040,Dover Strategic Airlift Parts Hub,Northeast,Parts Hub,5,True
+SITE-041,McGuire Joint Base Supply Center,Northeast,Supply Center,4,True
+SITE-042,Tobyhanna Electronics Sustainment Depot,Northeast,Electronics Depot,5,True
+SITE-043,West Point Training Support Site,Northeast,Support Site,3,True
+SITE-044,Hanscom Systems Logistics Center,Northeast,Logistics Center,4,True
+SITE-045,New London Maritime Readiness Node,Northeast,Readiness Node,3,True
+SITE-046,Wright-Patterson Air Systems Depot,Midwest,Air Systems Depot,5,True
+SITE-047,Rock Island Arsenal Supply Center,Midwest,Supply Center,5,True
+SITE-048,Crane Naval Systems Sustainment Site,Midwest,Sustainment Site,4,True
+SITE-049,Scott Joint Mobility Support Hub,Midwest,Mobility Support Hub,5,True
+SITE-050,Selfridge Air Readiness Center,Midwest,Readiness Center,3,True
+SITE-051,Minneapolis Reserve Logistics Node,Midwest,Logistics Node,2,True
+SITE-052,Whiteman Equipment Sustainment Hub,Midwest,Sustainment Hub,4,True
+SITE-053,Offutt Strategic Systems Supply Center,Midwest,Supply Center,5,True
+SITE-054,Tinker Air Logistics Complex,South Central,Air Logistics Complex,5,True
+SITE-055,Altus Mobility Training Supply Hub,South Central,Supply Hub,4,True
+SITE-056,Corpus Christi Aviation Repair Depot,South Central,Repair Depot,5,True
+SITE-057,San Antonio Medical Logistics Center,South Central,Medical Logistics Center,4,True
+SITE-058,Kelly Field Sustainment Support Site,South Central,Support Site,3,True
+SITE-059,Red River Ground Systems Depot,South Central,Ground Systems Depot,5,True
+SITE-060,Dyess Mobility Readiness Center,South Central,Readiness Center,4,True
+SITE-061,Kirtland Space Support Logistics Hub,Mountain West,Logistics Hub,4,True
+SITE-062,Holloman Range Sustainment Node,Mountain West,Sustainment Node,3,True
+SITE-063,Hill Air Logistics Complex,Mountain West,Air Logistics Complex,5,True
+SITE-064,Tooele Munitions Support Depot,Mountain West,Support Depot,4,True
+SITE-065,Cheyenne Mountain Systems Readiness Site,Mountain West,Readiness Site,5,True
+SITE-066,Peterson Space Logistics Center,Mountain West,Logistics Center,4,True
+SITE-067,Buckley Aerospace Supply Node,Mountain West,Supply Node,4,True
+SITE-068,Nellis Test Range Support Depot,West,Support Depot,5,True
+SITE-069,Edwards Flight Test Logistics Center,West,Logistics Center,5,True
+SITE-070,Vandenberg Space Launch Supply Hub,West,Supply Hub,5,True
+SITE-071,Travis Strategic Airlift Sustainment Center,West,Sustainment Center,5,True
+SITE-072,Beale Reconnaissance Parts Depot,West,Parts Depot,4,True
+SITE-073,Point Mugu Systems Maintenance Site,West,Maintenance Site,4,True
+SITE-074,Port Hueneme Naval Supply Center,West,Supply Center,4,True
+SITE-075,China Lake Test Support Hub,West,Support Hub,4,True
+SITE-076,Yuma Proving Ground Logistics Node,Southwest,Logistics Node,4,True
+SITE-077,Luke Air Training Supply Center,Southwest,Supply Center,3,True
+SITE-078,Davis-Monthan Aircraft Recovery Depot,Southwest,Recovery Depot,4,True
+SITE-079,Miramar Aviation Readiness Hub,West,Readiness Hub,4,True
+SITE-080,Twentynine Palms Ground Systems Support Site,West,Support Site,4,True
+SITE-081,Bangor Strategic Systems Supply Depot,Pacific Northwest,Supply Depot,5,True
+SITE-082,Whidbey Island Aviation Sustainment Node,Pacific Northwest,Sustainment Node,4,True
+SITE-083,Fairchild Mobility Support Center,Pacific Northwest,Support Center,4,True
+SITE-084,Kings Bay Fleet Sustainment Depot,Southeast,Depot,5,True
+SITE-085,Huntsville Missile Systems Logistics Hub,Southeast,Logistics Hub,5,True
+SITE-086,Anniston Ground Vehicle Repair Depot,Southeast,Repair Depot,5,True
+SITE-087,Blue Grass Equipment Sustainment Site,Southeast,Sustainment Site,4,True
+SITE-088,Crane Lake Regional Storage Annex,Midwest,Storage Annex,2,True
+SITE-089,Pine Ridge Forward Supply Annex,Mountain West,Supply Annex,2,True
+SITE-090,Desert Mesa Maintenance Annex,Southwest,Maintenance Annex,2,True
+SITE-091,Coastal Bend Logistics Annex,South Central,Logistics Annex,2,True
+SITE-092,Great Lakes Reserve Supply Site,Midwest,Supply Site,2,True
+SITE-093,Allegheny Component Storage Facility,Northeast,Storage Facility,2,True
+SITE-094,Cape Fear Distribution Support Center,Southeast,Distribution Center,3,True
+SITE-095,Gulf Coast Readiness Supply Hub,Southeast,Supply Hub,3,True
+SITE-096,Ozark Field Maintenance Center,South Central,Maintenance Center,3,True
+SITE-097,Sierra Nevada Logistics Support Site,West,Support Site,3,True
+SITE-098,Cascade Regional Sustainment Hub,Pacific Northwest,Sustainment Hub,3,True
+SITE-099,Arctic Circle Forward Supply Node,Alaska,Forward Supply Node,4,True
+SITE-100,Pacific Rim Expeditionary Logistics Hub,Pacific,Expeditionary Logistics Hub,5,True
