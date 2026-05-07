@@ -2,3 +2,9 @@ pandas
 sqlalchemy
 psycopg2-binary
 python-dotenv
+fastapi
+uvicorn[standard]
+
+# Testing
+pytest
+httpx

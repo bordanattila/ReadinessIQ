@@ -112,7 +112,17 @@ def generate_shipments_data(sites_df: pd.DataFrame, parts_df: pd.DataFrame, num_
 
         ship_date = get_random_date(2025)
         expected_delivery_date = ship_date + timedelta(days=random.randint(3, 10))
-        actual_delivery_date = ship_date + timedelta(days=random.randint(2, 15))
+
+        # Model on-time vs. delayed as two separate regimes so the delay rate
+        # reflects real-world supply chains (~12% late) instead of falling out
+        # of overlapping uniform ranges.
+        if random.random() < 0.12:
+            # Right-skewed delay: most delays small, occasional long tail.
+            delay = max(1, int(random.triangular(1, 21, 4)))
+            actual_delivery_date = expected_delivery_date + timedelta(days=delay)
+        else:
+            # On-time arrivals: same day or slightly early.
+            actual_delivery_date = expected_delivery_date + timedelta(days=random.randint(-2, 0))
 
         delayed_flag = actual_delivery_date > expected_delivery_date
         delay_days = max((actual_delivery_date - expected_delivery_date).days, 0)

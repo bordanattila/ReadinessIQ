@@ -1,13 +1,14 @@
+import sys
 from pathlib import Path
 
+BACKEND_DIR = Path(__file__).resolve().parents[1]
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
 import pandas as pd
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
-import os
+from utils.connect_to_db import get_database_url
 
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = PROJECT_ROOT / 'data' / 'raw'
 
 CSV_TABLE_MAP = {
     "sites.csv": "sites",
@@ -18,12 +19,8 @@ CSV_TABLE_MAP = {
     "maintenance_events.csv": "maintenance_events",
 }
 
-def get_database_url():
-    load_dotenv(PROJECT_ROOT / ".env", override=True)
-    database_url = os.getenv('DATABASE_URL')
-    if not database_url:
-        raise ValueError('DATABASE_URL is not set in the environment variables')
-    return database_url
+PROJECT_ROOT = BACKEND_DIR.parent
+DATA_DIR = PROJECT_ROOT / 'data' / 'raw'
 
 def load_csvs_to_postgres() -> None:
     """Load CSV files to PostgreSQL"""
