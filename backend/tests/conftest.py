@@ -150,7 +150,7 @@ def _seed_maintenance(engine: Engine) -> None:
 
 
 def _create_empty_risk_ranking_tables(engine: Engine) -> None:
-    """Schema for /api/sites/risk-ranking with zero rows."""
+    """Schema for /api/sites/risk-ranking and /api/sites/{id}/summary with zero rows."""
     pd.DataFrame(
         columns=[
             "site_id",
@@ -162,14 +162,32 @@ def _create_empty_risk_ranking_tables(engine: Engine) -> None:
         ]
     ).to_sql("sites", engine, if_exists="replace", index=False)
     pd.DataFrame(
-        columns=["inventory_id", "site_id", "stockout_flag", "below_reorder_point"]
+        columns=[
+            "inventory_id",
+            "site_id",
+            "part_id",
+            "stockout_flag",
+            "below_reorder_point",
+            "below_safety_stock",
+            "quantity_available",
+            "reorder_point",
+        ]
     ).to_sql("inventory_positions", engine, if_exists="replace", index=False)
     pd.DataFrame(
-        columns=["shipment_id", "site_id", "delayed_flag"]
+        columns=["shipment_id", "site_id", "delayed_flag", "delay_days"]
     ).to_sql("shipments", engine, if_exists="replace", index=False)
     pd.DataFrame(
-        columns=["maintenance_event_id", "site_id", "status", "backlog_days"]
+        columns=[
+            "maintenance_event_id",
+            "site_id",
+            "status",
+            "backlog_days",
+            "days_non_mission_capable",
+        ]
     ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=["part_id", "part_name", "part_family", "criticality"]
+    ).to_sql("part_master", engine, if_exists="replace", index=False)
 
 
 def _seed_risk_ranking(engine: Engine) -> None:
@@ -216,53 +234,101 @@ def _seed_risk_ranking(engine: Engine) -> None:
 
     inv_rows = []
     inv_id = 1
-    # SITE-A: 5 stockouts + 3 more below_reorder = 8 below_reorder, 5 stockouts
+    # SITE-A: 8 inventory rows. First 5 are stockouts (qty_available=0,
+    # reorder=10 -> diff=-10), next 3 are below_reorder (qty=5, reorder=10 ->
+    # diff=-5). All 8 are "below_reorder_point". Stockouts will dominate the
+    # "top constrained parts" ranking.
     for i in range(8):
+        is_stockout = i < 5
         inv_rows.append({
             "inventory_id": inv_id,
             "site_id": "SITE-A",
-            "stockout_flag": i < 5,
+            "part_id": f"PART-A{i + 1:03d}",
+            "stockout_flag": is_stockout,
             "below_reorder_point": True,
+            "below_safety_stock": is_stockout,
+            "quantity_available": 0 if is_stockout else 5,
+            "reorder_point": 10,
         })
         inv_id += 1
     # SITE-B: 1 stockout, 2 below_reorder
     for i in range(2):
+        is_stockout = i < 1
         inv_rows.append({
             "inventory_id": inv_id,
             "site_id": "SITE-B",
-            "stockout_flag": i < 1,
+            "part_id": f"PART-B{i + 1:03d}",
+            "stockout_flag": is_stockout,
             "below_reorder_point": True,
+            "below_safety_stock": False,
+            "quantity_available": 0 if is_stockout else 5,
+            "reorder_point": 10,
         })
         inv_id += 1
     # SITE-C: 1 row, no issues — exercises the COALESCE/zero path
     inv_rows.append({
         "inventory_id": inv_id,
         "site_id": "SITE-C",
+        "part_id": "PART-C001",
         "stockout_flag": False,
         "below_reorder_point": False,
+        "below_safety_stock": False,
+        "quantity_available": 100,
+        "reorder_point": 10,
     })
     pd.DataFrame(inv_rows).to_sql(
         "inventory_positions", engine, if_exists="replace", index=False
     )
 
+    # part_master rows for every part_id referenced above, so the JOIN in
+    # /api/sites/{id}/summary's top-parts query can resolve part metadata.
+    part_rows = []
+    for i in range(8):
+        part_rows.append({
+            "part_id": f"PART-A{i + 1:03d}",
+            "part_name": f"Alpha Component {i + 1}",
+            "part_family": "Hydraulics",
+            "criticality": "High",
+        })
+    for i in range(2):
+        part_rows.append({
+            "part_id": f"PART-B{i + 1:03d}",
+            "part_name": f"Bravo Component {i + 1}",
+            "part_family": "Avionics",
+            "criticality": "Medium",
+        })
+    part_rows.append({
+        "part_id": "PART-C001",
+        "part_name": "Charlie Component 1",
+        "part_family": "General",
+        "criticality": "Low",
+    })
+    pd.DataFrame(part_rows).to_sql(
+        "part_master", engine, if_exists="replace", index=False
+    )
+
     ship_rows = []
     ship_id = 1
-    # SITE-A: 6 delayed (out of 6)
-    for _ in range(6):
+    # SITE-A: 6 delayed (out of 6) with delay_days summing to 18 (mean 3.0)
+    site_a_delays = [2, 3, 4, 3, 3, 3]
+    for delay in site_a_delays:
         ship_rows.append({
-            "shipment_id": ship_id, "site_id": "SITE-A", "delayed_flag": True,
+            "shipment_id": ship_id, "site_id": "SITE-A",
+            "delayed_flag": True, "delay_days": delay,
         })
         ship_id += 1
-    # SITE-B: 2 delayed, 1 on time
-    for delayed in (True, True, False):
+    # SITE-B: 2 delayed (delay_days 5 and 5, mean 5.0), 1 on time
+    for delayed, delay in [(True, 5), (True, 5), (False, 0)]:
         ship_rows.append({
-            "shipment_id": ship_id, "site_id": "SITE-B", "delayed_flag": delayed,
+            "shipment_id": ship_id, "site_id": "SITE-B",
+            "delayed_flag": delayed, "delay_days": delay,
         })
         ship_id += 1
     # SITE-C: 2 on-time shipments, no delays
     for _ in range(2):
         ship_rows.append({
-            "shipment_id": ship_id, "site_id": "SITE-C", "delayed_flag": False,
+            "shipment_id": ship_id, "site_id": "SITE-C",
+            "delayed_flag": False, "delay_days": 0,
         })
         ship_id += 1
     pd.DataFrame(ship_rows).to_sql(
@@ -270,15 +336,21 @@ def _seed_risk_ranking(engine: Engine) -> None:
     )
 
     maint_rows = [
-        # SITE-A: 3 open events with backlog 20/30/40 (mean 30)
-        {"maintenance_event_id": 1, "site_id": "SITE-A", "status": "open", "backlog_days": 20},
-        {"maintenance_event_id": 2, "site_id": "SITE-A", "status": "open", "backlog_days": 30},
-        {"maintenance_event_id": 3, "site_id": "SITE-A", "status": "open", "backlog_days": 40},
-        # SITE-B: 1 open event with backlog 10 (mean 10), 1 completed
-        {"maintenance_event_id": 4, "site_id": "SITE-B", "status": "open", "backlog_days": 10},
-        {"maintenance_event_id": 5, "site_id": "SITE-B", "status": "completed", "backlog_days": 0},
-        # SITE-C: only completed events — exercises avg-backlog COALESCE to 0
-        {"maintenance_event_id": 6, "site_id": "SITE-C", "status": "completed", "backlog_days": 0},
+        # SITE-A: 3 open events with backlog 20/30/40 (mean 30); NMC days sum = 60.
+        {"maintenance_event_id": 1, "site_id": "SITE-A", "status": "open",
+         "backlog_days": 20, "days_non_mission_capable": 10},
+        {"maintenance_event_id": 2, "site_id": "SITE-A", "status": "open",
+         "backlog_days": 30, "days_non_mission_capable": 20},
+        {"maintenance_event_id": 3, "site_id": "SITE-A", "status": "open",
+         "backlog_days": 40, "days_non_mission_capable": 30},
+        # SITE-B: 1 open with backlog 10 (mean 10), 1 completed; NMC sum = 5.
+        {"maintenance_event_id": 4, "site_id": "SITE-B", "status": "open",
+         "backlog_days": 10, "days_non_mission_capable": 5},
+        {"maintenance_event_id": 5, "site_id": "SITE-B", "status": "completed",
+         "backlog_days": 0, "days_non_mission_capable": 0},
+        # SITE-C: only completed events — exercises avg-backlog COALESCE to 0.
+        {"maintenance_event_id": 6, "site_id": "SITE-C", "status": "completed",
+         "backlog_days": 0, "days_non_mission_capable": 0},
     ]
     pd.DataFrame(maint_rows).to_sql(
         "maintenance_events", engine, if_exists="replace", index=False

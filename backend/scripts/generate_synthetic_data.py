@@ -39,13 +39,16 @@ def generate_sites_data(num_sites: int = 100) -> pd.DataFrame:
         sites.append(site)
     return pd.DataFrame(sites)
 
-# Generate part_master data with random part numbers and descriptions
+# Generate part_master data with sequential part numbers
 def generate_part_master_data(num_parts=1000):
-    """Generate synthetic part master data with random part numbers and descriptions"""
+    """Generate synthetic part master data with sequential part numbers."""
     parts = []
-    for part_item in parts_master_list:
+    # Sequential IDs avoid birthday-paradox collisions you'd get from
+    # random.randint(1000, 9999) when generating ~1000 parts. The :04d format
+    # zero-pads so PART-0001 sorts lexicographically with PART-1000.
+    for index, part_item in enumerate(parts_master_list, start=1):
         part = {
-            'part_id': f'PART-{random.randint(1000, 9999)}',
+            'part_id': f'PART-{index:04d}',
             'nsn': f'{random.randint(0, 1000)}-{random.randint(0, 1000)}-{random.randint(0, 1000)}-{random.randint(0, 1000)}',
             'part_name': part_item['part_name'],
             'part_family': part_item['part_family'],

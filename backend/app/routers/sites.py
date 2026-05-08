@@ -140,3 +140,187 @@ def get_sites_risk_ranking(engine: Engine = Depends(get_engine)):
             'status': 'error',
             'message': str(e),
         }
+
+
+@router.get('/{site_id}/summary')
+def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
+    """Return a detailed readiness summary for a single site.
+
+    Aggregates inventory, shipment, and maintenance metrics scoped to one
+    site, plus the top constrained parts (those most starved of stock).
+
+    Args:
+        site_id: The site identifier, e.g. ``"SITE-001"``.
+
+    Returns:
+        On success, a JSON object shaped like::
+
+            {
+                "status": "ok",
+                "site": {
+                    "site_id": "SITE-001",
+                    "site_name": "Fort Liberty Sustainment Hub",
+                    "site_region": "Southeast",
+                    "site_type": "Depot",
+                    "mission_priority": 5,
+                },
+                "inventory": {
+                    "total_inventory_positions": 52,
+                    "stockout_count": 3,
+                    "below_reorder_count": 18,
+                    "below_safety_stock_count": 9,
+                },
+                "shipments": {
+                    "total_shipments": 104,
+                    "delayed_shipments": 27,
+                    "delayed_shipment_rate": 0.2596,
+                    "average_delay_days": 3.7,
+                },
+                "maintenance": {
+                    "open_maintenance_events": 14,
+                    "average_backlog_days": 21.4,
+                    "total_days_non_mission_capable": 166,
+                },
+                "top_constrained_parts": [
+                    {
+                        "part_id": "PART-0042",
+                        "part_name": "Hydraulic Seal Kit",
+                        "part_family": "Hydraulics",
+                        "quantity_available": 0,
+                        "reorder_point": 44,
+                        "criticality": "High",
+                    }
+                ],
+            }
+
+        On error, ``{"status": "error", "message": <details>}``.
+    """
+    try:
+        with engine.connect() as conn:
+            params = {'site_id': site_id, 'open_status': 'open'}
+
+            # Site metadata. `mappings().first()` gives a dict-like single row
+            # or None if no site matches.
+            site = conn.execute(
+                text("""
+                    SELECT
+                        site_id,
+                        site_name,
+                        site_region,
+                        site_type,
+                        site_mission_priority AS mission_priority
+                    FROM sites
+                    WHERE site_id = :site_id
+                """),
+                params,
+            ).mappings().first()
+
+            if site is None:
+                return {
+                    'status': 'error',
+                    'message': f'Site {site_id!r} not found',
+                }
+
+            # All four aggregate queries below use SUM(CASE WHEN ...) so the
+            # result is always a single row (even when the site has zero
+            # inventory / shipments / maintenance events).
+            inventory = conn.execute(
+                text("""
+                    SELECT
+                        COUNT(*) AS total_inventory_positions,
+                        COALESCE(SUM(CASE WHEN stockout_flag THEN 1 ELSE 0 END), 0)
+                            AS stockout_count,
+                        COALESCE(SUM(CASE WHEN below_reorder_point THEN 1 ELSE 0 END), 0)
+                            AS below_reorder_count,
+                        COALESCE(SUM(CASE WHEN below_safety_stock THEN 1 ELSE 0 END), 0)
+                            AS below_safety_stock_count
+                    FROM inventory_positions
+                    WHERE site_id = :site_id
+                """),
+                params,
+            ).mappings().first()
+
+            shipments = conn.execute(
+                text("""
+                    SELECT
+                        COUNT(*) AS total_shipments,
+                        COALESCE(SUM(CASE WHEN delayed_flag THEN 1 ELSE 0 END), 0)
+                            AS delayed_shipments,
+                        AVG(CASE WHEN delayed_flag THEN delay_days END)
+                            AS average_delay_days
+                    FROM shipments
+                    WHERE site_id = :site_id
+                """),
+                params,
+            ).mappings().first()
+
+            maintenance = conn.execute(
+                text("""
+                    SELECT
+                        COALESCE(SUM(CASE WHEN status = :open_status THEN 1 ELSE 0 END), 0)
+                            AS open_maintenance_events,
+                        AVG(CASE WHEN status = :open_status THEN backlog_days END)
+                            AS average_backlog_days,
+                        COALESCE(SUM(days_non_mission_capable), 0)
+                            AS total_days_non_mission_capable
+                    FROM maintenance_events
+                    WHERE site_id = :site_id
+                """),
+                params,
+            ).mappings().first()
+
+            # Top 5 most starved parts at this site, joined with part_master
+            # for descriptive columns. "Most starved" = biggest shortfall
+            # vs. reorder point (negative diffs first).
+            top_parts = conn.execute(
+                text("""
+                    SELECT
+                        p.part_id,
+                        p.part_name,
+                        p.part_family,
+                        i.quantity_available,
+                        i.reorder_point,
+                        p.criticality
+                    FROM inventory_positions i
+                    JOIN part_master p ON p.part_id = i.part_id
+                    WHERE i.site_id = :site_id
+                    ORDER BY (i.quantity_available - i.reorder_point) ASC
+                    LIMIT 5
+                """),
+                params,
+            ).mappings().all()
+
+        total_shipments = int(shipments['total_shipments'])
+        delayed_shipments = int(shipments['delayed_shipments'])
+        delayed_rate = (
+            delayed_shipments / total_shipments if total_shipments > 0 else 0
+        )
+
+        return {
+            'status': 'ok',
+            'site': dict(site),
+            'inventory': {
+                'total_inventory_positions': int(inventory['total_inventory_positions']),
+                'stockout_count': int(inventory['stockout_count']),
+                'below_reorder_count': int(inventory['below_reorder_count']),
+                'below_safety_stock_count': int(inventory['below_safety_stock_count']),
+            },
+            'shipments': {
+                'total_shipments': total_shipments,
+                'delayed_shipments': delayed_shipments,
+                'delayed_shipment_rate': round(delayed_rate, 4),
+                # `or 0` covers the AVG-over-zero-rows case (returns NULL).
+                'average_delay_days': round(float(shipments['average_delay_days'] or 0), 2),
+            },
+            'maintenance': {
+                'open_maintenance_events': int(maintenance['open_maintenance_events']),
+                'average_backlog_days': round(float(maintenance['average_backlog_days'] or 0), 2),
+                'total_days_non_mission_capable': int(maintenance['total_days_non_mission_capable']),
+            },
+            'top_constrained_parts': [dict(p) for p in top_parts],
+        }
+    except Exception as e:
+        return {
+            'status': 'error',
+            'message': str(e),
+        }
