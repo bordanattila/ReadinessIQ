@@ -7,6 +7,8 @@ if str(BACKEND_DIR) not in sys.path:
 
 import pandas as pd
 from sqlalchemy import create_engine
+
+from app.data_validation import format_errors, validate_data
 from utils.connect_to_db import get_database_url
 
 
@@ -22,26 +24,32 @@ CSV_TABLE_MAP = {
 PROJECT_ROOT = BACKEND_DIR.parent
 DATA_DIR = PROJECT_ROOT / 'data' / 'raw'
 
+
 def load_csvs_to_postgres() -> None:
-    """Load CSV files to PostgreSQL"""
+    """Read CSVs, validate them as a group, then bulk-insert into Postgres.
 
-    engine = create_engine(get_database_url())
-
+    Validation runs against the full set of DataFrames before any insert so
+    foreign-key checks (e.g. inventory.site_id -> sites.site_id) can run.
+    Any violation aborts the load; nothing is written to the DB.
+    """
+    tables: dict[str, pd.DataFrame] = {}
     for csv_file, table_name in CSV_TABLE_MAP.items():
         csv_path = DATA_DIR / csv_file
-
         if not csv_path.exists():
             raise FileNotFoundError(f'CSV file {csv_path} not found')
+        tables[table_name] = pd.read_csv(csv_path)
 
-        df = pd.read_csv(csv_path)
-        df.to_sql(
-            table_name, 
-            engine, 
-            if_exists='replace', 
-            index=False,
-            )
+    errors = validate_data(tables)
+    if errors:
+        print(format_errors(errors), file=sys.stderr)
+        raise SystemExit(1)
+
+    engine = create_engine(get_database_url())
+    for table_name, df in tables.items():
+        df.to_sql(table_name, engine, if_exists='replace', index=False)
 
     print('CSV files loaded to PostgreSQL successfully')
+
 
 if __name__ == '__main__':
     load_csvs_to_postgres()
