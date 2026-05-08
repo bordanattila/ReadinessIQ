@@ -41,13 +41,13 @@ async def get_kpi_overview(engine: Engine = Depends(get_engine)):
             # Use bind parameter (:status) instead of string interpolation to
             # prevent SQL injection — SQLAlchemy escapes the value safely.
             open_maintenance_events_count = conn.execute(
-                text("SELECT COUNT(*) FROM maintenance_events WHERE status = :status"),
-                {"status": "open"},
+                text('SELECT COUNT(*) FROM maintenance_events WHERE status = :status'),
+                {'status': 'open'},
                 ).scalar()
 
             average_backlog_days = conn.execute(
-                text("SELECT AVG(backlog_days) FROM maintenance_events WHERE status = :status"),
-                {"status": "open"},
+                text('SELECT AVG(backlog_days) FROM maintenance_events WHERE status = :status'),
+                {'status': 'open'},
                 ).scalar()
 
         stockout_rate = (
@@ -70,22 +70,22 @@ async def get_kpi_overview(engine: Engine = Depends(get_engine)):
         
         return {
             'status': 'ok',
-            "inventory": {
-                "total_inventory_positions": total_inventory_rows,
-                "stockout_count": stockout_count,
-                "stockout_rate": round(stockout_rate, 4),
-                "below_reorder_count": below_reorder_point_count,
-                "below_reorder_rate": round(below_reorder_rate, 4),
+            'inventory': {
+                'total_inventory_positions': total_inventory_rows,
+                'stockout_count': stockout_count,
+                'stockout_rate': round(stockout_rate, 4),
+                'below_reorder_count': below_reorder_point_count,
+                'below_reorder_rate': round(below_reorder_rate, 4),
             },
-            "shipments": {
-                "total_shipments": total_shipments_count,
-                "delayed_shipments": delayed_shipments_count,
-                "delayed_shipment_rate": round(delayed_shipments_rate, 4),
-                "average_delay_days": round(float(average_delay_days or 0), 2),
+            'shipments': {
+                'total_shipments': total_shipments_count,
+                'delayed_shipments': delayed_shipments_count,
+                'delayed_shipment_rate': round(delayed_shipments_rate, 4),
+                'average_delay_days': round(float(average_delay_days or 0), 2),
             },
-            "maintenance": {
-                "open_maintenance_events": open_maintenance_events_count,
-                "average_backlog_days": round(float(average_backlog_days or 0), 2),
+            'maintenance': {
+                'open_maintenance_events': open_maintenance_events_count,
+                'average_backlog_days': round(float(average_backlog_days or 0), 2),
             },
             }
     except Exception as e:

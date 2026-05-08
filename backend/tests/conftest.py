@@ -52,6 +52,26 @@ def seeded_engine() -> Engine:
 
 
 @pytest.fixture
+def risk_ranking_engine() -> Engine:
+    """In-memory engine seeded for the /api/sites/risk-ranking endpoint.
+
+    Three sites with hand-computed counts so tests can assert on the exact
+    ranking order and normalized scores. See _seed_risk_ranking() below.
+    """
+    engine = _make_memory_engine()
+    _seed_risk_ranking(engine)
+    return engine
+
+
+@pytest.fixture
+def empty_risk_ranking_engine() -> Engine:
+    """In-memory engine with the risk-ranking schema but zero rows."""
+    engine = _make_memory_engine()
+    _create_empty_risk_ranking_tables(engine)
+    return engine
+
+
+@pytest.fixture
 def client_factory():
     """Returns a function that builds a TestClient bound to a given engine."""
 
@@ -125,5 +145,141 @@ def _seed_maintenance(engine: Engine) -> None:
         {"maintenance_event_id": 5, "status": "in_progress", "backlog_days": 5},
     ]
     pd.DataFrame(rows).to_sql(
+        "maintenance_events", engine, if_exists="replace", index=False
+    )
+
+
+def _create_empty_risk_ranking_tables(engine: Engine) -> None:
+    """Schema for /api/sites/risk-ranking with zero rows."""
+    pd.DataFrame(
+        columns=[
+            "site_id",
+            "site_name",
+            "site_region",
+            "site_type",
+            "site_mission_priority",
+            "site_active_flag",
+        ]
+    ).to_sql("sites", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=["inventory_id", "site_id", "stockout_flag", "below_reorder_point"]
+    ).to_sql("inventory_positions", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=["shipment_id", "site_id", "delayed_flag"]
+    ).to_sql("shipments", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=["maintenance_event_id", "site_id", "status", "backlog_days"]
+    ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+def _seed_risk_ranking(engine: Engine) -> None:
+    """Three-site fixture with hand-computable risk scores.
+
+    Raw weighted sums (weights: stockout 0.30, below_reorder 0.20,
+    delayed 0.20, avg_backlog 0.20, mission_priority 0.10):
+
+      SITE-A: 5*.30 + 8*.20 + 6*.20 + 30*.20 + 5*.10 = 10.80   (rank 1)
+      SITE-B: 1*.30 + 2*.20 + 2*.20 + 10*.20 + 3*.10 =  3.40   (rank 2)
+      SITE-C: 0    + 0    + 0    + 0    + 1*.10     =  0.10   (rank 3)
+
+    Normalized to 0-100 by max:
+      SITE-A -> 100.0,  SITE-B -> 31.5,  SITE-C -> 0.9
+    """
+    pd.DataFrame(
+        [
+            {
+                "site_id": "SITE-A",
+                "site_name": "Alpha Depot",
+                "site_region": "North",
+                "site_type": "Depot",
+                "site_mission_priority": 5,
+                "site_active_flag": True,
+            },
+            {
+                "site_id": "SITE-B",
+                "site_name": "Bravo Hub",
+                "site_region": "South",
+                "site_type": "Hub",
+                "site_mission_priority": 3,
+                "site_active_flag": True,
+            },
+            {
+                "site_id": "SITE-C",
+                "site_name": "Charlie Outpost",
+                "site_region": "East",
+                "site_type": "Outpost",
+                "site_mission_priority": 1,
+                "site_active_flag": True,
+            },
+        ]
+    ).to_sql("sites", engine, if_exists="replace", index=False)
+
+    inv_rows = []
+    inv_id = 1
+    # SITE-A: 5 stockouts + 3 more below_reorder = 8 below_reorder, 5 stockouts
+    for i in range(8):
+        inv_rows.append({
+            "inventory_id": inv_id,
+            "site_id": "SITE-A",
+            "stockout_flag": i < 5,
+            "below_reorder_point": True,
+        })
+        inv_id += 1
+    # SITE-B: 1 stockout, 2 below_reorder
+    for i in range(2):
+        inv_rows.append({
+            "inventory_id": inv_id,
+            "site_id": "SITE-B",
+            "stockout_flag": i < 1,
+            "below_reorder_point": True,
+        })
+        inv_id += 1
+    # SITE-C: 1 row, no issues — exercises the COALESCE/zero path
+    inv_rows.append({
+        "inventory_id": inv_id,
+        "site_id": "SITE-C",
+        "stockout_flag": False,
+        "below_reorder_point": False,
+    })
+    pd.DataFrame(inv_rows).to_sql(
+        "inventory_positions", engine, if_exists="replace", index=False
+    )
+
+    ship_rows = []
+    ship_id = 1
+    # SITE-A: 6 delayed (out of 6)
+    for _ in range(6):
+        ship_rows.append({
+            "shipment_id": ship_id, "site_id": "SITE-A", "delayed_flag": True,
+        })
+        ship_id += 1
+    # SITE-B: 2 delayed, 1 on time
+    for delayed in (True, True, False):
+        ship_rows.append({
+            "shipment_id": ship_id, "site_id": "SITE-B", "delayed_flag": delayed,
+        })
+        ship_id += 1
+    # SITE-C: 2 on-time shipments, no delays
+    for _ in range(2):
+        ship_rows.append({
+            "shipment_id": ship_id, "site_id": "SITE-C", "delayed_flag": False,
+        })
+        ship_id += 1
+    pd.DataFrame(ship_rows).to_sql(
+        "shipments", engine, if_exists="replace", index=False
+    )
+
+    maint_rows = [
+        # SITE-A: 3 open events with backlog 20/30/40 (mean 30)
+        {"maintenance_event_id": 1, "site_id": "SITE-A", "status": "open", "backlog_days": 20},
+        {"maintenance_event_id": 2, "site_id": "SITE-A", "status": "open", "backlog_days": 30},
+        {"maintenance_event_id": 3, "site_id": "SITE-A", "status": "open", "backlog_days": 40},
+        # SITE-B: 1 open event with backlog 10 (mean 10), 1 completed
+        {"maintenance_event_id": 4, "site_id": "SITE-B", "status": "open", "backlog_days": 10},
+        {"maintenance_event_id": 5, "site_id": "SITE-B", "status": "completed", "backlog_days": 0},
+        # SITE-C: only completed events — exercises avg-backlog COALESCE to 0
+        {"maintenance_event_id": 6, "site_id": "SITE-C", "status": "completed", "backlog_days": 0},
+    ]
+    pd.DataFrame(maint_rows).to_sql(
         "maintenance_events", engine, if_exists="replace", index=False
     )

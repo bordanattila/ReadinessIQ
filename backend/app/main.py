@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.routers.health import router as health_router
 from app.routers.kpis import router as kpis_router
+from app.routers.sites import router as sites_router
 
 app = FastAPI(
     title='ReadinessIQ API',
@@ -12,6 +13,7 @@ app = FastAPI(
 
 app.include_router(health_router)
 app.include_router(kpis_router)
+app.include_router(sites_router)
 
 @app.get('/')
 async def root():
