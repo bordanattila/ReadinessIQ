@@ -355,3 +355,241 @@ def _seed_risk_ranking(engine: Engine) -> None:
     pd.DataFrame(maint_rows).to_sql(
         "maintenance_events", engine, if_exists="replace", index=False
     )
+
+
+def _create_empty_parts_readiness_tables(engine: Engine) -> None:
+    """Schema for GET /api/parts/readiness-impact with zero parts.
+
+    All tables referenced in `_PART_READINESS_SQL` must exist so SQLite does
+    not raise "no such table" when `part_master` is empty.
+    """
+    pd.DataFrame(
+        columns=["part_id", "part_name", "part_family", "criticality", "nsn"]
+    ).to_sql("part_master", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "inventory_id",
+            "site_id",
+            "part_id",
+            "quantity_on_hand",
+            "quantity_allocated",
+            "quantity_available",
+            "reorder_point",
+            "safety_stock",
+            "stockout_flag",
+            "below_reorder_point",
+            "below_safety_stock",
+            "days_of_supply",
+            "snapshot_date",
+        ]
+    ).to_sql("inventory_positions", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "shipment_id",
+            "site_id",
+            "part_id",
+            "ship_date",
+            "expected_delivery_date",
+            "actual_delivery_date",
+            "quantity_shipped",
+            "shipment_status",
+            "delayed_flag",
+            "delay_days",
+        ]
+    ).to_sql("shipments", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "maintenance_event_id",
+            "site_id",
+            "part_id",
+            "event_date",
+            "equipment_id",
+            "status",
+            "days_non_mission_capable",
+            "backlog_days",
+            "defect_flag",
+        ]
+    ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+def _seed_parts_readiness_impact(engine: Engine) -> None:
+    """Deterministic three-part dataset for part readiness ranking tests.
+
+    PART-HOT (High):   4 stockout rows @ SITE-A, 2 open maintenance, 3 delayed
+                       shipments — highest raw score -> readiness_risk_score 100.
+    PART-MID (Mission Critical): 4 below-reorder rows @ SITE-B, 1 open maint,
+                       1 delayed shipment — second rank (~39.6).
+    PART-COLD (Low):   no activity — raw 0, score 0.
+    """
+    pd.DataFrame(
+        [
+            {
+                "part_id": "PART-HOT",
+                "part_name": "Hot Part",
+                "part_family": "Hydraulics",
+                "criticality": "High",
+                "nsn": "1-1-1-1",
+            },
+            {
+                "part_id": "PART-MID",
+                "part_name": "Mid Part",
+                "part_family": "Avionics",
+                "criticality": "Mission Critical",
+                "nsn": "2-2-2-2",
+            },
+            {
+                "part_id": "PART-COLD",
+                "part_name": "Cold Part",
+                "part_family": "General",
+                "criticality": "Low",
+                "nsn": "3-3-3-3",
+            },
+        ]
+    ).to_sql("part_master", engine, if_exists="replace", index=False)
+
+    inv_rows = []
+    inv_id = 1
+    for _ in range(4):
+        inv_rows.append({
+            "inventory_id": inv_id,
+            "site_id": "SITE-A",
+            "part_id": "PART-HOT",
+            "quantity_on_hand": 0,
+            "quantity_allocated": 0,
+            "quantity_available": 0,
+            "reorder_point": 100,
+            "safety_stock": 50,
+            "stockout_flag": True,
+            "below_reorder_point": True,
+            "below_safety_stock": False,
+            "days_of_supply": 0.0,
+            "snapshot_date": "2026-01-01",
+        })
+        inv_id += 1
+    for _ in range(4):
+        inv_rows.append({
+            "inventory_id": inv_id,
+            "site_id": "SITE-B",
+            "part_id": "PART-MID",
+            "quantity_on_hand": 50,
+            "quantity_allocated": 40,
+            "quantity_available": 10,
+            "reorder_point": 100,
+            "safety_stock": 50,
+            "stockout_flag": False,
+            "below_reorder_point": True,
+            "below_safety_stock": False,
+            "days_of_supply": 2.0,
+            "snapshot_date": "2026-01-01",
+        })
+        inv_id += 1
+    pd.DataFrame(inv_rows).to_sql(
+        "inventory_positions", engine, if_exists="replace", index=False
+    )
+
+    pd.DataFrame(
+        [
+            {
+                "shipment_id": 1,
+                "site_id": "SITE-A",
+                "part_id": "PART-HOT",
+                "ship_date": "2026-01-01",
+                "expected_delivery_date": "2026-01-05",
+                "actual_delivery_date": "2026-01-08",
+                "quantity_shipped": 1,
+                "shipment_status": "delivered",
+                "delayed_flag": True,
+                "delay_days": 3,
+            },
+            {
+                "shipment_id": 2,
+                "site_id": "SITE-A",
+                "part_id": "PART-HOT",
+                "ship_date": "2026-01-02",
+                "expected_delivery_date": "2026-01-06",
+                "actual_delivery_date": "2026-01-09",
+                "quantity_shipped": 1,
+                "shipment_status": "delivered",
+                "delayed_flag": True,
+                "delay_days": 3,
+            },
+            {
+                "shipment_id": 3,
+                "site_id": "SITE-A",
+                "part_id": "PART-HOT",
+                "ship_date": "2026-01-03",
+                "expected_delivery_date": "2026-01-07",
+                "actual_delivery_date": "2026-01-10",
+                "quantity_shipped": 1,
+                "shipment_status": "delivered",
+                "delayed_flag": True,
+                "delay_days": 3,
+            },
+            {
+                "shipment_id": 4,
+                "site_id": "SITE-B",
+                "part_id": "PART-MID",
+                "ship_date": "2026-01-01",
+                "expected_delivery_date": "2026-01-05",
+                "actual_delivery_date": "2026-01-09",
+                "quantity_shipped": 1,
+                "shipment_status": "delivered",
+                "delayed_flag": True,
+                "delay_days": 4,
+            },
+        ]
+    ).to_sql("shipments", engine, if_exists="replace", index=False)
+
+    pd.DataFrame(
+        [
+            {
+                "maintenance_event_id": 1,
+                "site_id": "SITE-A",
+                "part_id": "PART-HOT",
+                "event_date": "2026-01-01",
+                "equipment_id": "EQ-1001",
+                "status": "open",
+                "days_non_mission_capable": 1,
+                "backlog_days": 5,
+                "defect_flag": False,
+            },
+            {
+                "maintenance_event_id": 2,
+                "site_id": "SITE-A",
+                "part_id": "PART-HOT",
+                "event_date": "2026-01-02",
+                "equipment_id": "EQ-1002",
+                "status": "open",
+                "days_non_mission_capable": 2,
+                "backlog_days": 6,
+                "defect_flag": False,
+            },
+            {
+                "maintenance_event_id": 3,
+                "site_id": "SITE-B",
+                "part_id": "PART-MID",
+                "event_date": "2026-01-03",
+                "equipment_id": "EQ-2001",
+                "status": "open",
+                "days_non_mission_capable": 1,
+                "backlog_days": 3,
+                "defect_flag": False,
+            },
+        ]
+    ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+@pytest.fixture
+def parts_readiness_engine() -> Engine:
+    """In-memory DB seeded for GET /api/parts/readiness-impact."""
+    engine = _make_memory_engine()
+    _seed_parts_readiness_impact(engine)
+    return engine
+
+
+@pytest.fixture
+def empty_parts_readiness_engine() -> Engine:
+    """Empty `part_master` — endpoint returns zero rows."""
+    engine = _make_memory_engine()
+    _create_empty_parts_readiness_tables(engine)
+    return engine
