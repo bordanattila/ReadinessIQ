@@ -64,15 +64,19 @@ REQUIRED_COLUMNS: dict[str, set[str]] = {
         'shipment_status',
         'delayed_flag',
         'delay_days',
+        'supplier_id',
+        'supplier_name',
     },
     'supplier_orders': {
         'order_id',
+        'order_supplier_name',
         'order_supplier_id',
         'order_part_id',
         'order_quantity',
         'order_status',
         'order_created_at',
         'order_updated_at',
+        'site_id',
     },
     'maintenance_events': {
         'maintenance_event_id',
@@ -104,6 +108,8 @@ FOREIGN_KEYS: dict[tuple[str, str], str] = {
     ('shipments',           'part_id'): 'part_master',
     ('maintenance_events',  'site_id'): 'sites',
     ('maintenance_events',  'part_id'): 'part_master',
+    ('supplier_orders', 'order_part_id'): 'part_master',
+    ('supplier_orders', 'site_id'): 'sites',
 }
 
 # (table, column) -> set of allowed values.

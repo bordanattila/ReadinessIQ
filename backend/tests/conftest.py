@@ -579,6 +579,152 @@ def _seed_parts_readiness_impact(engine: Engine) -> None:
     ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
 
 
+def _create_empty_supplier_risk_tables(engine: Engine) -> None:
+    """Tables for GET /api/suppliers/performance with zero rows."""
+    pd.DataFrame(
+        columns=[
+            "order_id",
+            "order_supplier_name",
+            "order_supplier_id",
+            "order_part_id",
+            "order_quantity",
+            "order_status",
+            "order_created_at",
+            "order_updated_at",
+            "site_id",
+        ]
+    ).to_sql("supplier_orders", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "shipment_id",
+            "site_id",
+            "part_id",
+            "supplier_id",
+            "supplier_name",
+            "delayed_flag",
+            "delay_days",
+        ]
+    ).to_sql("shipments", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "maintenance_event_id",
+            "site_id",
+            "part_id",
+            "days_non_mission_capable",
+            "status",
+        ]
+    ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+def _seed_supplier_risk_ranking(engine: Engine) -> None:
+    """Two suppliers: BAD (many delays / open orders) vs GOOD (clean).
+
+    BAD must rank first (higher performance_risk_score).
+    """
+    order_rows = []
+    oid = 1
+    for _ in range(20):
+        order_rows.append({
+            "order_id": oid,
+            "order_supplier_name": "BadCorp",
+            "order_supplier_id": "BAD",
+            "order_part_id": "PART-A",
+            "order_quantity": 10,
+            "order_status": "pending",
+            "order_created_at": "2026-01-01",
+            "order_updated_at": "2026-01-02",
+            "site_id": "SITE-1",
+        })
+        oid += 1
+    for _ in range(2):
+        order_rows.append({
+            "order_id": oid,
+            "order_supplier_name": "GoodInc",
+            "order_supplier_id": "GOOD",
+            "order_part_id": "PART-B",
+            "order_quantity": 5,
+            "order_status": "delivered",
+            "order_created_at": "2026-01-01",
+            "order_updated_at": "2026-01-05",
+            "site_id": "SITE-2",
+        })
+        oid += 1
+    pd.DataFrame(order_rows).to_sql(
+        "supplier_orders", engine, if_exists="replace", index=False
+    )
+
+    ship_rows = []
+    sid = 1
+    for i in range(10):
+        delayed = i < 8
+        ship_rows.append({
+            "shipment_id": sid,
+            "site_id": "SITE-1",
+            "part_id": "PART-A",
+            "supplier_id": "BAD",
+            "supplier_name": "BadCorp",
+            "delayed_flag": delayed,
+            "delay_days": 6 if delayed else 0,
+        })
+        sid += 1
+    for _ in range(5):
+        ship_rows.append({
+            "shipment_id": sid,
+            "site_id": "SITE-2",
+            "part_id": "PART-B",
+            "supplier_id": "GOOD",
+            "supplier_name": "GoodInc",
+            "delayed_flag": False,
+            "delay_days": 0,
+        })
+        sid += 1
+    pd.DataFrame(ship_rows).to_sql(
+        "shipments", engine, if_exists="replace", index=False
+    )
+
+    pd.DataFrame(
+        [
+            {
+                "maintenance_event_id": 1,
+                "site_id": "SITE-1",
+                "part_id": "PART-A",
+                "days_non_mission_capable": 10,
+                "status": "open",
+            },
+            {
+                "maintenance_event_id": 2,
+                "site_id": "SITE-1",
+                "part_id": "PART-A",
+                "days_non_mission_capable": 20,
+                "status": "open",
+            },
+            {
+                "maintenance_event_id": 3,
+                "site_id": "SITE-2",
+                "part_id": "PART-B",
+                "days_non_mission_capable": 1,
+                "status": "completed",
+            },
+        ]
+    ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+@pytest.fixture
+def empty_supplier_risk_engine() -> Engine:
+    """In-memory DB with supplier ranking schema and no supplier rows."""
+    engine = _make_memory_engine()
+    _create_empty_supplier_risk_tables(engine)
+    return engine
+
+
+@pytest.fixture
+def supplier_risk_engine() -> Engine:
+    """In-memory DB seeded for GET /api/suppliers/performance."""
+    engine = _make_memory_engine()
+    _seed_supplier_risk_ranking(engine)
+    return engine
+
+
 @pytest.fixture
 def parts_readiness_engine() -> Engine:
     """In-memory DB seeded for GET /api/parts/readiness-impact."""

@@ -63,14 +63,18 @@ def _valid_tables() -> dict[str, pd.DataFrame]:
                 "actual_delivery_date": "2026-01-05", "quantity_shipped": 10,
                 "shipment_status": "delivered", "delayed_flag": False,
                 "delay_days": 0,
+                "supplier_id": "A", "supplier_name": "ACME",
             },
         ]),
         "supplier_orders": pd.DataFrame([
             {
-                "order_id": 1, "order_supplier_id": "ACME",
+                "order_id": 1,
+                "order_supplier_name": "ACME",
+                "order_supplier_id": "ACME",
                 "order_part_id": "PART-0001", "order_quantity": 50,
                 "order_status": "shipped", "order_created_at": "2026-01-01",
                 "order_updated_at": "2026-01-05",
+                "site_id": "SITE-001",
             },
         ]),
         "maintenance_events": pd.DataFrame([

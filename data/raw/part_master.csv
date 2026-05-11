@@ -1,1001 +1,1001 @@
 part_id,nsn,part_name,part_family,criticality
-PART-0001,214-385-256-783,Hydraulic Seal Kit Mk I,Hydraulics,High
-PART-0002,897-977-317-258,Wiring Harness Mk II,Electrical,Medium
-PART-0003,331-353-990-762,Navigation Control Unit Mk III,Avionics,Medium
-PART-0004,586-643-404-17,Fuel Injector Assembly Type A,Engines,Low
-PART-0005,721-222-883-46,Track Tensioner Assembly Type B,Ground Vehicles,Mission Critical
-PART-0006,224-818-847-803,Radio Mounting Tray Type C,Communications,Medium
-PART-0007,769-28-417-920,Waveguide Section Heavy Duty,Radar,Medium
-PART-0008,553-323-344-501,Fuel Pump Cartridge Extended Range,Fuel Systems,High
-PART-0009,920-8-935-589,Cooling Fan Assembly Field Repair,Cooling Systems,High
-PART-0010,242-788-101-806,Access Panel Depot Level,Structural,Low
-PART-0011,199-169-9-40,Air Compressor Valve Mk I,Pneumatics,Medium
-PART-0012,643-687-377-824,Fire Control Cable Mk II,Weapons Support,High
-PART-0013,876-24-943-454,Temperature Probe Mk III,Sensors,High
-PART-0014,872-263-507-822,Oxygen Hose Assembly Type A,Life Support,Medium
-PART-0015,370-245-159-796,Gasket Set Type B,Maintenance Consumables,Medium
-PART-0016,637-634-600-133,Drive Shaft Assembly Type C,Powertrain,Medium
-PART-0017,854-612-709-638,Brake Pad Set Heavy Duty,Braking Systems,High
-PART-0018,831-501-362-367,GPS Antenna Extended Range,Navigation,Medium
-PART-0019,40-288-462-763,Cargo Tie-Down Strap Field Repair,Logistics Equipment,High
-PART-0020,822-416-878-809,Secure Network Card Depot Level,Cyber Systems,Low
-PART-0021,361-244-502-19,Hydraulic Pump Assembly Mk I,Hydraulics,Low
-PART-0022,524-113-764-511,Power Distribution Module Mk II,Electrical,Medium
-PART-0023,932-647-493-223,Radar Interface Module Mk III,Avionics,Medium
-PART-0024,440-99-801-554,Turbine Blade Set Type A,Engines,Medium
-PART-0025,84-254-731-70,Road Wheel Bearing Type B,Ground Vehicles,Medium
-PART-0026,310-956-303-560,Encryption Module Type C,Communications,Medium
-PART-0027,147-936-397-928,Radar Cooling Fan Heavy Duty,Radar,Medium
-PART-0028,463-421-680-97,Fuel Line Assembly Extended Range,Fuel Systems,Medium
-PART-0029,560-621-722-695,Heat Exchanger Core Field Repair,Cooling Systems,High
-PART-0030,240-699-648-943,Mounting Bracket Depot Level,Structural,Medium
-PART-0031,982-719-545-977,Pneumatic Hose Kit Mk I,Pneumatics,High
-PART-0032,285-956-640-878,Mount Stabilizer Bearing Mk II,Weapons Support,Mission Critical
-PART-0033,616-647-404-549,Pressure Transducer Mk III,Sensors,Medium
-PART-0034,413-907-55-519,Breathing Regulator Type A,Life Support,Mission Critical
-PART-0035,321-337-901-427,O-Ring Assortment Type B,Maintenance Consumables,Medium
-PART-0036,438-251-446-158,Clutch Plate Kit Type C,Powertrain,High
-PART-0037,432-862-872-110,Brake Rotor Heavy Duty,Braking Systems,High
-PART-0038,806-822-612-148,Inertial Measurement Unit Extended Range,Navigation,Medium
-PART-0039,450-401-288-599,Pallet Lock Assembly Field Repair,Logistics Equipment,Medium
-PART-0040,214-587-780-306,Rugged Server Power Supply Depot Level,Cyber Systems,Mission Critical
-PART-0041,844-669-551-370,Pressure Relief Valve Mk I,Hydraulics,High
-PART-0042,831-620-796-973,Circuit Breaker Mk II,Electrical,High
-PART-0043,534-269-313-942,Signal Processor Card Mk III,Avionics,Low
-PART-0044,51-302-733-599,Ignition Exciter Type A,Engines,Medium
-PART-0045,450-584-416-786,Brake Caliper Kit Type B,Ground Vehicles,Medium
-PART-0046,8-786-915-656,Coaxial Cable Assembly Type C,Communications,Medium
-PART-0047,109-459-351-483,Receiver Module Heavy Duty,Radar,High
-PART-0048,656-404-797-637,Fuel Pressure Sensor Extended Range,Fuel Systems,Medium
-PART-0049,44-579-719-738,Coolant Pump Field Repair,Cooling Systems,High
-PART-0050,464-139-902-477,Frame Reinforcement Plate Depot Level,Structural,Medium
-PART-0051,129-35-948-905,Pressure Regulator Mk I,Pneumatics,Low
-PART-0052,347-991-592-561,Recoil Buffer Seal Mk II,Weapons Support,Low
-PART-0053,60-391-995-524,Optical Sensor Module Mk III,Sensors,Low
-PART-0054,457-17-737-803,Air Filtration Cartridge Type A,Life Support,Medium
-PART-0055,160-742-812-992,Lubricant Pack Type B,Maintenance Consumables,Medium
-PART-0056,884-491-660-728,Gearbox Seal Type C,Powertrain,Low
-PART-0057,305-297-88-384,Hydraulic Brake Line Heavy Duty,Braking Systems,High
-PART-0058,134-358-802-350,Compass Sensor Extended Range,Navigation,Medium
-PART-0059,662-831-510-801,Forklift Chain Field Repair,Logistics Equipment,Medium
-PART-0060,244-962-80-255,Data Storage Module Depot Level,Cyber Systems,Medium
-PART-0061,997-761-811-457,Actuator Cylinder Mk I,Hydraulics,Medium
-PART-0062,575-609-66-970,Voltage Regulator Mk II,Electrical,High
-PART-0063,782-27-849-94,Flight Data Connector Mk III,Avionics,Medium
-PART-0064,303-583-533-212,Oil Filter Cartridge Type A,Engines,High
-PART-0065,491-110-762-76,Transmission Filter Type B,Ground Vehicles,High
-PART-0066,888-36-661-63,Antenna Mast Section Type C,Communications,Medium
-PART-0067,942-969-437-3,Transmitter Power Supply Heavy Duty,Radar,Low
-PART-0068,987-314-269-155,Fuel Filter Housing Extended Range,Fuel Systems,Medium
-PART-0069,497-69-461-411,Thermostat Housing Field Repair,Cooling Systems,Low
-PART-0070,984-814-86-907,Hinge Assembly Depot Level,Structural,Medium
-PART-0071,542-599-424-900,Air Dryer Cartridge Mk I,Pneumatics,High
-PART-0072,332-118-325-602,Turret Slip Ring Mk II,Weapons Support,Medium
-PART-0073,877-389-70-163,Vibration Sensor Mk III,Sensors,Medium
-PART-0074,951-152-523-892,Mask Connector Kit Type A,Life Support,Low
-PART-0075,314-985-815-345,Threaded Insert Kit Type B,Maintenance Consumables,Medium
-PART-0076,781-993-129-128,Torque Converter Type C,Powertrain,High
-PART-0077,323-220-423-682,Master Cylinder Kit Heavy Duty,Braking Systems,High
-PART-0078,632-976-770-381,Navigation Display Cable Extended Range,Navigation,Medium
-PART-0079,302-352-320-894,Container Latch Field Repair,Logistics Equipment,Medium
-PART-0080,572-337-882-546,Firewall Appliance Fan Depot Level,Cyber Systems,High
-PART-0081,548-592-54-413,Hydraulic Hose Assembly Mk I,Hydraulics,Medium
-PART-0082,486-801-731-535,Battery Cable Assembly Mk II,Electrical,Mission Critical
-PART-0083,764-890-280-468,Antenna Coupler Mk III,Avionics,High
-PART-0084,519-648-939-448,Compressor Seal Type A,Engines,High
-PART-0085,518-289-296-923,Steering Linkage Type B,Ground Vehicles,High
-PART-0086,583-454-252-173,Handset Assembly Type C,Communications,High
-PART-0087,58-343-791-608,Phase Shifter Unit Heavy Duty,Radar,Low
-PART-0088,331-633-568-625,Refueling Adapter Extended Range,Fuel Systems,Low
-PART-0089,30-193-448-806,Radiator Hose Kit Field Repair,Cooling Systems,High
-PART-0090,898-630-755-820,Fastener Kit Depot Level,Structural,High
-PART-0091,540-19-24-511,Pneumatic Actuator Mk I,Pneumatics,Low
-PART-0092,919-333-586-589,Elevation Drive Motor Mk II,Weapons Support,Medium
-PART-0093,698-228-642-949,Position Encoder Mk III,Sensors,Medium
-PART-0094,163-953-851-715,Pressure Bottle Valve Type A,Life Support,Medium
-PART-0095,902-59-695-669,Adhesive Sealant Tube Type B,Maintenance Consumables,Medium
-PART-0096,814-31-181-801,Transfer Case Chain Type C,Powertrain,Low
-PART-0097,661-784-556-392,Parking Brake Cable Heavy Duty,Braking Systems,High
-PART-0098,683-840-834-794,Position Reference Module Extended Range,Navigation,Medium
-PART-0099,321-542-759-650,Load Sensor Pad Field Repair,Logistics Equipment,High
-PART-0100,155-520-111-376,Crypto Key Loader Cable Depot Level,Cyber Systems,Mission Critical
-PART-0101,996-415-161-209,Fluid Reservoir Cap Mk I,Hydraulics,Medium
-PART-0102,357-587-75-338,Terminal Block Mk II,Electrical,Low
-PART-0103,234-487-983-344,Transponder Module Mk III,Avionics,Low
-PART-0104,54-130-955-290,Engine Mount Bracket Type A,Engines,High
-PART-0105,183-973-65-11,Axle Seal Type B,Ground Vehicles,Medium
-PART-0106,715-436-152-127,Signal Amplifier Type C,Communications,Low
-PART-0107,585-619-450-461,Antenna Drive Motor Heavy Duty,Radar,Low
-PART-0108,872-103-330-595,Fuel Shutoff Valve Extended Range,Fuel Systems,Low
-PART-0109,608-852-493-28,Temperature Sensor Field Repair,Cooling Systems,Medium
-PART-0110,219-129-834-933,Support Strut Depot Level,Structural,High
-PART-0111,257-657-786-987,Quick Release Valve Mk I,Pneumatics,High
-PART-0112,21-302-160-823,Sight Mount Bracket Mk II,Weapons Support,High
-PART-0113,168-770-225-356,Proximity Switch Mk III,Sensors,Mission Critical
-PART-0114,327-7-714-365,Cabin Air Duct Type A,Life Support,Medium
-PART-0115,239-379-564-952,Cleaning Solvent Kit Type B,Maintenance Consumables,Mission Critical
-PART-0116,514-315-621-385,Engine Coupling Type C,Powertrain,Low
-PART-0117,250-177-612-186,ABS Sensor Heavy Duty,Braking Systems,Medium
-PART-0118,304-897-580-436,Map Data Cartridge Extended Range,Navigation,High
-PART-0119,905-121-852-134,Tow Bar Pin Field Repair,Logistics Equipment,High
-PART-0120,272-374-323-44,Network Switch Module Depot Level,Cyber Systems,Medium
-PART-0121,724-157-729-509,Hydraulic Filter Element Mk I,Hydraulics,Medium
-PART-0122,893-856-450-388,Relay Module Mk II,Electrical,Medium
-PART-0123,270-258-541-608,Mission Computer Card Mk III,Avionics,Medium
-PART-0124,890-907-544-553,Fuel Control Valve Type A,Engines,High
-PART-0125,584-43-653-116,Suspension Arm Type B,Ground Vehicles,Medium
-PART-0126,571-310-702-978,Frequency Selector Unit Type C,Communications,High
-PART-0127,691-218-914-353,Signal Conditioning Board Heavy Duty,Radar,Medium
-PART-0128,191-752-628-684,Fuel Tank Vent Extended Range,Fuel Systems,Medium
-PART-0129,64-877-480-860,Expansion Tank Field Repair,Cooling Systems,Medium
-PART-0130,878-864-721-398,Bulkhead Repair Panel Depot Level,Structural,Low
-PART-0131,850-160-413-543,Air Reservoir Fitting Mk I,Pneumatics,High
-PART-0132,695-8-476-96,Ammunition Feed Guide Mk II,Weapons Support,Medium
-PART-0133,596-851-482-21,Infrared Detector Mk III,Sensors,High
-PART-0134,496-984-472-592,Emergency Oxygen Valve Type A,Life Support,Mission Critical
-PART-0135,866-198-928-636,Grease Cartridge Type B,Maintenance Consumables,Medium
-PART-0136,298-385-757-498,Universal Joint Type C,Powertrain,Medium
-PART-0137,563-561-768-881,Brake Booster Valve Heavy Duty,Braking Systems,Mission Critical
-PART-0138,165-277-692-886,Heading Processor Extended Range,Navigation,Low
-PART-0139,127-544-490-175,Lift Cylinder Seal Field Repair,Logistics Equipment,Medium
-PART-0140,608-11-668-843,Fiber Patch Cable Depot Level,Cyber Systems,Medium
-PART-0141,983-172-149-722,Servo Valve Mk I,Hydraulics,High
-PART-0142,831-906-647-363,Connector Kit Mk II,Electrical,Medium
-PART-0143,994-951-25-68,Display Control Panel Mk III,Avionics,Medium
-PART-0144,282-262-967-368,Starter Generator Type A,Engines,Medium
-PART-0145,57-18-477-154,Differential Gear Set Type B,Ground Vehicles,Medium
-PART-0146,843-274-273-608,Comms Power Adapter Type C,Communications,Medium
-PART-0147,365-671-432-215,RF Cable Assembly Heavy Duty,Radar,Medium
-PART-0148,268-98-41-998,Fuel Metering Unit Extended Range,Fuel Systems,Low
-PART-0149,797-479-645-660,Fan Drive Belt Field Repair,Cooling Systems,High
-PART-0150,195-100-830-646,Latch Mechanism Depot Level,Structural,High
-PART-0151,257-996-779-374,Control Manifold Mk I,Pneumatics,Medium
-PART-0152,162-49-619-57,Trigger Control Module Mk II,Weapons Support,Mission Critical
-PART-0153,334-650-330-854,Flow Sensor Mk III,Sensors,High
-PART-0154,77-813-273-101,CO2 Scrubber Cartridge Type A,Life Support,Low
-PART-0155,761-411-598-529,Anti-Seize Compound Type B,Maintenance Consumables,High
-PART-0156,81-633-349-961,Final Drive Gear Type C,Powertrain,Medium
-PART-0157,318-713-223-244,Caliper Piston Seal Heavy Duty,Braking Systems,Medium
-PART-0158,925-690-357-921,Timing Receiver Extended Range,Navigation,Mission Critical
-PART-0159,36-888-204-764,Dock Ramp Hinge Field Repair,Logistics Equipment,High
-PART-0160,623-239-679-3,Access Control Reader Depot Level,Cyber Systems,High
-PART-0161,379-863-334-314,Pump Drive Coupling Mk I,Hydraulics,Medium
-PART-0162,858-255-570-761,Ground Strap Mk II,Electrical,Mission Critical
-PART-0163,208-468-992-147,Sensor Interface Board Mk III,Avionics,Low
-PART-0164,679-768-907-464,Exhaust Clamp Type A,Engines,High
-PART-0165,30-649-913-272,Fuel Tank Sender Type B,Ground Vehicles,Mission Critical
-PART-0166,503-90-866-70,Audio Interface Cable Type C,Communications,High
-PART-0167,993-86-964-806,Radar Processor Card Heavy Duty,Radar,High
-PART-0168,674-285-76-353,Quick Disconnect Coupler Extended Range,Fuel Systems,Low
-PART-0169,397-981-477-717,Coolant Filter Field Repair,Cooling Systems,Mission Critical
-PART-0170,534-862-72-407,Armor Panel Insert Depot Level,Structural,High
-PART-0171,971-538-92-602,Pressure Gauge Mk I,Pneumatics,High
-PART-0172,996-828-379-871,Traverse Gear Set Mk II,Weapons Support,Medium
-PART-0173,399-295-371-190,Gyro Sensor Assembly Mk III,Sensors,High
-PART-0174,800-670-750-269,Ventilation Fan Type A,Life Support,High
-PART-0175,30-427-834-699,Protective Cap Set Type B,Maintenance Consumables,Medium
-PART-0176,177-930-678-3,Powertrain Mount Type C,Powertrain,High
-PART-0177,153-455-755-401,Brake Fluid Reservoir Heavy Duty,Braking Systems,Medium
-PART-0178,110-489-337-189,Navigation Switch Panel Extended Range,Navigation,Low
-PART-0179,861-284-100-804,Cargo Net Kit Field Repair,Logistics Equipment,Medium
-PART-0180,501-77-882-278,Rugged Tablet Battery Depot Level,Cyber Systems,Medium
-PART-0181,911-904-340-441,Return Line Fitting Mk I,Hydraulics,Mission Critical
-PART-0182,862-733-201-478,Load Center Panel Mk II,Electrical,Medium
-PART-0183,28-409-825-829,Data Bus Adapter Mk III,Avionics,High
-PART-0184,367-780-951-60,Combustion Liner Type A,Engines,Medium
-PART-0185,740-182-63-695,Vehicle Control Module Type B,Ground Vehicles,Medium
-PART-0186,614-458-500-640,Radio Control Head Type C,Communications,High
-PART-0187,495-776-431-582,Array Panel Segment Heavy Duty,Radar,Medium
-PART-0188,155-600-196-636,Fuel Sampling Kit Extended Range,Fuel Systems,High
-PART-0189,514-472-915-672,Thermal Control Valve Field Repair,Cooling Systems,Medium
-PART-0190,873-652-343-679,Door Seal Strip Depot Level,Structural,Medium
-PART-0191,375-37-299-745,Bleed Valve Mk I,Pneumatics,Medium
-PART-0192,483-678-85-385,Safety Interlock Switch Mk II,Weapons Support,Medium
-PART-0193,941-816-0-334,Humidity Sensor Mk III,Sensors,Medium
-PART-0194,902-592-402-774,Life Support Control Panel Type A,Life Support,Medium
-PART-0195,727-437-98-236,Safety Wire Spool Type B,Maintenance Consumables,Medium
-PART-0196,897-591-449-44,Transmission Control Solenoid Type C,Powertrain,Medium
-PART-0197,975-847-527-467,Wheel Cylinder Heavy Duty,Braking Systems,Mission Critical
-PART-0198,993-556-43-336,Waypoint Control Unit Extended Range,Navigation,Low
-PART-0199,881-232-20-526,Material Handling Roller Field Repair,Logistics Equipment,High
-PART-0200,433-306-130-518,System Drive Caddy Depot Level,Cyber Systems,Low
-PART-0201,952-691-452-832,Hydraulic Seal Kit Mk I Variant 2,Hydraulics,High
-PART-0202,533-489-568-292,Wiring Harness Mk II Variant 2,Electrical,High
-PART-0203,476-288-863-299,Navigation Control Unit Mk III Variant 2,Avionics,Medium
-PART-0204,369-562-115-197,Fuel Injector Assembly Type A Variant 2,Engines,High
-PART-0205,153-414-475-475,Track Tensioner Assembly Type B Variant 2,Ground Vehicles,Medium
-PART-0206,560-850-837-112,Radio Mounting Tray Type C Variant 2,Communications,High
-PART-0207,409-291-425-921,Waveguide Section Heavy Duty Variant 2,Radar,Medium
-PART-0208,702-431-765-312,Fuel Pump Cartridge Extended Range Variant 2,Fuel Systems,Medium
-PART-0209,724-324-849-366,Cooling Fan Assembly Field Repair Variant 2,Cooling Systems,Mission Critical
-PART-0210,228-680-713-594,Access Panel Depot Level Variant 2,Structural,Medium
-PART-0211,578-738-566-537,Air Compressor Valve Mk I Variant 2,Pneumatics,Medium
-PART-0212,363-63-114-478,Fire Control Cable Mk II Variant 2,Weapons Support,Medium
-PART-0213,564-962-824-466,Temperature Probe Mk III Variant 2,Sensors,High
-PART-0214,691-72-532-680,Oxygen Hose Assembly Type A Variant 2,Life Support,Low
-PART-0215,675-795-756-963,Gasket Set Type B Variant 2,Maintenance Consumables,Low
-PART-0216,538-726-296-207,Drive Shaft Assembly Type C Variant 2,Powertrain,High
-PART-0217,660-5-764-527,Brake Pad Set Heavy Duty Variant 2,Braking Systems,Medium
-PART-0218,821-642-621-684,GPS Antenna Extended Range Variant 2,Navigation,Medium
-PART-0219,142-236-546-829,Cargo Tie-Down Strap Field Repair Variant 2,Logistics Equipment,High
-PART-0220,683-589-271-869,Secure Network Card Depot Level Variant 2,Cyber Systems,Low
-PART-0221,101-603-48-34,Hydraulic Pump Assembly Mk I Variant 2,Hydraulics,Medium
-PART-0222,281-872-866-127,Power Distribution Module Mk II Variant 2,Electrical,Medium
-PART-0223,120-881-124-473,Radar Interface Module Mk III Variant 2,Avionics,Mission Critical
-PART-0224,386-295-686-564,Turbine Blade Set Type A Variant 2,Engines,Mission Critical
-PART-0225,656-551-735-135,Road Wheel Bearing Type B Variant 2,Ground Vehicles,Medium
-PART-0226,31-224-312-369,Encryption Module Type C Variant 2,Communications,Low
-PART-0227,404-254-46-913,Radar Cooling Fan Heavy Duty Variant 2,Radar,Medium
-PART-0228,312-13-972-669,Fuel Line Assembly Extended Range Variant 2,Fuel Systems,Medium
-PART-0229,908-374-382-585,Heat Exchanger Core Field Repair Variant 2,Cooling Systems,Medium
-PART-0230,732-811-460-644,Mounting Bracket Depot Level Variant 2,Structural,Medium
-PART-0231,817-391-372-615,Pneumatic Hose Kit Mk I Variant 2,Pneumatics,Medium
-PART-0232,341-461-280-63,Mount Stabilizer Bearing Mk II Variant 2,Weapons Support,Medium
-PART-0233,90-126-710-426,Pressure Transducer Mk III Variant 2,Sensors,Medium
-PART-0234,619-388-823-732,Breathing Regulator Type A Variant 2,Life Support,Medium
-PART-0235,98-343-554-748,O-Ring Assortment Type B Variant 2,Maintenance Consumables,Medium
-PART-0236,458-899-559-421,Clutch Plate Kit Type C Variant 2,Powertrain,High
-PART-0237,831-595-418-216,Brake Rotor Heavy Duty Variant 2,Braking Systems,Low
-PART-0238,224-72-119-872,Inertial Measurement Unit Extended Range Variant 2,Navigation,Medium
-PART-0239,837-773-546-574,Pallet Lock Assembly Field Repair Variant 2,Logistics Equipment,Medium
-PART-0240,306-52-98-837,Rugged Server Power Supply Depot Level Variant 2,Cyber Systems,Medium
-PART-0241,892-336-601-720,Pressure Relief Valve Mk I Variant 2,Hydraulics,Medium
-PART-0242,350-390-265-671,Circuit Breaker Mk II Variant 2,Electrical,High
-PART-0243,574-29-143-596,Signal Processor Card Mk III Variant 2,Avionics,Medium
-PART-0244,693-217-646-82,Ignition Exciter Type A Variant 2,Engines,Medium
-PART-0245,288-409-851-19,Brake Caliper Kit Type B Variant 2,Ground Vehicles,Mission Critical
-PART-0246,240-606-13-414,Coaxial Cable Assembly Type C Variant 2,Communications,High
-PART-0247,687-761-310-239,Receiver Module Heavy Duty Variant 2,Radar,High
-PART-0248,928-348-346-470,Fuel Pressure Sensor Extended Range Variant 2,Fuel Systems,High
-PART-0249,404-497-732-83,Coolant Pump Field Repair Variant 2,Cooling Systems,Medium
-PART-0250,22-793-888-768,Frame Reinforcement Plate Depot Level Variant 2,Structural,Low
-PART-0251,528-228-40-667,Pressure Regulator Mk I Variant 2,Pneumatics,Mission Critical
-PART-0252,118-738-31-427,Recoil Buffer Seal Mk II Variant 2,Weapons Support,High
-PART-0253,744-524-915-979,Optical Sensor Module Mk III Variant 2,Sensors,High
-PART-0254,798-654-378-924,Air Filtration Cartridge Type A Variant 2,Life Support,Low
-PART-0255,75-590-36-11,Lubricant Pack Type B Variant 2,Maintenance Consumables,Medium
-PART-0256,9-185-699-729,Gearbox Seal Type C Variant 2,Powertrain,Medium
-PART-0257,44-296-149-267,Hydraulic Brake Line Heavy Duty Variant 2,Braking Systems,Medium
-PART-0258,71-401-784-440,Compass Sensor Extended Range Variant 2,Navigation,Medium
-PART-0259,18-136-725-316,Forklift Chain Field Repair Variant 2,Logistics Equipment,Low
-PART-0260,252-270-291-359,Data Storage Module Depot Level Variant 2,Cyber Systems,High
-PART-0261,407-458-715-127,Actuator Cylinder Mk I Variant 2,Hydraulics,High
-PART-0262,555-2-35-653,Voltage Regulator Mk II Variant 2,Electrical,Medium
-PART-0263,757-425-664-198,Flight Data Connector Mk III Variant 2,Avionics,Medium
-PART-0264,612-409-782-191,Oil Filter Cartridge Type A Variant 2,Engines,Low
-PART-0265,899-785-734-411,Transmission Filter Type B Variant 2,Ground Vehicles,Medium
-PART-0266,699-942-49-628,Antenna Mast Section Type C Variant 2,Communications,Mission Critical
-PART-0267,165-855-48-340,Transmitter Power Supply Heavy Duty Variant 2,Radar,High
-PART-0268,623-711-192-111,Fuel Filter Housing Extended Range Variant 2,Fuel Systems,Low
-PART-0269,433-861-247-514,Thermostat Housing Field Repair Variant 2,Cooling Systems,Low
-PART-0270,395-610-593-896,Hinge Assembly Depot Level Variant 2,Structural,Mission Critical
-PART-0271,442-682-570-249,Air Dryer Cartridge Mk I Variant 2,Pneumatics,Medium
-PART-0272,231-621-598-712,Turret Slip Ring Mk II Variant 2,Weapons Support,High
-PART-0273,992-504-86-43,Vibration Sensor Mk III Variant 2,Sensors,Mission Critical
-PART-0274,877-92-843-9,Mask Connector Kit Type A Variant 2,Life Support,High
-PART-0275,725-270-802-165,Threaded Insert Kit Type B Variant 2,Maintenance Consumables,Low
-PART-0276,79-553-780-806,Torque Converter Type C Variant 2,Powertrain,Medium
-PART-0277,194-209-961-594,Master Cylinder Kit Heavy Duty Variant 2,Braking Systems,Medium
-PART-0278,130-178-278-580,Navigation Display Cable Extended Range Variant 2,Navigation,Low
-PART-0279,495-514-953-238,Container Latch Field Repair Variant 2,Logistics Equipment,High
-PART-0280,269-555-48-802,Firewall Appliance Fan Depot Level Variant 2,Cyber Systems,High
-PART-0281,371-792-804-543,Hydraulic Hose Assembly Mk I Variant 2,Hydraulics,Mission Critical
-PART-0282,696-631-955-602,Battery Cable Assembly Mk II Variant 2,Electrical,High
-PART-0283,710-975-659-688,Antenna Coupler Mk III Variant 2,Avionics,Low
-PART-0284,79-773-45-319,Compressor Seal Type A Variant 2,Engines,High
-PART-0285,207-563-821-627,Steering Linkage Type B Variant 2,Ground Vehicles,High
-PART-0286,205-341-730-595,Handset Assembly Type C Variant 2,Communications,High
-PART-0287,371-111-378-398,Phase Shifter Unit Heavy Duty Variant 2,Radar,Medium
-PART-0288,901-355-778-14,Refueling Adapter Extended Range Variant 2,Fuel Systems,Medium
-PART-0289,693-766-981-965,Radiator Hose Kit Field Repair Variant 2,Cooling Systems,Medium
-PART-0290,94-417-808-484,Fastener Kit Depot Level Variant 2,Structural,Medium
-PART-0291,927-659-320-637,Pneumatic Actuator Mk I Variant 2,Pneumatics,High
-PART-0292,286-362-741-149,Elevation Drive Motor Mk II Variant 2,Weapons Support,Medium
-PART-0293,632-360-421-355,Position Encoder Mk III Variant 2,Sensors,Low
-PART-0294,578-743-11-372,Pressure Bottle Valve Type A Variant 2,Life Support,High
-PART-0295,689-282-463-250,Adhesive Sealant Tube Type B Variant 2,Maintenance Consumables,Medium
-PART-0296,631-158-134-918,Transfer Case Chain Type C Variant 2,Powertrain,Low
-PART-0297,878-206-863-125,Parking Brake Cable Heavy Duty Variant 2,Braking Systems,Medium
-PART-0298,590-287-992-123,Position Reference Module Extended Range Variant 2,Navigation,Low
-PART-0299,174-802-934-698,Load Sensor Pad Field Repair Variant 2,Logistics Equipment,High
-PART-0300,645-467-284-216,Crypto Key Loader Cable Depot Level Variant 2,Cyber Systems,High
-PART-0301,899-303-615-703,Fluid Reservoir Cap Mk I Variant 2,Hydraulics,Medium
-PART-0302,392-253-214-741,Terminal Block Mk II Variant 2,Electrical,Medium
-PART-0303,745-363-7-567,Transponder Module Mk III Variant 2,Avionics,High
-PART-0304,528-535-709-660,Engine Mount Bracket Type A Variant 2,Engines,Low
-PART-0305,961-970-393-876,Axle Seal Type B Variant 2,Ground Vehicles,Medium
-PART-0306,299-935-56-427,Signal Amplifier Type C Variant 2,Communications,Medium
-PART-0307,356-74-82-291,Antenna Drive Motor Heavy Duty Variant 2,Radar,Medium
-PART-0308,419-273-997-197,Fuel Shutoff Valve Extended Range Variant 2,Fuel Systems,Medium
-PART-0309,787-154-38-617,Temperature Sensor Field Repair Variant 2,Cooling Systems,Medium
-PART-0310,76-762-645-383,Support Strut Depot Level Variant 2,Structural,Medium
-PART-0311,939-581-692-953,Quick Release Valve Mk I Variant 2,Pneumatics,High
-PART-0312,432-382-834-875,Sight Mount Bracket Mk II Variant 2,Weapons Support,High
-PART-0313,499-525-731-376,Proximity Switch Mk III Variant 2,Sensors,Medium
-PART-0314,766-416-769-466,Cabin Air Duct Type A Variant 2,Life Support,Low
-PART-0315,975-448-49-517,Cleaning Solvent Kit Type B Variant 2,Maintenance Consumables,Medium
-PART-0316,743-550-63-108,Engine Coupling Type C Variant 2,Powertrain,Low
-PART-0317,23-629-56-245,ABS Sensor Heavy Duty Variant 2,Braking Systems,Medium
-PART-0318,700-660-590-733,Map Data Cartridge Extended Range Variant 2,Navigation,Medium
-PART-0319,521-276-555-191,Tow Bar Pin Field Repair Variant 2,Logistics Equipment,Low
-PART-0320,886-260-508-376,Network Switch Module Depot Level Variant 2,Cyber Systems,High
-PART-0321,420-664-377-81,Hydraulic Filter Element Mk I Variant 2,Hydraulics,Low
-PART-0322,979-243-471-678,Relay Module Mk II Variant 2,Electrical,Medium
-PART-0323,203-238-656-3,Mission Computer Card Mk III Variant 2,Avionics,High
-PART-0324,261-61-136-896,Fuel Control Valve Type A Variant 2,Engines,Medium
-PART-0325,262-385-576-96,Suspension Arm Type B Variant 2,Ground Vehicles,Medium
-PART-0326,323-294-299-908,Frequency Selector Unit Type C Variant 2,Communications,Mission Critical
-PART-0327,395-993-955-200,Signal Conditioning Board Heavy Duty Variant 2,Radar,Medium
-PART-0328,663-429-611-344,Fuel Tank Vent Extended Range Variant 2,Fuel Systems,Medium
-PART-0329,740-736-632-896,Expansion Tank Field Repair Variant 2,Cooling Systems,Medium
-PART-0330,104-507-887-224,Bulkhead Repair Panel Depot Level Variant 2,Structural,Medium
-PART-0331,997-283-335-635,Air Reservoir Fitting Mk I Variant 2,Pneumatics,High
-PART-0332,979-254-73-291,Ammunition Feed Guide Mk II Variant 2,Weapons Support,Medium
-PART-0333,550-556-624-377,Infrared Detector Mk III Variant 2,Sensors,Low
-PART-0334,770-596-553-896,Emergency Oxygen Valve Type A Variant 2,Life Support,Low
-PART-0335,411-275-678-755,Grease Cartridge Type B Variant 2,Maintenance Consumables,Mission Critical
-PART-0336,965-116-647-281,Universal Joint Type C Variant 2,Powertrain,High
-PART-0337,417-620-172-999,Brake Booster Valve Heavy Duty Variant 2,Braking Systems,High
-PART-0338,13-976-749-868,Heading Processor Extended Range Variant 2,Navigation,Medium
-PART-0339,711-271-632-912,Lift Cylinder Seal Field Repair Variant 2,Logistics Equipment,Low
-PART-0340,815-97-614-404,Fiber Patch Cable Depot Level Variant 2,Cyber Systems,Medium
-PART-0341,681-220-575-943,Servo Valve Mk I Variant 2,Hydraulics,Medium
-PART-0342,688-686-750-551,Connector Kit Mk II Variant 2,Electrical,Mission Critical
-PART-0343,877-870-484-854,Display Control Panel Mk III Variant 2,Avionics,Medium
-PART-0344,569-854-711-555,Starter Generator Type A Variant 2,Engines,Low
-PART-0345,96-410-795-745,Differential Gear Set Type B Variant 2,Ground Vehicles,Medium
-PART-0346,216-352-22-806,Comms Power Adapter Type C Variant 2,Communications,High
-PART-0347,364-901-511-526,RF Cable Assembly Heavy Duty Variant 2,Radar,High
-PART-0348,369-690-671-87,Fuel Metering Unit Extended Range Variant 2,Fuel Systems,Medium
-PART-0349,173-107-111-882,Fan Drive Belt Field Repair Variant 2,Cooling Systems,Low
-PART-0350,283-736-692-360,Latch Mechanism Depot Level Variant 2,Structural,Medium
-PART-0351,689-519-84-883,Control Manifold Mk I Variant 2,Pneumatics,Medium
-PART-0352,343-416-858-463,Trigger Control Module Mk II Variant 2,Weapons Support,High
-PART-0353,973-317-110-560,Flow Sensor Mk III Variant 2,Sensors,Medium
-PART-0354,791-752-794-136,CO2 Scrubber Cartridge Type A Variant 2,Life Support,Medium
-PART-0355,357-238-114-201,Anti-Seize Compound Type B Variant 2,Maintenance Consumables,Medium
-PART-0356,649-934-647-539,Final Drive Gear Type C Variant 2,Powertrain,High
-PART-0357,950-208-765-456,Caliper Piston Seal Heavy Duty Variant 2,Braking Systems,Medium
-PART-0358,813-485-381-558,Timing Receiver Extended Range Variant 2,Navigation,Low
-PART-0359,589-851-323-464,Dock Ramp Hinge Field Repair Variant 2,Logistics Equipment,High
-PART-0360,38-845-539-368,Access Control Reader Depot Level Variant 2,Cyber Systems,Medium
-PART-0361,621-573-992-875,Pump Drive Coupling Mk I Variant 2,Hydraulics,High
-PART-0362,980-382-646-375,Ground Strap Mk II Variant 2,Electrical,Medium
-PART-0363,36-509-845-468,Sensor Interface Board Mk III Variant 2,Avionics,Medium
-PART-0364,427-815-226-935,Exhaust Clamp Type A Variant 2,Engines,High
-PART-0365,827-143-189-12,Fuel Tank Sender Type B Variant 2,Ground Vehicles,Mission Critical
-PART-0366,322-745-423-363,Audio Interface Cable Type C Variant 2,Communications,Mission Critical
-PART-0367,56-203-635-416,Radar Processor Card Heavy Duty Variant 2,Radar,Low
-PART-0368,970-122-174-539,Quick Disconnect Coupler Extended Range Variant 2,Fuel Systems,Mission Critical
-PART-0369,274-575-415-362,Coolant Filter Field Repair Variant 2,Cooling Systems,Medium
-PART-0370,623-591-600-184,Armor Panel Insert Depot Level Variant 2,Structural,Medium
-PART-0371,390-485-406-355,Pressure Gauge Mk I Variant 2,Pneumatics,Medium
-PART-0372,257-804-158-974,Traverse Gear Set Mk II Variant 2,Weapons Support,Medium
-PART-0373,340-920-122-571,Gyro Sensor Assembly Mk III Variant 2,Sensors,High
-PART-0374,616-82-715-32,Ventilation Fan Type A Variant 2,Life Support,Medium
-PART-0375,974-686-434-393,Protective Cap Set Type B Variant 2,Maintenance Consumables,Medium
-PART-0376,883-592-368-381,Powertrain Mount Type C Variant 2,Powertrain,Medium
-PART-0377,427-491-579-355,Brake Fluid Reservoir Heavy Duty Variant 2,Braking Systems,Mission Critical
-PART-0378,850-289-609-866,Navigation Switch Panel Extended Range Variant 2,Navigation,Medium
-PART-0379,141-432-808-86,Cargo Net Kit Field Repair Variant 2,Logistics Equipment,High
-PART-0380,463-737-62-810,Rugged Tablet Battery Depot Level Variant 2,Cyber Systems,Medium
-PART-0381,567-518-21-893,Return Line Fitting Mk I Variant 2,Hydraulics,Mission Critical
-PART-0382,401-63-117-110,Load Center Panel Mk II Variant 2,Electrical,Low
-PART-0383,693-435-581-779,Data Bus Adapter Mk III Variant 2,Avionics,Low
-PART-0384,18-223-383-128,Combustion Liner Type A Variant 2,Engines,Medium
-PART-0385,583-416-39-941,Vehicle Control Module Type B Variant 2,Ground Vehicles,Medium
-PART-0386,518-351-115-613,Radio Control Head Type C Variant 2,Communications,Medium
-PART-0387,905-564-952-858,Array Panel Segment Heavy Duty Variant 2,Radar,Medium
-PART-0388,970-256-164-848,Fuel Sampling Kit Extended Range Variant 2,Fuel Systems,Medium
-PART-0389,402-447-655-211,Thermal Control Valve Field Repair Variant 2,Cooling Systems,Medium
-PART-0390,968-786-635-139,Door Seal Strip Depot Level Variant 2,Structural,Low
-PART-0391,174-394-975-71,Bleed Valve Mk I Variant 2,Pneumatics,High
-PART-0392,958-8-688-527,Safety Interlock Switch Mk II Variant 2,Weapons Support,Medium
-PART-0393,590-830-470-37,Humidity Sensor Mk III Variant 2,Sensors,High
-PART-0394,631-525-427-694,Life Support Control Panel Type A Variant 2,Life Support,Medium
-PART-0395,523-310-503-597,Safety Wire Spool Type B Variant 2,Maintenance Consumables,High
-PART-0396,517-368-592-400,Transmission Control Solenoid Type C Variant 2,Powertrain,Low
-PART-0397,771-174-589-911,Wheel Cylinder Heavy Duty Variant 2,Braking Systems,Medium
-PART-0398,804-523-656-35,Waypoint Control Unit Extended Range Variant 2,Navigation,Low
-PART-0399,971-837-244-283,Material Handling Roller Field Repair Variant 2,Logistics Equipment,Medium
-PART-0400,778-765-71-660,System Drive Caddy Depot Level Variant 2,Cyber Systems,Medium
-PART-0401,789-999-71-969,Hydraulic Seal Kit Mk I Variant 3,Hydraulics,High
-PART-0402,850-513-335-980,Wiring Harness Mk II Variant 3,Electrical,High
-PART-0403,41-62-681-952,Navigation Control Unit Mk III Variant 3,Avionics,Medium
-PART-0404,668-639-144-853,Fuel Injector Assembly Type A Variant 3,Engines,Medium
-PART-0405,267-996-485-791,Track Tensioner Assembly Type B Variant 3,Ground Vehicles,High
-PART-0406,273-730-434-566,Radio Mounting Tray Type C Variant 3,Communications,Medium
-PART-0407,517-305-82-899,Waveguide Section Heavy Duty Variant 3,Radar,Low
-PART-0408,594-999-568-355,Fuel Pump Cartridge Extended Range Variant 3,Fuel Systems,Mission Critical
-PART-0409,668-753-612-638,Cooling Fan Assembly Field Repair Variant 3,Cooling Systems,Low
-PART-0410,601-932-220-691,Access Panel Depot Level Variant 3,Structural,Medium
-PART-0411,433-52-582-964,Air Compressor Valve Mk I Variant 3,Pneumatics,Medium
-PART-0412,721-771-518-929,Fire Control Cable Mk II Variant 3,Weapons Support,High
-PART-0413,32-644-867-285,Temperature Probe Mk III Variant 3,Sensors,Low
-PART-0414,699-10-148-805,Oxygen Hose Assembly Type A Variant 3,Life Support,Mission Critical
-PART-0415,350-928-174-917,Gasket Set Type B Variant 3,Maintenance Consumables,High
-PART-0416,614-159-20-579,Drive Shaft Assembly Type C Variant 3,Powertrain,Medium
-PART-0417,122-271-640-862,Brake Pad Set Heavy Duty Variant 3,Braking Systems,Medium
-PART-0418,649-960-184-646,GPS Antenna Extended Range Variant 3,Navigation,Mission Critical
-PART-0419,591-500-525-913,Cargo Tie-Down Strap Field Repair Variant 3,Logistics Equipment,High
-PART-0420,730-776-153-701,Secure Network Card Depot Level Variant 3,Cyber Systems,Medium
-PART-0421,666-780-493-268,Hydraulic Pump Assembly Mk I Variant 3,Hydraulics,Medium
-PART-0422,875-225-920-599,Power Distribution Module Mk II Variant 3,Electrical,Medium
-PART-0423,922-254-610-387,Radar Interface Module Mk III Variant 3,Avionics,Mission Critical
-PART-0424,779-813-817-413,Turbine Blade Set Type A Variant 3,Engines,Medium
-PART-0425,916-914-177-534,Road Wheel Bearing Type B Variant 3,Ground Vehicles,Mission Critical
-PART-0426,215-956-80-401,Encryption Module Type C Variant 3,Communications,High
-PART-0427,221-212-185-218,Radar Cooling Fan Heavy Duty Variant 3,Radar,Low
-PART-0428,991-270-433-635,Fuel Line Assembly Extended Range Variant 3,Fuel Systems,Medium
-PART-0429,314-400-806-636,Heat Exchanger Core Field Repair Variant 3,Cooling Systems,High
-PART-0430,478-920-10-148,Mounting Bracket Depot Level Variant 3,Structural,Medium
-PART-0431,207-728-8-155,Pneumatic Hose Kit Mk I Variant 3,Pneumatics,Low
-PART-0432,741-523-955-927,Mount Stabilizer Bearing Mk II Variant 3,Weapons Support,Medium
-PART-0433,719-754-24-50,Pressure Transducer Mk III Variant 3,Sensors,Low
-PART-0434,269-567-698-972,Breathing Regulator Type A Variant 3,Life Support,Medium
-PART-0435,506-94-749-732,O-Ring Assortment Type B Variant 3,Maintenance Consumables,High
-PART-0436,605-118-899-488,Clutch Plate Kit Type C Variant 3,Powertrain,Medium
-PART-0437,943-637-679-435,Brake Rotor Heavy Duty Variant 3,Braking Systems,Medium
-PART-0438,211-500-308-289,Inertial Measurement Unit Extended Range Variant 3,Navigation,Low
-PART-0439,873-795-449-504,Pallet Lock Assembly Field Repair Variant 3,Logistics Equipment,High
-PART-0440,164-883-768-428,Rugged Server Power Supply Depot Level Variant 3,Cyber Systems,Medium
-PART-0441,546-424-495-107,Pressure Relief Valve Mk I Variant 3,Hydraulics,Mission Critical
-PART-0442,242-168-183-324,Circuit Breaker Mk II Variant 3,Electrical,Medium
-PART-0443,185-973-795-896,Signal Processor Card Mk III Variant 3,Avionics,Medium
-PART-0444,911-407-963-699,Ignition Exciter Type A Variant 3,Engines,High
-PART-0445,592-705-417-767,Brake Caliper Kit Type B Variant 3,Ground Vehicles,Low
-PART-0446,644-908-744-569,Coaxial Cable Assembly Type C Variant 3,Communications,High
-PART-0447,267-297-0-11,Receiver Module Heavy Duty Variant 3,Radar,Low
-PART-0448,35-743-968-917,Fuel Pressure Sensor Extended Range Variant 3,Fuel Systems,High
-PART-0449,177-692-77-347,Coolant Pump Field Repair Variant 3,Cooling Systems,Medium
-PART-0450,915-127-996-971,Frame Reinforcement Plate Depot Level Variant 3,Structural,Medium
-PART-0451,420-301-277-567,Pressure Regulator Mk I Variant 3,Pneumatics,High
-PART-0452,586-836-16-643,Recoil Buffer Seal Mk II Variant 3,Weapons Support,Medium
-PART-0453,603-106-857-614,Optical Sensor Module Mk III Variant 3,Sensors,Mission Critical
-PART-0454,709-314-310-480,Air Filtration Cartridge Type A Variant 3,Life Support,High
-PART-0455,466-844-72-113,Lubricant Pack Type B Variant 3,Maintenance Consumables,Medium
-PART-0456,345-685-150-412,Gearbox Seal Type C Variant 3,Powertrain,High
-PART-0457,176-965-809-593,Hydraulic Brake Line Heavy Duty Variant 3,Braking Systems,Medium
-PART-0458,709-91-466-596,Compass Sensor Extended Range Variant 3,Navigation,Medium
-PART-0459,488-630-640-623,Forklift Chain Field Repair Variant 3,Logistics Equipment,High
-PART-0460,692-901-404-440,Data Storage Module Depot Level Variant 3,Cyber Systems,Low
-PART-0461,332-919-103-465,Actuator Cylinder Mk I Variant 3,Hydraulics,Medium
-PART-0462,44-458-417-38,Voltage Regulator Mk II Variant 3,Electrical,High
-PART-0463,612-18-717-389,Flight Data Connector Mk III Variant 3,Avionics,Medium
-PART-0464,297-31-21-277,Oil Filter Cartridge Type A Variant 3,Engines,Mission Critical
-PART-0465,852-272-199-120,Transmission Filter Type B Variant 3,Ground Vehicles,Medium
-PART-0466,406-155-256-964,Antenna Mast Section Type C Variant 3,Communications,High
-PART-0467,712-884-415-801,Transmitter Power Supply Heavy Duty Variant 3,Radar,Mission Critical
-PART-0468,32-488-656-662,Fuel Filter Housing Extended Range Variant 3,Fuel Systems,Medium
-PART-0469,82-339-853-709,Thermostat Housing Field Repair Variant 3,Cooling Systems,Medium
-PART-0470,159-850-371-735,Hinge Assembly Depot Level Variant 3,Structural,Medium
-PART-0471,170-898-557-902,Air Dryer Cartridge Mk I Variant 3,Pneumatics,Medium
-PART-0472,536-586-382-116,Turret Slip Ring Mk II Variant 3,Weapons Support,High
-PART-0473,607-552-372-441,Vibration Sensor Mk III Variant 3,Sensors,Mission Critical
-PART-0474,221-985-311-896,Mask Connector Kit Type A Variant 3,Life Support,High
-PART-0475,442-609-72-455,Threaded Insert Kit Type B Variant 3,Maintenance Consumables,Low
-PART-0476,557-304-427-93,Torque Converter Type C Variant 3,Powertrain,High
-PART-0477,793-952-913-138,Master Cylinder Kit Heavy Duty Variant 3,Braking Systems,High
-PART-0478,12-586-64-78,Navigation Display Cable Extended Range Variant 3,Navigation,Mission Critical
-PART-0479,382-681-922-378,Container Latch Field Repair Variant 3,Logistics Equipment,High
-PART-0480,774-853-166-143,Firewall Appliance Fan Depot Level Variant 3,Cyber Systems,Medium
-PART-0481,651-323-92-508,Hydraulic Hose Assembly Mk I Variant 3,Hydraulics,Medium
-PART-0482,488-113-422-512,Battery Cable Assembly Mk II Variant 3,Electrical,Low
-PART-0483,137-633-340-730,Antenna Coupler Mk III Variant 3,Avionics,Medium
-PART-0484,716-943-902-567,Compressor Seal Type A Variant 3,Engines,Medium
-PART-0485,867-388-787-44,Steering Linkage Type B Variant 3,Ground Vehicles,Medium
-PART-0486,733-282-579-754,Handset Assembly Type C Variant 3,Communications,Medium
-PART-0487,214-186-951-614,Phase Shifter Unit Heavy Duty Variant 3,Radar,Medium
-PART-0488,393-16-488-381,Refueling Adapter Extended Range Variant 3,Fuel Systems,High
-PART-0489,250-1000-99-962,Radiator Hose Kit Field Repair Variant 3,Cooling Systems,Low
-PART-0490,95-119-48-360,Fastener Kit Depot Level Variant 3,Structural,High
-PART-0491,448-594-780-628,Pneumatic Actuator Mk I Variant 3,Pneumatics,Medium
-PART-0492,648-233-545-365,Elevation Drive Motor Mk II Variant 3,Weapons Support,Medium
-PART-0493,870-287-762-187,Position Encoder Mk III Variant 3,Sensors,High
-PART-0494,591-586-438-391,Pressure Bottle Valve Type A Variant 3,Life Support,High
-PART-0495,180-999-398-896,Adhesive Sealant Tube Type B Variant 3,Maintenance Consumables,Medium
-PART-0496,772-897-836-123,Transfer Case Chain Type C Variant 3,Powertrain,Medium
-PART-0497,988-987-760-614,Parking Brake Cable Heavy Duty Variant 3,Braking Systems,High
-PART-0498,574-528-73-447,Position Reference Module Extended Range Variant 3,Navigation,Low
-PART-0499,904-936-969-829,Load Sensor Pad Field Repair Variant 3,Logistics Equipment,High
-PART-0500,480-869-789-591,Crypto Key Loader Cable Depot Level Variant 3,Cyber Systems,High
-PART-0501,111-577-686-887,Fluid Reservoir Cap Mk I Variant 3,Hydraulics,High
-PART-0502,918-8-150-759,Terminal Block Mk II Variant 3,Electrical,High
-PART-0503,74-948-905-660,Transponder Module Mk III Variant 3,Avionics,High
-PART-0504,581-617-788-489,Engine Mount Bracket Type A Variant 3,Engines,Medium
-PART-0505,888-703-406-788,Axle Seal Type B Variant 3,Ground Vehicles,Medium
-PART-0506,405-339-25-196,Signal Amplifier Type C Variant 3,Communications,Mission Critical
-PART-0507,812-199-703-301,Antenna Drive Motor Heavy Duty Variant 3,Radar,High
-PART-0508,674-787-297-604,Fuel Shutoff Valve Extended Range Variant 3,Fuel Systems,Low
-PART-0509,175-983-881-425,Temperature Sensor Field Repair Variant 3,Cooling Systems,Medium
-PART-0510,330-445-632-733,Support Strut Depot Level Variant 3,Structural,Low
-PART-0511,868-292-425-286,Quick Release Valve Mk I Variant 3,Pneumatics,Mission Critical
-PART-0512,165-408-154-88,Sight Mount Bracket Mk II Variant 3,Weapons Support,Medium
-PART-0513,956-69-625-143,Proximity Switch Mk III Variant 3,Sensors,High
-PART-0514,904-97-155-986,Cabin Air Duct Type A Variant 3,Life Support,Medium
-PART-0515,119-502-981-478,Cleaning Solvent Kit Type B Variant 3,Maintenance Consumables,Low
-PART-0516,844-71-440-422,Engine Coupling Type C Variant 3,Powertrain,Mission Critical
-PART-0517,462-992-947-618,ABS Sensor Heavy Duty Variant 3,Braking Systems,High
-PART-0518,531-62-686-536,Map Data Cartridge Extended Range Variant 3,Navigation,Medium
-PART-0519,23-782-756-226,Tow Bar Pin Field Repair Variant 3,Logistics Equipment,High
-PART-0520,59-595-974-212,Network Switch Module Depot Level Variant 3,Cyber Systems,Mission Critical
-PART-0521,499-837-498-864,Hydraulic Filter Element Mk I Variant 3,Hydraulics,Medium
-PART-0522,171-314-662-251,Relay Module Mk II Variant 3,Electrical,Low
-PART-0523,380-954-795-254,Mission Computer Card Mk III Variant 3,Avionics,Medium
-PART-0524,862-238-149-336,Fuel Control Valve Type A Variant 3,Engines,High
-PART-0525,862-283-732-31,Suspension Arm Type B Variant 3,Ground Vehicles,Medium
-PART-0526,508-499-669-200,Frequency Selector Unit Type C Variant 3,Communications,Medium
-PART-0527,988-134-832-317,Signal Conditioning Board Heavy Duty Variant 3,Radar,High
-PART-0528,566-771-107-392,Fuel Tank Vent Extended Range Variant 3,Fuel Systems,Medium
-PART-0529,328-713-352-311,Expansion Tank Field Repair Variant 3,Cooling Systems,Medium
-PART-0530,726-575-590-6,Bulkhead Repair Panel Depot Level Variant 3,Structural,Medium
-PART-0531,880-189-485-933,Air Reservoir Fitting Mk I Variant 3,Pneumatics,High
-PART-0532,453-298-266-927,Ammunition Feed Guide Mk II Variant 3,Weapons Support,Medium
-PART-0533,398-17-968-806,Infrared Detector Mk III Variant 3,Sensors,Medium
-PART-0534,962-196-212-246,Emergency Oxygen Valve Type A Variant 3,Life Support,Low
-PART-0535,655-364-375-248,Grease Cartridge Type B Variant 3,Maintenance Consumables,High
-PART-0536,771-143-640-631,Universal Joint Type C Variant 3,Powertrain,High
-PART-0537,133-584-706-243,Brake Booster Valve Heavy Duty Variant 3,Braking Systems,Mission Critical
-PART-0538,79-938-541-531,Heading Processor Extended Range Variant 3,Navigation,Medium
-PART-0539,665-809-368-111,Lift Cylinder Seal Field Repair Variant 3,Logistics Equipment,Low
-PART-0540,853-858-884-16,Fiber Patch Cable Depot Level Variant 3,Cyber Systems,Medium
-PART-0541,817-194-326-597,Servo Valve Mk I Variant 3,Hydraulics,Low
-PART-0542,838-354-317-135,Connector Kit Mk II Variant 3,Electrical,Low
-PART-0543,820-555-546-79,Display Control Panel Mk III Variant 3,Avionics,Low
-PART-0544,932-899-513-65,Starter Generator Type A Variant 3,Engines,Medium
-PART-0545,856-657-768-713,Differential Gear Set Type B Variant 3,Ground Vehicles,High
-PART-0546,820-638-102-236,Comms Power Adapter Type C Variant 3,Communications,Mission Critical
-PART-0547,555-519-661-954,RF Cable Assembly Heavy Duty Variant 3,Radar,Low
-PART-0548,589-864-430-163,Fuel Metering Unit Extended Range Variant 3,Fuel Systems,Medium
-PART-0549,736-493-818-679,Fan Drive Belt Field Repair Variant 3,Cooling Systems,Medium
-PART-0550,786-563-268-267,Latch Mechanism Depot Level Variant 3,Structural,High
-PART-0551,363-971-439-964,Control Manifold Mk I Variant 3,Pneumatics,Medium
-PART-0552,392-119-706-271,Trigger Control Module Mk II Variant 3,Weapons Support,Low
-PART-0553,907-20-113-952,Flow Sensor Mk III Variant 3,Sensors,Mission Critical
-PART-0554,884-870-131-691,CO2 Scrubber Cartridge Type A Variant 3,Life Support,Low
-PART-0555,437-268-586-572,Anti-Seize Compound Type B Variant 3,Maintenance Consumables,Low
-PART-0556,646-876-672-510,Final Drive Gear Type C Variant 3,Powertrain,Mission Critical
-PART-0557,552-839-972-318,Caliper Piston Seal Heavy Duty Variant 3,Braking Systems,Medium
-PART-0558,27-508-913-985,Timing Receiver Extended Range Variant 3,Navigation,Medium
-PART-0559,594-570-102-841,Dock Ramp Hinge Field Repair Variant 3,Logistics Equipment,Medium
-PART-0560,876-431-355-392,Access Control Reader Depot Level Variant 3,Cyber Systems,Low
-PART-0561,560-658-715-659,Pump Drive Coupling Mk I Variant 3,Hydraulics,High
-PART-0562,752-375-413-17,Ground Strap Mk II Variant 3,Electrical,Medium
-PART-0563,480-225-164-172,Sensor Interface Board Mk III Variant 3,Avionics,High
-PART-0564,938-505-313-404,Exhaust Clamp Type A Variant 3,Engines,Low
-PART-0565,944-669-875-709,Fuel Tank Sender Type B Variant 3,Ground Vehicles,Medium
-PART-0566,812-694-364-950,Audio Interface Cable Type C Variant 3,Communications,High
-PART-0567,777-490-949-902,Radar Processor Card Heavy Duty Variant 3,Radar,High
-PART-0568,927-377-341-987,Quick Disconnect Coupler Extended Range Variant 3,Fuel Systems,Medium
-PART-0569,237-188-391-895,Coolant Filter Field Repair Variant 3,Cooling Systems,Mission Critical
-PART-0570,692-306-7-288,Armor Panel Insert Depot Level Variant 3,Structural,Medium
-PART-0571,688-997-160-576,Pressure Gauge Mk I Variant 3,Pneumatics,Medium
-PART-0572,779-820-742-252,Traverse Gear Set Mk II Variant 3,Weapons Support,Low
-PART-0573,952-678-617-575,Gyro Sensor Assembly Mk III Variant 3,Sensors,High
-PART-0574,11-809-115-681,Ventilation Fan Type A Variant 3,Life Support,Medium
-PART-0575,670-611-808-924,Protective Cap Set Type B Variant 3,Maintenance Consumables,Medium
-PART-0576,957-759-574-121,Powertrain Mount Type C Variant 3,Powertrain,Mission Critical
-PART-0577,184-861-575-605,Brake Fluid Reservoir Heavy Duty Variant 3,Braking Systems,Medium
-PART-0578,236-944-447-387,Navigation Switch Panel Extended Range Variant 3,Navigation,Medium
-PART-0579,180-256-462-333,Cargo Net Kit Field Repair Variant 3,Logistics Equipment,Medium
-PART-0580,135-39-84-13,Rugged Tablet Battery Depot Level Variant 3,Cyber Systems,Low
-PART-0581,549-567-17-407,Return Line Fitting Mk I Variant 3,Hydraulics,Medium
-PART-0582,972-965-638-434,Load Center Panel Mk II Variant 3,Electrical,Low
-PART-0583,127-842-526-932,Data Bus Adapter Mk III Variant 3,Avionics,Medium
-PART-0584,311-43-154-981,Combustion Liner Type A Variant 3,Engines,Medium
-PART-0585,755-191-965-554,Vehicle Control Module Type B Variant 3,Ground Vehicles,Medium
-PART-0586,58-107-939-968,Radio Control Head Type C Variant 3,Communications,Mission Critical
-PART-0587,248-190-772-746,Array Panel Segment Heavy Duty Variant 3,Radar,Medium
-PART-0588,841-671-471-888,Fuel Sampling Kit Extended Range Variant 3,Fuel Systems,Low
-PART-0589,181-503-985-182,Thermal Control Valve Field Repair Variant 3,Cooling Systems,Low
-PART-0590,143-712-330-310,Door Seal Strip Depot Level Variant 3,Structural,High
-PART-0591,8-351-257-265,Bleed Valve Mk I Variant 3,Pneumatics,Low
-PART-0592,678-253-255-809,Safety Interlock Switch Mk II Variant 3,Weapons Support,Medium
-PART-0593,142-408-950-408,Humidity Sensor Mk III Variant 3,Sensors,Medium
-PART-0594,807-625-265-272,Life Support Control Panel Type A Variant 3,Life Support,Medium
-PART-0595,59-556-921-462,Safety Wire Spool Type B Variant 3,Maintenance Consumables,Medium
-PART-0596,499-612-19-450,Transmission Control Solenoid Type C Variant 3,Powertrain,Medium
-PART-0597,655-918-851-614,Wheel Cylinder Heavy Duty Variant 3,Braking Systems,Low
-PART-0598,596-23-708-702,Waypoint Control Unit Extended Range Variant 3,Navigation,Medium
-PART-0599,871-637-900-141,Material Handling Roller Field Repair Variant 3,Logistics Equipment,High
-PART-0600,971-7-78-929,System Drive Caddy Depot Level Variant 3,Cyber Systems,High
-PART-0601,486-17-218-995,Hydraulic Seal Kit Mk I Variant 4,Hydraulics,Medium
-PART-0602,973-644-393-916,Wiring Harness Mk II Variant 4,Electrical,Medium
-PART-0603,19-328-432-237,Navigation Control Unit Mk III Variant 4,Avionics,Medium
-PART-0604,198-399-88-557,Fuel Injector Assembly Type A Variant 4,Engines,Low
-PART-0605,812-622-170-300,Track Tensioner Assembly Type B Variant 4,Ground Vehicles,High
-PART-0606,66-704-867-469,Radio Mounting Tray Type C Variant 4,Communications,High
-PART-0607,12-96-121-777,Waveguide Section Heavy Duty Variant 4,Radar,Mission Critical
-PART-0608,843-779-909-287,Fuel Pump Cartridge Extended Range Variant 4,Fuel Systems,Mission Critical
-PART-0609,181-53-133-1000,Cooling Fan Assembly Field Repair Variant 4,Cooling Systems,High
-PART-0610,198-405-895-604,Access Panel Depot Level Variant 4,Structural,High
-PART-0611,885-338-607-199,Air Compressor Valve Mk I Variant 4,Pneumatics,Low
-PART-0612,953-335-442-307,Fire Control Cable Mk II Variant 4,Weapons Support,High
-PART-0613,520-106-944-513,Temperature Probe Mk III Variant 4,Sensors,Medium
-PART-0614,306-916-33-9,Oxygen Hose Assembly Type A Variant 4,Life Support,Medium
-PART-0615,238-199-445-174,Gasket Set Type B Variant 4,Maintenance Consumables,Medium
-PART-0616,678-694-375-752,Drive Shaft Assembly Type C Variant 4,Powertrain,High
-PART-0617,838-221-824-371,Brake Pad Set Heavy Duty Variant 4,Braking Systems,Low
-PART-0618,15-242-120-614,GPS Antenna Extended Range Variant 4,Navigation,High
-PART-0619,785-794-303-199,Cargo Tie-Down Strap Field Repair Variant 4,Logistics Equipment,Mission Critical
-PART-0620,417-353-118-865,Secure Network Card Depot Level Variant 4,Cyber Systems,Medium
-PART-0621,716-502-987-706,Hydraulic Pump Assembly Mk I Variant 4,Hydraulics,Medium
-PART-0622,683-191-337-480,Power Distribution Module Mk II Variant 4,Electrical,Medium
-PART-0623,872-192-290-196,Radar Interface Module Mk III Variant 4,Avionics,High
-PART-0624,250-333-348-161,Turbine Blade Set Type A Variant 4,Engines,Medium
-PART-0625,474-563-697-533,Road Wheel Bearing Type B Variant 4,Ground Vehicles,Medium
-PART-0626,180-534-583-419,Encryption Module Type C Variant 4,Communications,Medium
-PART-0627,383-34-468-894,Radar Cooling Fan Heavy Duty Variant 4,Radar,Low
-PART-0628,828-19-821-442,Fuel Line Assembly Extended Range Variant 4,Fuel Systems,Low
-PART-0629,296-894-920-343,Heat Exchanger Core Field Repair Variant 4,Cooling Systems,Medium
-PART-0630,810-417-8-571,Mounting Bracket Depot Level Variant 4,Structural,High
-PART-0631,536-993-820-41,Pneumatic Hose Kit Mk I Variant 4,Pneumatics,High
-PART-0632,650-789-247-455,Mount Stabilizer Bearing Mk II Variant 4,Weapons Support,Medium
-PART-0633,989-875-989-452,Pressure Transducer Mk III Variant 4,Sensors,Medium
-PART-0634,468-324-970-980,Breathing Regulator Type A Variant 4,Life Support,Medium
-PART-0635,762-707-575-350,O-Ring Assortment Type B Variant 4,Maintenance Consumables,High
-PART-0636,278-262-193-929,Clutch Plate Kit Type C Variant 4,Powertrain,Medium
-PART-0637,219-571-470-999,Brake Rotor Heavy Duty Variant 4,Braking Systems,High
-PART-0638,978-749-368-26,Inertial Measurement Unit Extended Range Variant 4,Navigation,Medium
-PART-0639,311-566-397-667,Pallet Lock Assembly Field Repair Variant 4,Logistics Equipment,Medium
-PART-0640,704-593-56-820,Rugged Server Power Supply Depot Level Variant 4,Cyber Systems,Low
-PART-0641,316-277-798-887,Pressure Relief Valve Mk I Variant 4,Hydraulics,Medium
-PART-0642,879-244-23-537,Circuit Breaker Mk II Variant 4,Electrical,Medium
-PART-0643,405-888-231-242,Signal Processor Card Mk III Variant 4,Avionics,Low
-PART-0644,603-611-983-506,Ignition Exciter Type A Variant 4,Engines,Low
-PART-0645,999-679-814-99,Brake Caliper Kit Type B Variant 4,Ground Vehicles,Medium
-PART-0646,822-193-926-999,Coaxial Cable Assembly Type C Variant 4,Communications,Medium
-PART-0647,380-515-443-786,Receiver Module Heavy Duty Variant 4,Radar,Medium
-PART-0648,178-332-538-936,Fuel Pressure Sensor Extended Range Variant 4,Fuel Systems,Medium
-PART-0649,974-99-346-972,Coolant Pump Field Repair Variant 4,Cooling Systems,High
-PART-0650,835-259-568-514,Frame Reinforcement Plate Depot Level Variant 4,Structural,Medium
-PART-0651,833-294-903-314,Pressure Regulator Mk I Variant 4,Pneumatics,High
-PART-0652,112-612-318-981,Recoil Buffer Seal Mk II Variant 4,Weapons Support,High
-PART-0653,80-439-43-245,Optical Sensor Module Mk III Variant 4,Sensors,Medium
-PART-0654,345-973-945-745,Air Filtration Cartridge Type A Variant 4,Life Support,Medium
-PART-0655,256-395-528-47,Lubricant Pack Type B Variant 4,Maintenance Consumables,Medium
-PART-0656,305-443-312-200,Gearbox Seal Type C Variant 4,Powertrain,High
-PART-0657,108-945-411-719,Hydraulic Brake Line Heavy Duty Variant 4,Braking Systems,Medium
-PART-0658,280-936-306-973,Compass Sensor Extended Range Variant 4,Navigation,Medium
-PART-0659,243-340-161-518,Forklift Chain Field Repair Variant 4,Logistics Equipment,High
-PART-0660,297-113-520-850,Data Storage Module Depot Level Variant 4,Cyber Systems,Low
-PART-0661,838-907-621-300,Actuator Cylinder Mk I Variant 4,Hydraulics,Medium
-PART-0662,811-629-809-603,Voltage Regulator Mk II Variant 4,Electrical,Medium
-PART-0663,7-867-572-680,Flight Data Connector Mk III Variant 4,Avionics,High
-PART-0664,260-50-334-179,Oil Filter Cartridge Type A Variant 4,Engines,Low
-PART-0665,48-932-252-473,Transmission Filter Type B Variant 4,Ground Vehicles,Medium
-PART-0666,533-324-951-127,Antenna Mast Section Type C Variant 4,Communications,Medium
-PART-0667,260-67-419-163,Transmitter Power Supply Heavy Duty Variant 4,Radar,Medium
-PART-0668,537-812-142-113,Fuel Filter Housing Extended Range Variant 4,Fuel Systems,Mission Critical
-PART-0669,836-975-19-676,Thermostat Housing Field Repair Variant 4,Cooling Systems,Medium
-PART-0670,451-335-895-348,Hinge Assembly Depot Level Variant 4,Structural,Medium
-PART-0671,40-81-23-893,Air Dryer Cartridge Mk I Variant 4,Pneumatics,Low
-PART-0672,382-83-465-198,Turret Slip Ring Mk II Variant 4,Weapons Support,Medium
-PART-0673,544-814-821-707,Vibration Sensor Mk III Variant 4,Sensors,Medium
-PART-0674,752-853-106-105,Mask Connector Kit Type A Variant 4,Life Support,High
-PART-0675,826-835-86-428,Threaded Insert Kit Type B Variant 4,Maintenance Consumables,Low
-PART-0676,839-959-442-2,Torque Converter Type C Variant 4,Powertrain,High
-PART-0677,106-647-199-448,Master Cylinder Kit Heavy Duty Variant 4,Braking Systems,Medium
-PART-0678,57-51-876-827,Navigation Display Cable Extended Range Variant 4,Navigation,High
-PART-0679,318-649-605-229,Container Latch Field Repair Variant 4,Logistics Equipment,Medium
-PART-0680,896-525-484-972,Firewall Appliance Fan Depot Level Variant 4,Cyber Systems,Medium
-PART-0681,209-440-572-53,Hydraulic Hose Assembly Mk I Variant 4,Hydraulics,Medium
-PART-0682,986-593-898-437,Battery Cable Assembly Mk II Variant 4,Electrical,Low
-PART-0683,345-731-108-352,Antenna Coupler Mk III Variant 4,Avionics,High
-PART-0684,561-534-734-424,Compressor Seal Type A Variant 4,Engines,Medium
-PART-0685,79-838-599-189,Steering Linkage Type B Variant 4,Ground Vehicles,Medium
-PART-0686,163-304-828-709,Handset Assembly Type C Variant 4,Communications,High
-PART-0687,1000-462-22-667,Phase Shifter Unit Heavy Duty Variant 4,Radar,Medium
-PART-0688,447-583-799-980,Refueling Adapter Extended Range Variant 4,Fuel Systems,Medium
-PART-0689,574-673-533-613,Radiator Hose Kit Field Repair Variant 4,Cooling Systems,Low
-PART-0690,299-69-937-971,Fastener Kit Depot Level Variant 4,Structural,Medium
-PART-0691,900-342-312-210,Pneumatic Actuator Mk I Variant 4,Pneumatics,High
-PART-0692,35-419-17-959,Elevation Drive Motor Mk II Variant 4,Weapons Support,Mission Critical
-PART-0693,0-824-681-705,Position Encoder Mk III Variant 4,Sensors,Low
-PART-0694,600-942-280-456,Pressure Bottle Valve Type A Variant 4,Life Support,Mission Critical
-PART-0695,722-862-273-821,Adhesive Sealant Tube Type B Variant 4,Maintenance Consumables,Low
-PART-0696,975-786-910-97,Transfer Case Chain Type C Variant 4,Powertrain,High
-PART-0697,17-822-679-288,Parking Brake Cable Heavy Duty Variant 4,Braking Systems,High
-PART-0698,534-512-602-76,Position Reference Module Extended Range Variant 4,Navigation,Medium
-PART-0699,909-535-928-953,Load Sensor Pad Field Repair Variant 4,Logistics Equipment,Low
-PART-0700,754-251-55-19,Crypto Key Loader Cable Depot Level Variant 4,Cyber Systems,High
-PART-0701,174-11-206-132,Fluid Reservoir Cap Mk I Variant 4,Hydraulics,Mission Critical
-PART-0702,868-921-771-555,Terminal Block Mk II Variant 4,Electrical,Medium
-PART-0703,258-289-670-197,Transponder Module Mk III Variant 4,Avionics,Medium
-PART-0704,738-483-830-493,Engine Mount Bracket Type A Variant 4,Engines,Low
-PART-0705,95-830-132-150,Axle Seal Type B Variant 4,Ground Vehicles,Medium
-PART-0706,284-728-67-740,Signal Amplifier Type C Variant 4,Communications,Medium
-PART-0707,146-964-704-902,Antenna Drive Motor Heavy Duty Variant 4,Radar,High
-PART-0708,686-171-0-61,Fuel Shutoff Valve Extended Range Variant 4,Fuel Systems,High
-PART-0709,208-667-916-258,Temperature Sensor Field Repair Variant 4,Cooling Systems,Medium
-PART-0710,964-764-222-964,Support Strut Depot Level Variant 4,Structural,Mission Critical
-PART-0711,404-593-750-412,Quick Release Valve Mk I Variant 4,Pneumatics,Mission Critical
-PART-0712,781-295-605-413,Sight Mount Bracket Mk II Variant 4,Weapons Support,Low
-PART-0713,751-953-270-787,Proximity Switch Mk III Variant 4,Sensors,Medium
-PART-0714,652-628-578-351,Cabin Air Duct Type A Variant 4,Life Support,Medium
-PART-0715,11-640-601-117,Cleaning Solvent Kit Type B Variant 4,Maintenance Consumables,High
-PART-0716,958-429-905-998,Engine Coupling Type C Variant 4,Powertrain,Medium
-PART-0717,760-640-73-305,ABS Sensor Heavy Duty Variant 4,Braking Systems,Low
-PART-0718,566-151-499-969,Map Data Cartridge Extended Range Variant 4,Navigation,Low
-PART-0719,569-494-12-134,Tow Bar Pin Field Repair Variant 4,Logistics Equipment,High
-PART-0720,890-745-479-678,Network Switch Module Depot Level Variant 4,Cyber Systems,Mission Critical
-PART-0721,409-282-442-966,Hydraulic Filter Element Mk I Variant 4,Hydraulics,High
-PART-0722,756-231-127-86,Relay Module Mk II Variant 4,Electrical,Medium
-PART-0723,655-961-589-437,Mission Computer Card Mk III Variant 4,Avionics,High
-PART-0724,567-291-600-224,Fuel Control Valve Type A Variant 4,Engines,Low
-PART-0725,285-662-21-247,Suspension Arm Type B Variant 4,Ground Vehicles,High
-PART-0726,249-512-439-136,Frequency Selector Unit Type C Variant 4,Communications,Medium
-PART-0727,934-784-373-434,Signal Conditioning Board Heavy Duty Variant 4,Radar,Medium
-PART-0728,53-965-233-950,Fuel Tank Vent Extended Range Variant 4,Fuel Systems,High
-PART-0729,786-581-200-534,Expansion Tank Field Repair Variant 4,Cooling Systems,Low
-PART-0730,68-768-834-535,Bulkhead Repair Panel Depot Level Variant 4,Structural,Medium
-PART-0731,373-420-811-516,Air Reservoir Fitting Mk I Variant 4,Pneumatics,High
-PART-0732,988-481-778-916,Ammunition Feed Guide Mk II Variant 4,Weapons Support,Medium
-PART-0733,198-842-595-449,Infrared Detector Mk III Variant 4,Sensors,High
-PART-0734,925-394-350-215,Emergency Oxygen Valve Type A Variant 4,Life Support,Low
-PART-0735,416-966-646-402,Grease Cartridge Type B Variant 4,Maintenance Consumables,Low
-PART-0736,708-592-878-644,Universal Joint Type C Variant 4,Powertrain,High
-PART-0737,486-651-116-865,Brake Booster Valve Heavy Duty Variant 4,Braking Systems,Low
-PART-0738,550-428-828-266,Heading Processor Extended Range Variant 4,Navigation,High
-PART-0739,391-6-653-267,Lift Cylinder Seal Field Repair Variant 4,Logistics Equipment,High
-PART-0740,890-49-986-661,Fiber Patch Cable Depot Level Variant 4,Cyber Systems,Mission Critical
-PART-0741,502-606-444-296,Servo Valve Mk I Variant 4,Hydraulics,Low
-PART-0742,122-393-888-877,Connector Kit Mk II Variant 4,Electrical,High
-PART-0743,767-836-862-286,Display Control Panel Mk III Variant 4,Avionics,Mission Critical
-PART-0744,405-37-24-964,Starter Generator Type A Variant 4,Engines,High
-PART-0745,738-92-524-415,Differential Gear Set Type B Variant 4,Ground Vehicles,Medium
-PART-0746,651-888-418-671,Comms Power Adapter Type C Variant 4,Communications,High
-PART-0747,701-632-202-274,RF Cable Assembly Heavy Duty Variant 4,Radar,High
-PART-0748,775-134-353-195,Fuel Metering Unit Extended Range Variant 4,Fuel Systems,Low
-PART-0749,908-596-208-788,Fan Drive Belt Field Repair Variant 4,Cooling Systems,Mission Critical
-PART-0750,903-31-47-345,Latch Mechanism Depot Level Variant 4,Structural,Low
-PART-0751,327-1-63-906,Control Manifold Mk I Variant 4,Pneumatics,Medium
-PART-0752,267-452-256-393,Trigger Control Module Mk II Variant 4,Weapons Support,Medium
-PART-0753,722-669-281-287,Flow Sensor Mk III Variant 4,Sensors,Medium
-PART-0754,572-186-203-673,CO2 Scrubber Cartridge Type A Variant 4,Life Support,Medium
-PART-0755,971-735-311-918,Anti-Seize Compound Type B Variant 4,Maintenance Consumables,Medium
-PART-0756,431-826-729-783,Final Drive Gear Type C Variant 4,Powertrain,Medium
-PART-0757,908-97-17-537,Caliper Piston Seal Heavy Duty Variant 4,Braking Systems,Mission Critical
-PART-0758,623-228-997-461,Timing Receiver Extended Range Variant 4,Navigation,Low
-PART-0759,226-666-51-385,Dock Ramp Hinge Field Repair Variant 4,Logistics Equipment,Medium
-PART-0760,116-747-857-551,Access Control Reader Depot Level Variant 4,Cyber Systems,Low
-PART-0761,106-266-16-264,Pump Drive Coupling Mk I Variant 4,Hydraulics,Low
-PART-0762,44-871-618-592,Ground Strap Mk II Variant 4,Electrical,Mission Critical
-PART-0763,580-744-421-890,Sensor Interface Board Mk III Variant 4,Avionics,Low
-PART-0764,441-426-991-570,Exhaust Clamp Type A Variant 4,Engines,High
-PART-0765,621-571-173-400,Fuel Tank Sender Type B Variant 4,Ground Vehicles,Medium
-PART-0766,882-58-105-808,Audio Interface Cable Type C Variant 4,Communications,High
-PART-0767,710-817-994-971,Radar Processor Card Heavy Duty Variant 4,Radar,Mission Critical
-PART-0768,517-830-557-421,Quick Disconnect Coupler Extended Range Variant 4,Fuel Systems,High
-PART-0769,277-831-858-551,Coolant Filter Field Repair Variant 4,Cooling Systems,High
-PART-0770,48-357-222-334,Armor Panel Insert Depot Level Variant 4,Structural,Medium
-PART-0771,61-624-182-624,Pressure Gauge Mk I Variant 4,Pneumatics,High
-PART-0772,159-234-749-399,Traverse Gear Set Mk II Variant 4,Weapons Support,Medium
-PART-0773,667-652-475-674,Gyro Sensor Assembly Mk III Variant 4,Sensors,Medium
-PART-0774,65-793-261-880,Ventilation Fan Type A Variant 4,Life Support,High
-PART-0775,368-444-505-519,Protective Cap Set Type B Variant 4,Maintenance Consumables,High
-PART-0776,918-498-191-382,Powertrain Mount Type C Variant 4,Powertrain,High
-PART-0777,263-180-627-11,Brake Fluid Reservoir Heavy Duty Variant 4,Braking Systems,High
-PART-0778,402-296-628-765,Navigation Switch Panel Extended Range Variant 4,Navigation,High
-PART-0779,632-695-904-505,Cargo Net Kit Field Repair Variant 4,Logistics Equipment,High
-PART-0780,145-823-607-12,Rugged Tablet Battery Depot Level Variant 4,Cyber Systems,Medium
-PART-0781,511-773-349-892,Return Line Fitting Mk I Variant 4,Hydraulics,Medium
-PART-0782,242-934-938-887,Load Center Panel Mk II Variant 4,Electrical,Medium
-PART-0783,501-287-483-405,Data Bus Adapter Mk III Variant 4,Avionics,Medium
-PART-0784,635-686-46-475,Combustion Liner Type A Variant 4,Engines,Medium
-PART-0785,726-716-289-449,Vehicle Control Module Type B Variant 4,Ground Vehicles,Low
-PART-0786,726-0-688-733,Radio Control Head Type C Variant 4,Communications,Medium
-PART-0787,653-859-954-836,Array Panel Segment Heavy Duty Variant 4,Radar,Medium
-PART-0788,109-742-55-499,Fuel Sampling Kit Extended Range Variant 4,Fuel Systems,Medium
-PART-0789,441-865-234-58,Thermal Control Valve Field Repair Variant 4,Cooling Systems,Medium
-PART-0790,445-160-182-187,Door Seal Strip Depot Level Variant 4,Structural,High
-PART-0791,769-279-714-225,Bleed Valve Mk I Variant 4,Pneumatics,Medium
-PART-0792,387-417-844-40,Safety Interlock Switch Mk II Variant 4,Weapons Support,High
-PART-0793,559-286-943-59,Humidity Sensor Mk III Variant 4,Sensors,High
-PART-0794,960-23-969-387,Life Support Control Panel Type A Variant 4,Life Support,Low
-PART-0795,810-635-357-595,Safety Wire Spool Type B Variant 4,Maintenance Consumables,Medium
-PART-0796,848-78-800-640,Transmission Control Solenoid Type C Variant 4,Powertrain,High
-PART-0797,193-905-511-591,Wheel Cylinder Heavy Duty Variant 4,Braking Systems,Medium
-PART-0798,980-740-331-755,Waypoint Control Unit Extended Range Variant 4,Navigation,Medium
-PART-0799,43-47-343-675,Material Handling Roller Field Repair Variant 4,Logistics Equipment,Low
-PART-0800,737-760-881-199,System Drive Caddy Depot Level Variant 4,Cyber Systems,Medium
-PART-0801,319-144-837-634,Hydraulic Seal Kit Mk I Variant 5,Hydraulics,Medium
-PART-0802,860-262-394-605,Wiring Harness Mk II Variant 5,Electrical,Low
-PART-0803,960-739-352-738,Navigation Control Unit Mk III Variant 5,Avionics,High
-PART-0804,106-407-648-295,Fuel Injector Assembly Type A Variant 5,Engines,High
-PART-0805,298-875-207-935,Track Tensioner Assembly Type B Variant 5,Ground Vehicles,High
-PART-0806,535-623-176-402,Radio Mounting Tray Type C Variant 5,Communications,High
-PART-0807,656-244-929-72,Waveguide Section Heavy Duty Variant 5,Radar,High
-PART-0808,194-596-487-169,Fuel Pump Cartridge Extended Range Variant 5,Fuel Systems,High
-PART-0809,729-554-644-394,Cooling Fan Assembly Field Repair Variant 5,Cooling Systems,High
-PART-0810,215-16-790-857,Access Panel Depot Level Variant 5,Structural,Mission Critical
-PART-0811,400-401-250-32,Air Compressor Valve Mk I Variant 5,Pneumatics,Medium
-PART-0812,222-361-565-652,Fire Control Cable Mk II Variant 5,Weapons Support,Medium
-PART-0813,7-391-7-405,Temperature Probe Mk III Variant 5,Sensors,Mission Critical
-PART-0814,577-752-522-547,Oxygen Hose Assembly Type A Variant 5,Life Support,Low
-PART-0815,876-152-205-80,Gasket Set Type B Variant 5,Maintenance Consumables,Medium
-PART-0816,704-71-987-95,Drive Shaft Assembly Type C Variant 5,Powertrain,Low
-PART-0817,315-88-251-812,Brake Pad Set Heavy Duty Variant 5,Braking Systems,Medium
-PART-0818,609-633-900-855,GPS Antenna Extended Range Variant 5,Navigation,Low
-PART-0819,88-453-40-188,Cargo Tie-Down Strap Field Repair Variant 5,Logistics Equipment,Medium
-PART-0820,824-748-389-458,Secure Network Card Depot Level Variant 5,Cyber Systems,Medium
-PART-0821,673-60-318-167,Hydraulic Pump Assembly Mk I Variant 5,Hydraulics,High
-PART-0822,779-39-227-840,Power Distribution Module Mk II Variant 5,Electrical,Low
-PART-0823,449-579-961-279,Radar Interface Module Mk III Variant 5,Avionics,Low
-PART-0824,918-878-512-853,Turbine Blade Set Type A Variant 5,Engines,Medium
-PART-0825,262-663-54-307,Road Wheel Bearing Type B Variant 5,Ground Vehicles,High
-PART-0826,356-408-244-832,Encryption Module Type C Variant 5,Communications,Low
-PART-0827,216-947-178-867,Radar Cooling Fan Heavy Duty Variant 5,Radar,Low
-PART-0828,892-385-331-665,Fuel Line Assembly Extended Range Variant 5,Fuel Systems,High
-PART-0829,313-167-23-804,Heat Exchanger Core Field Repair Variant 5,Cooling Systems,High
-PART-0830,777-343-468-297,Mounting Bracket Depot Level Variant 5,Structural,High
-PART-0831,690-724-236-507,Pneumatic Hose Kit Mk I Variant 5,Pneumatics,Medium
-PART-0832,612-659-6-685,Mount Stabilizer Bearing Mk II Variant 5,Weapons Support,Mission Critical
-PART-0833,724-921-496-703,Pressure Transducer Mk III Variant 5,Sensors,Medium
-PART-0834,829-828-640-296,Breathing Regulator Type A Variant 5,Life Support,Medium
-PART-0835,192-480-914-122,O-Ring Assortment Type B Variant 5,Maintenance Consumables,Medium
-PART-0836,708-731-619-131,Clutch Plate Kit Type C Variant 5,Powertrain,High
-PART-0837,720-472-220-896,Brake Rotor Heavy Duty Variant 5,Braking Systems,Medium
-PART-0838,153-626-806-976,Inertial Measurement Unit Extended Range Variant 5,Navigation,Medium
-PART-0839,991-31-424-633,Pallet Lock Assembly Field Repair Variant 5,Logistics Equipment,Mission Critical
-PART-0840,954-932-189-536,Rugged Server Power Supply Depot Level Variant 5,Cyber Systems,Low
-PART-0841,376-316-886-608,Pressure Relief Valve Mk I Variant 5,Hydraulics,Medium
-PART-0842,463-394-319-476,Circuit Breaker Mk II Variant 5,Electrical,Low
-PART-0843,963-602-191-94,Signal Processor Card Mk III Variant 5,Avionics,Medium
-PART-0844,623-528-590-758,Ignition Exciter Type A Variant 5,Engines,Medium
-PART-0845,915-615-75-363,Brake Caliper Kit Type B Variant 5,Ground Vehicles,Mission Critical
-PART-0846,405-90-23-678,Coaxial Cable Assembly Type C Variant 5,Communications,Medium
-PART-0847,143-169-599-532,Receiver Module Heavy Duty Variant 5,Radar,Low
-PART-0848,851-849-227-271,Fuel Pressure Sensor Extended Range Variant 5,Fuel Systems,High
-PART-0849,550-518-454-842,Coolant Pump Field Repair Variant 5,Cooling Systems,Medium
-PART-0850,572-624-375-934,Frame Reinforcement Plate Depot Level Variant 5,Structural,Medium
-PART-0851,101-766-752-501,Pressure Regulator Mk I Variant 5,Pneumatics,Medium
-PART-0852,48-511-819-512,Recoil Buffer Seal Mk II Variant 5,Weapons Support,High
-PART-0853,391-219-223-784,Optical Sensor Module Mk III Variant 5,Sensors,Mission Critical
-PART-0854,407-145-962-70,Air Filtration Cartridge Type A Variant 5,Life Support,Medium
-PART-0855,21-479-124-944,Lubricant Pack Type B Variant 5,Maintenance Consumables,Mission Critical
-PART-0856,115-229-481-655,Gearbox Seal Type C Variant 5,Powertrain,Low
-PART-0857,718-435-2-738,Hydraulic Brake Line Heavy Duty Variant 5,Braking Systems,High
-PART-0858,313-130-775-716,Compass Sensor Extended Range Variant 5,Navigation,Medium
-PART-0859,76-676-515-552,Forklift Chain Field Repair Variant 5,Logistics Equipment,High
-PART-0860,138-576-31-337,Data Storage Module Depot Level Variant 5,Cyber Systems,Medium
-PART-0861,469-144-628-438,Actuator Cylinder Mk I Variant 5,Hydraulics,Medium
-PART-0862,882-520-381-795,Voltage Regulator Mk II Variant 5,Electrical,High
-PART-0863,864-500-402-349,Flight Data Connector Mk III Variant 5,Avionics,Low
-PART-0864,200-525-993-441,Oil Filter Cartridge Type A Variant 5,Engines,Medium
-PART-0865,499-985-998-877,Transmission Filter Type B Variant 5,Ground Vehicles,Medium
-PART-0866,766-24-678-925,Antenna Mast Section Type C Variant 5,Communications,Medium
-PART-0867,591-439-857-891,Transmitter Power Supply Heavy Duty Variant 5,Radar,High
-PART-0868,696-790-187-739,Fuel Filter Housing Extended Range Variant 5,Fuel Systems,High
-PART-0869,753-58-289-789,Thermostat Housing Field Repair Variant 5,Cooling Systems,Mission Critical
-PART-0870,513-803-362-343,Hinge Assembly Depot Level Variant 5,Structural,Mission Critical
-PART-0871,351-667-709-992,Air Dryer Cartridge Mk I Variant 5,Pneumatics,Medium
-PART-0872,221-446-655-545,Turret Slip Ring Mk II Variant 5,Weapons Support,Medium
-PART-0873,472-433-523-117,Vibration Sensor Mk III Variant 5,Sensors,Medium
-PART-0874,999-606-495-597,Mask Connector Kit Type A Variant 5,Life Support,Low
-PART-0875,898-625-231-367,Threaded Insert Kit Type B Variant 5,Maintenance Consumables,Low
-PART-0876,105-545-883-185,Torque Converter Type C Variant 5,Powertrain,Medium
-PART-0877,901-340-746-617,Master Cylinder Kit Heavy Duty Variant 5,Braking Systems,High
-PART-0878,435-718-714-310,Navigation Display Cable Extended Range Variant 5,Navigation,Medium
-PART-0879,592-356-584-591,Container Latch Field Repair Variant 5,Logistics Equipment,High
-PART-0880,717-824-255-490,Firewall Appliance Fan Depot Level Variant 5,Cyber Systems,Medium
-PART-0881,43-160-155-760,Hydraulic Hose Assembly Mk I Variant 5,Hydraulics,Medium
-PART-0882,876-537-324-205,Battery Cable Assembly Mk II Variant 5,Electrical,Low
-PART-0883,71-811-475-707,Antenna Coupler Mk III Variant 5,Avionics,Medium
-PART-0884,696-414-697-157,Compressor Seal Type A Variant 5,Engines,High
-PART-0885,137-936-100-64,Steering Linkage Type B Variant 5,Ground Vehicles,High
-PART-0886,858-805-128-343,Handset Assembly Type C Variant 5,Communications,High
-PART-0887,531-436-591-982,Phase Shifter Unit Heavy Duty Variant 5,Radar,Low
-PART-0888,2-534-641-25,Refueling Adapter Extended Range Variant 5,Fuel Systems,Medium
-PART-0889,548-892-744-36,Radiator Hose Kit Field Repair Variant 5,Cooling Systems,Low
-PART-0890,904-226-732-593,Fastener Kit Depot Level Variant 5,Structural,Low
-PART-0891,362-735-385-771,Pneumatic Actuator Mk I Variant 5,Pneumatics,High
-PART-0892,766-409-900-355,Elevation Drive Motor Mk II Variant 5,Weapons Support,Medium
-PART-0893,295-736-610-599,Position Encoder Mk III Variant 5,Sensors,High
-PART-0894,432-466-889-914,Pressure Bottle Valve Type A Variant 5,Life Support,High
-PART-0895,308-384-379-731,Adhesive Sealant Tube Type B Variant 5,Maintenance Consumables,Medium
-PART-0896,312-276-989-563,Transfer Case Chain Type C Variant 5,Powertrain,Medium
-PART-0897,116-986-765-446,Parking Brake Cable Heavy Duty Variant 5,Braking Systems,Medium
-PART-0898,70-261-485-481,Position Reference Module Extended Range Variant 5,Navigation,Medium
-PART-0899,643-476-728-820,Load Sensor Pad Field Repair Variant 5,Logistics Equipment,Low
-PART-0900,54-815-100-636,Crypto Key Loader Cable Depot Level Variant 5,Cyber Systems,Medium
-PART-0901,901-798-196-561,Fluid Reservoir Cap Mk I Variant 5,Hydraulics,High
-PART-0902,989-776-986-49,Terminal Block Mk II Variant 5,Electrical,Medium
-PART-0903,767-758-754-961,Transponder Module Mk III Variant 5,Avionics,Low
-PART-0904,262-213-935-696,Engine Mount Bracket Type A Variant 5,Engines,Mission Critical
-PART-0905,101-844-865-492,Axle Seal Type B Variant 5,Ground Vehicles,Low
-PART-0906,714-415-485-193,Signal Amplifier Type C Variant 5,Communications,High
-PART-0907,429-657-258-229,Antenna Drive Motor Heavy Duty Variant 5,Radar,High
-PART-0908,537-645-899-436,Fuel Shutoff Valve Extended Range Variant 5,Fuel Systems,Medium
-PART-0909,388-224-22-921,Temperature Sensor Field Repair Variant 5,Cooling Systems,Mission Critical
-PART-0910,261-12-765-818,Support Strut Depot Level Variant 5,Structural,High
-PART-0911,777-624-688-513,Quick Release Valve Mk I Variant 5,Pneumatics,Mission Critical
-PART-0912,752-850-243-798,Sight Mount Bracket Mk II Variant 5,Weapons Support,Low
-PART-0913,983-920-542-641,Proximity Switch Mk III Variant 5,Sensors,Medium
-PART-0914,561-370-670-105,Cabin Air Duct Type A Variant 5,Life Support,Medium
-PART-0915,671-520-652-749,Cleaning Solvent Kit Type B Variant 5,Maintenance Consumables,Medium
-PART-0916,458-43-373-637,Engine Coupling Type C Variant 5,Powertrain,Low
-PART-0917,99-463-128-611,ABS Sensor Heavy Duty Variant 5,Braking Systems,Low
-PART-0918,78-29-655-720,Map Data Cartridge Extended Range Variant 5,Navigation,Low
-PART-0919,502-459-740-595,Tow Bar Pin Field Repair Variant 5,Logistics Equipment,High
-PART-0920,964-0-318-491,Network Switch Module Depot Level Variant 5,Cyber Systems,High
-PART-0921,574-470-205-125,Hydraulic Filter Element Mk I Variant 5,Hydraulics,Low
-PART-0922,133-942-337-390,Relay Module Mk II Variant 5,Electrical,Medium
-PART-0923,607-269-907-901,Mission Computer Card Mk III Variant 5,Avionics,High
-PART-0924,245-746-407-460,Fuel Control Valve Type A Variant 5,Engines,Low
-PART-0925,73-604-80-440,Suspension Arm Type B Variant 5,Ground Vehicles,Mission Critical
-PART-0926,363-421-334-717,Frequency Selector Unit Type C Variant 5,Communications,Low
-PART-0927,529-243-11-810,Signal Conditioning Board Heavy Duty Variant 5,Radar,Mission Critical
-PART-0928,508-882-136-813,Fuel Tank Vent Extended Range Variant 5,Fuel Systems,High
-PART-0929,101-547-96-232,Expansion Tank Field Repair Variant 5,Cooling Systems,Medium
-PART-0930,948-481-244-236,Bulkhead Repair Panel Depot Level Variant 5,Structural,Mission Critical
-PART-0931,916-804-577-655,Air Reservoir Fitting Mk I Variant 5,Pneumatics,High
-PART-0932,651-371-501-725,Ammunition Feed Guide Mk II Variant 5,Weapons Support,High
-PART-0933,487-962-759-603,Infrared Detector Mk III Variant 5,Sensors,Mission Critical
-PART-0934,45-349-564-237,Emergency Oxygen Valve Type A Variant 5,Life Support,Low
-PART-0935,349-224-431-798,Grease Cartridge Type B Variant 5,Maintenance Consumables,Mission Critical
-PART-0936,670-148-873-358,Universal Joint Type C Variant 5,Powertrain,Medium
-PART-0937,455-865-182-579,Brake Booster Valve Heavy Duty Variant 5,Braking Systems,Medium
-PART-0938,933-459-623-128,Heading Processor Extended Range Variant 5,Navigation,Low
-PART-0939,14-346-533-525,Lift Cylinder Seal Field Repair Variant 5,Logistics Equipment,High
-PART-0940,36-719-565-940,Fiber Patch Cable Depot Level Variant 5,Cyber Systems,High
-PART-0941,943-109-829-222,Servo Valve Mk I Variant 5,Hydraulics,Low
-PART-0942,476-149-825-204,Connector Kit Mk II Variant 5,Electrical,Low
-PART-0943,555-999-812-549,Display Control Panel Mk III Variant 5,Avionics,Mission Critical
-PART-0944,519-542-416-791,Starter Generator Type A Variant 5,Engines,Medium
-PART-0945,287-437-781-647,Differential Gear Set Type B Variant 5,Ground Vehicles,High
-PART-0946,174-74-794-250,Comms Power Adapter Type C Variant 5,Communications,Mission Critical
-PART-0947,856-117-622-591,RF Cable Assembly Heavy Duty Variant 5,Radar,Low
-PART-0948,960-604-138-116,Fuel Metering Unit Extended Range Variant 5,Fuel Systems,High
-PART-0949,232-440-386-816,Fan Drive Belt Field Repair Variant 5,Cooling Systems,Medium
-PART-0950,891-304-36-270,Latch Mechanism Depot Level Variant 5,Structural,Medium
-PART-0951,82-114-903-614,Control Manifold Mk I Variant 5,Pneumatics,High
-PART-0952,393-550-993-7,Trigger Control Module Mk II Variant 5,Weapons Support,High
-PART-0953,773-840-688-614,Flow Sensor Mk III Variant 5,Sensors,Mission Critical
-PART-0954,654-995-372-986,CO2 Scrubber Cartridge Type A Variant 5,Life Support,Medium
-PART-0955,367-566-865-741,Anti-Seize Compound Type B Variant 5,Maintenance Consumables,High
-PART-0956,293-942-546-404,Final Drive Gear Type C Variant 5,Powertrain,High
-PART-0957,83-473-869-458,Caliper Piston Seal Heavy Duty Variant 5,Braking Systems,Medium
-PART-0958,968-187-47-735,Timing Receiver Extended Range Variant 5,Navigation,Medium
-PART-0959,656-679-531-483,Dock Ramp Hinge Field Repair Variant 5,Logistics Equipment,Medium
-PART-0960,625-907-304-278,Access Control Reader Depot Level Variant 5,Cyber Systems,High
-PART-0961,796-729-785-592,Pump Drive Coupling Mk I Variant 5,Hydraulics,Medium
-PART-0962,573-388-435-537,Ground Strap Mk II Variant 5,Electrical,Medium
-PART-0963,295-918-155-137,Sensor Interface Board Mk III Variant 5,Avionics,Medium
-PART-0964,912-33-26-629,Exhaust Clamp Type A Variant 5,Engines,High
-PART-0965,257-387-572-882,Fuel Tank Sender Type B Variant 5,Ground Vehicles,Medium
-PART-0966,584-485-279-433,Audio Interface Cable Type C Variant 5,Communications,Low
-PART-0967,102-622-258-58,Radar Processor Card Heavy Duty Variant 5,Radar,High
-PART-0968,832-761-603-627,Quick Disconnect Coupler Extended Range Variant 5,Fuel Systems,High
-PART-0969,250-47-34-538,Coolant Filter Field Repair Variant 5,Cooling Systems,Medium
-PART-0970,2-756-753-447,Armor Panel Insert Depot Level Variant 5,Structural,Low
-PART-0971,650-76-48-941,Pressure Gauge Mk I Variant 5,Pneumatics,Medium
-PART-0972,62-223-876-925,Traverse Gear Set Mk II Variant 5,Weapons Support,Low
-PART-0973,518-163-167-620,Gyro Sensor Assembly Mk III Variant 5,Sensors,High
-PART-0974,404-326-546-964,Ventilation Fan Type A Variant 5,Life Support,Mission Critical
-PART-0975,328-831-756-761,Protective Cap Set Type B Variant 5,Maintenance Consumables,Medium
-PART-0976,535-532-313-475,Powertrain Mount Type C Variant 5,Powertrain,Mission Critical
-PART-0977,421-468-755-513,Brake Fluid Reservoir Heavy Duty Variant 5,Braking Systems,Mission Critical
-PART-0978,374-504-565-918,Navigation Switch Panel Extended Range Variant 5,Navigation,Medium
-PART-0979,533-478-625-438,Cargo Net Kit Field Repair Variant 5,Logistics Equipment,Medium
-PART-0980,451-276-627-850,Rugged Tablet Battery Depot Level Variant 5,Cyber Systems,Medium
-PART-0981,995-582-385-316,Return Line Fitting Mk I Variant 5,Hydraulics,High
-PART-0982,243-156-167-462,Load Center Panel Mk II Variant 5,Electrical,High
-PART-0983,492-703-592-931,Data Bus Adapter Mk III Variant 5,Avionics,High
-PART-0984,347-192-796-921,Combustion Liner Type A Variant 5,Engines,Low
-PART-0985,927-156-363-881,Vehicle Control Module Type B Variant 5,Ground Vehicles,Medium
-PART-0986,23-234-436-526,Radio Control Head Type C Variant 5,Communications,Medium
-PART-0987,766-79-324-915,Array Panel Segment Heavy Duty Variant 5,Radar,High
-PART-0988,795-946-648-637,Fuel Sampling Kit Extended Range Variant 5,Fuel Systems,Medium
-PART-0989,402-61-793-891,Thermal Control Valve Field Repair Variant 5,Cooling Systems,Medium
-PART-0990,646-573-355-944,Door Seal Strip Depot Level Variant 5,Structural,Medium
-PART-0991,253-366-242-170,Bleed Valve Mk I Variant 5,Pneumatics,High
-PART-0992,467-197-875-221,Safety Interlock Switch Mk II Variant 5,Weapons Support,High
-PART-0993,536-593-368-493,Humidity Sensor Mk III Variant 5,Sensors,Medium
-PART-0994,321-255-866-992,Life Support Control Panel Type A Variant 5,Life Support,Medium
-PART-0995,17-896-759-183,Safety Wire Spool Type B Variant 5,Maintenance Consumables,Low
-PART-0996,832-623-109-713,Transmission Control Solenoid Type C Variant 5,Powertrain,Mission Critical
-PART-0997,265-400-81-790,Wheel Cylinder Heavy Duty Variant 5,Braking Systems,Low
-PART-0998,566-974-291-149,Waypoint Control Unit Extended Range Variant 5,Navigation,Mission Critical
-PART-0999,930-817-185-177,Material Handling Roller Field Repair Variant 5,Logistics Equipment,Low
-PART-1000,266-591-247-328,System Drive Caddy Depot Level Variant 5,Cyber Systems,Medium
+PART-0001,651-980-428-166,Hydraulic Seal Kit Mk I,Hydraulics,High
+PART-0002,37-4-919-451,Wiring Harness Mk II,Electrical,Medium
+PART-0003,484-147-164-211,Navigation Control Unit Mk III,Avionics,Medium
+PART-0004,328-462-331-140,Fuel Injector Assembly Type A,Engines,Low
+PART-0005,471-218-171-612,Track Tensioner Assembly Type B,Ground Vehicles,Mission Critical
+PART-0006,753-925-541-916,Radio Mounting Tray Type C,Communications,Medium
+PART-0007,645-236-543-771,Waveguide Section Heavy Duty,Radar,Medium
+PART-0008,477-7-587-82,Fuel Pump Cartridge Extended Range,Fuel Systems,High
+PART-0009,201-247-560-13,Cooling Fan Assembly Field Repair,Cooling Systems,High
+PART-0010,76-844-412-582,Access Panel Depot Level,Structural,Low
+PART-0011,321-926-945-232,Air Compressor Valve Mk I,Pneumatics,Medium
+PART-0012,107-638-55-892,Fire Control Cable Mk II,Weapons Support,High
+PART-0013,593-652-917-578,Temperature Probe Mk III,Sensors,High
+PART-0014,831-543-17-898,Oxygen Hose Assembly Type A,Life Support,Medium
+PART-0015,733-983-118-560,Gasket Set Type B,Maintenance Consumables,Medium
+PART-0016,436-646-1-225,Drive Shaft Assembly Type C,Powertrain,Medium
+PART-0017,677-458-603-597,Brake Pad Set Heavy Duty,Braking Systems,High
+PART-0018,372-185-825-233,GPS Antenna Extended Range,Navigation,Medium
+PART-0019,297-455-230-633,Cargo Tie-Down Strap Field Repair,Logistics Equipment,High
+PART-0020,962-190-221-675,Secure Network Card Depot Level,Cyber Systems,Low
+PART-0021,432-393-275-775,Hydraulic Pump Assembly Mk I,Hydraulics,Low
+PART-0022,83-771-276-669,Power Distribution Module Mk II,Electrical,Medium
+PART-0023,472-166-572-586,Radar Interface Module Mk III,Avionics,Medium
+PART-0024,674-89-184-108,Turbine Blade Set Type A,Engines,Medium
+PART-0025,729-9-810-593,Road Wheel Bearing Type B,Ground Vehicles,Medium
+PART-0026,285-411-271-168,Encryption Module Type C,Communications,Medium
+PART-0027,797-45-107-748,Radar Cooling Fan Heavy Duty,Radar,Medium
+PART-0028,270-667-218-919,Fuel Line Assembly Extended Range,Fuel Systems,Medium
+PART-0029,729-339-652-839,Heat Exchanger Core Field Repair,Cooling Systems,High
+PART-0030,277-437-889-669,Mounting Bracket Depot Level,Structural,Medium
+PART-0031,104-231-217-929,Pneumatic Hose Kit Mk I,Pneumatics,High
+PART-0032,620-976-245-550,Mount Stabilizer Bearing Mk II,Weapons Support,Mission Critical
+PART-0033,767-298-647-820,Pressure Transducer Mk III,Sensors,Medium
+PART-0034,324-574-590-458,Breathing Regulator Type A,Life Support,Mission Critical
+PART-0035,798-393-644-911,O-Ring Assortment Type B,Maintenance Consumables,Medium
+PART-0036,54-885-343-125,Clutch Plate Kit Type C,Powertrain,High
+PART-0037,921-850-691-875,Brake Rotor Heavy Duty,Braking Systems,High
+PART-0038,428-422-746-354,Inertial Measurement Unit Extended Range,Navigation,Medium
+PART-0039,695-401-625-13,Pallet Lock Assembly Field Repair,Logistics Equipment,Medium
+PART-0040,607-328-232-504,Rugged Server Power Supply Depot Level,Cyber Systems,Mission Critical
+PART-0041,364-189-972-539,Pressure Relief Valve Mk I,Hydraulics,High
+PART-0042,906-175-763-795,Circuit Breaker Mk II,Electrical,High
+PART-0043,457-207-110-819,Signal Processor Card Mk III,Avionics,Low
+PART-0044,46-875-856-366,Ignition Exciter Type A,Engines,Medium
+PART-0045,968-369-183-992,Brake Caliper Kit Type B,Ground Vehicles,Medium
+PART-0046,364-946-944-774,Coaxial Cable Assembly Type C,Communications,Medium
+PART-0047,610-756-346-224,Receiver Module Heavy Duty,Radar,High
+PART-0048,109-71-454-270,Fuel Pressure Sensor Extended Range,Fuel Systems,Medium
+PART-0049,407-679-231-192,Coolant Pump Field Repair,Cooling Systems,High
+PART-0050,758-14-556-973,Frame Reinforcement Plate Depot Level,Structural,Medium
+PART-0051,247-686-449-109,Pressure Regulator Mk I,Pneumatics,Low
+PART-0052,605-615-145-850,Recoil Buffer Seal Mk II,Weapons Support,Low
+PART-0053,50-42-944-446,Optical Sensor Module Mk III,Sensors,Low
+PART-0054,36-161-797-212,Air Filtration Cartridge Type A,Life Support,Medium
+PART-0055,740-551-518-620,Lubricant Pack Type B,Maintenance Consumables,Medium
+PART-0056,891-938-779-319,Gearbox Seal Type C,Powertrain,Low
+PART-0057,663-220-11-975,Hydraulic Brake Line Heavy Duty,Braking Systems,High
+PART-0058,587-893-442-538,Compass Sensor Extended Range,Navigation,Medium
+PART-0059,6-154-901-173,Forklift Chain Field Repair,Logistics Equipment,Medium
+PART-0060,154-276-631-536,Data Storage Module Depot Level,Cyber Systems,Medium
+PART-0061,96-966-307-505,Actuator Cylinder Mk I,Hydraulics,Medium
+PART-0062,343-332-570-603,Voltage Regulator Mk II,Electrical,High
+PART-0063,787-926-834-980,Flight Data Connector Mk III,Avionics,Medium
+PART-0064,759-206-823-79,Oil Filter Cartridge Type A,Engines,High
+PART-0065,37-139-440-906,Transmission Filter Type B,Ground Vehicles,High
+PART-0066,134-31-250-159,Antenna Mast Section Type C,Communications,Medium
+PART-0067,606-547-960-0,Transmitter Power Supply Heavy Duty,Radar,Low
+PART-0068,290-916-129-860,Fuel Filter Housing Extended Range,Fuel Systems,Medium
+PART-0069,739-50-988-907,Thermostat Housing Field Repair,Cooling Systems,Low
+PART-0070,961-514-479-826,Hinge Assembly Depot Level,Structural,Medium
+PART-0071,171-390-955-339,Air Dryer Cartridge Mk I,Pneumatics,High
+PART-0072,805-841-446-523,Turret Slip Ring Mk II,Weapons Support,Medium
+PART-0073,480-125-345-697,Vibration Sensor Mk III,Sensors,Medium
+PART-0074,496-218-171-772,Mask Connector Kit Type A,Life Support,Low
+PART-0075,617-582-908-87,Threaded Insert Kit Type B,Maintenance Consumables,Medium
+PART-0076,79-37-161-621,Torque Converter Type C,Powertrain,High
+PART-0077,988-682-791-787,Master Cylinder Kit Heavy Duty,Braking Systems,High
+PART-0078,95-571-759-831,Navigation Display Cable Extended Range,Navigation,Medium
+PART-0079,443-23-259-451,Container Latch Field Repair,Logistics Equipment,Medium
+PART-0080,155-45-385-717,Firewall Appliance Fan Depot Level,Cyber Systems,High
+PART-0081,744-2-227-588,Hydraulic Hose Assembly Mk I,Hydraulics,Medium
+PART-0082,897-911-612-204,Battery Cable Assembly Mk II,Electrical,Mission Critical
+PART-0083,2-597-992-574,Antenna Coupler Mk III,Avionics,High
+PART-0084,628-282-997-404,Compressor Seal Type A,Engines,High
+PART-0085,604-481-78-890,Steering Linkage Type B,Ground Vehicles,High
+PART-0086,985-375-142-22,Handset Assembly Type C,Communications,High
+PART-0087,638-924-376-660,Phase Shifter Unit Heavy Duty,Radar,Low
+PART-0088,826-517-265-298,Refueling Adapter Extended Range,Fuel Systems,Low
+PART-0089,384-190-371-683,Radiator Hose Kit Field Repair,Cooling Systems,High
+PART-0090,960-697-673-280,Fastener Kit Depot Level,Structural,High
+PART-0091,784-200-458-301,Pneumatic Actuator Mk I,Pneumatics,Low
+PART-0092,599-87-316-810,Elevation Drive Motor Mk II,Weapons Support,Medium
+PART-0093,386-348-217-265,Position Encoder Mk III,Sensors,Medium
+PART-0094,870-516-889-762,Pressure Bottle Valve Type A,Life Support,Medium
+PART-0095,173-184-535-860,Adhesive Sealant Tube Type B,Maintenance Consumables,Medium
+PART-0096,831-761-957-832,Transfer Case Chain Type C,Powertrain,Low
+PART-0097,872-827-707-343,Parking Brake Cable Heavy Duty,Braking Systems,High
+PART-0098,535-917-204-703,Position Reference Module Extended Range,Navigation,Medium
+PART-0099,431-734-591-938,Load Sensor Pad Field Repair,Logistics Equipment,High
+PART-0100,786-419-586-478,Crypto Key Loader Cable Depot Level,Cyber Systems,Mission Critical
+PART-0101,825-835-786-4,Fluid Reservoir Cap Mk I,Hydraulics,Medium
+PART-0102,871-56-617-229,Terminal Block Mk II,Electrical,Low
+PART-0103,914-835-829-836,Transponder Module Mk III,Avionics,Low
+PART-0104,428-890-30-775,Engine Mount Bracket Type A,Engines,High
+PART-0105,873-86-787-19,Axle Seal Type B,Ground Vehicles,Medium
+PART-0106,813-114-32-959,Signal Amplifier Type C,Communications,Low
+PART-0107,609-716-855-868,Antenna Drive Motor Heavy Duty,Radar,Low
+PART-0108,187-982-548-656,Fuel Shutoff Valve Extended Range,Fuel Systems,Low
+PART-0109,740-143-591-455,Temperature Sensor Field Repair,Cooling Systems,Medium
+PART-0110,56-809-830-509,Support Strut Depot Level,Structural,High
+PART-0111,778-947-332-140,Quick Release Valve Mk I,Pneumatics,High
+PART-0112,25-596-666-596,Sight Mount Bracket Mk II,Weapons Support,High
+PART-0113,43-485-927-14,Proximity Switch Mk III,Sensors,Mission Critical
+PART-0114,564-490-588-436,Cabin Air Duct Type A,Life Support,Medium
+PART-0115,7-671-738-130,Cleaning Solvent Kit Type B,Maintenance Consumables,Mission Critical
+PART-0116,680-43-781-445,Engine Coupling Type C,Powertrain,Low
+PART-0117,887-281-388-988,ABS Sensor Heavy Duty,Braking Systems,Medium
+PART-0118,131-72-632-522,Map Data Cartridge Extended Range,Navigation,High
+PART-0119,347-284-52-370,Tow Bar Pin Field Repair,Logistics Equipment,High
+PART-0120,177-244-421-522,Network Switch Module Depot Level,Cyber Systems,Medium
+PART-0121,588-519-467-932,Hydraulic Filter Element Mk I,Hydraulics,Medium
+PART-0122,654-680-640-900,Relay Module Mk II,Electrical,Medium
+PART-0123,222-33-531-681,Mission Computer Card Mk III,Avionics,Medium
+PART-0124,18-504-52-914,Fuel Control Valve Type A,Engines,High
+PART-0125,733-40-95-815,Suspension Arm Type B,Ground Vehicles,Medium
+PART-0126,157-169-757-77,Frequency Selector Unit Type C,Communications,High
+PART-0127,921-150-153-687,Signal Conditioning Board Heavy Duty,Radar,Medium
+PART-0128,501-690-274-648,Fuel Tank Vent Extended Range,Fuel Systems,Medium
+PART-0129,704-693-479-404,Expansion Tank Field Repair,Cooling Systems,Medium
+PART-0130,945-379-868-1000,Bulkhead Repair Panel Depot Level,Structural,Low
+PART-0131,115-491-723-80,Air Reservoir Fitting Mk I,Pneumatics,High
+PART-0132,551-301-350-351,Ammunition Feed Guide Mk II,Weapons Support,Medium
+PART-0133,723-518-452-578,Infrared Detector Mk III,Sensors,High
+PART-0134,688-591-218-580,Emergency Oxygen Valve Type A,Life Support,Mission Critical
+PART-0135,231-497-118-998,Grease Cartridge Type B,Maintenance Consumables,Medium
+PART-0136,317-363-405-90,Universal Joint Type C,Powertrain,Medium
+PART-0137,600-641-769-678,Brake Booster Valve Heavy Duty,Braking Systems,Mission Critical
+PART-0138,679-131-459-710,Heading Processor Extended Range,Navigation,Low
+PART-0139,759-194-199-388,Lift Cylinder Seal Field Repair,Logistics Equipment,Medium
+PART-0140,916-203-151-789,Fiber Patch Cable Depot Level,Cyber Systems,Medium
+PART-0141,728-675-478-106,Servo Valve Mk I,Hydraulics,High
+PART-0142,515-222-307-358,Connector Kit Mk II,Electrical,Medium
+PART-0143,94-361-243-859,Display Control Panel Mk III,Avionics,Medium
+PART-0144,637-337-21-993,Starter Generator Type A,Engines,Medium
+PART-0145,483-781-458-527,Differential Gear Set Type B,Ground Vehicles,Medium
+PART-0146,278-245-826-221,Comms Power Adapter Type C,Communications,Medium
+PART-0147,315-263-244-300,RF Cable Assembly Heavy Duty,Radar,Medium
+PART-0148,335-770-371-353,Fuel Metering Unit Extended Range,Fuel Systems,Low
+PART-0149,122-609-627-314,Fan Drive Belt Field Repair,Cooling Systems,High
+PART-0150,454-315-626-918,Latch Mechanism Depot Level,Structural,High
+PART-0151,298-706-888-956,Control Manifold Mk I,Pneumatics,Medium
+PART-0152,725-393-771-156,Trigger Control Module Mk II,Weapons Support,Mission Critical
+PART-0153,161-58-34-551,Flow Sensor Mk III,Sensors,High
+PART-0154,404-35-655-262,CO2 Scrubber Cartridge Type A,Life Support,Low
+PART-0155,947-14-420-768,Anti-Seize Compound Type B,Maintenance Consumables,High
+PART-0156,189-169-538-332,Final Drive Gear Type C,Powertrain,Medium
+PART-0157,502-42-412-990,Caliper Piston Seal Heavy Duty,Braking Systems,Medium
+PART-0158,871-489-97-455,Timing Receiver Extended Range,Navigation,Mission Critical
+PART-0159,122-380-772-166,Dock Ramp Hinge Field Repair,Logistics Equipment,High
+PART-0160,951-946-717-881,Access Control Reader Depot Level,Cyber Systems,High
+PART-0161,366-513-684-507,Pump Drive Coupling Mk I,Hydraulics,Medium
+PART-0162,79-444-623-614,Ground Strap Mk II,Electrical,Mission Critical
+PART-0163,236-524-821-462,Sensor Interface Board Mk III,Avionics,Low
+PART-0164,617-393-178-919,Exhaust Clamp Type A,Engines,High
+PART-0165,845-311-632-475,Fuel Tank Sender Type B,Ground Vehicles,Mission Critical
+PART-0166,927-182-154-715,Audio Interface Cable Type C,Communications,High
+PART-0167,658-672-723-739,Radar Processor Card Heavy Duty,Radar,High
+PART-0168,880-712-393-62,Quick Disconnect Coupler Extended Range,Fuel Systems,Low
+PART-0169,625-818-815-345,Coolant Filter Field Repair,Cooling Systems,Mission Critical
+PART-0170,275-904-788-889,Armor Panel Insert Depot Level,Structural,High
+PART-0171,702-886-147-105,Pressure Gauge Mk I,Pneumatics,High
+PART-0172,863-292-897-83,Traverse Gear Set Mk II,Weapons Support,Medium
+PART-0173,535-558-284-559,Gyro Sensor Assembly Mk III,Sensors,High
+PART-0174,198-239-780-344,Ventilation Fan Type A,Life Support,High
+PART-0175,562-15-693-858,Protective Cap Set Type B,Maintenance Consumables,Medium
+PART-0176,501-471-824-5,Powertrain Mount Type C,Powertrain,High
+PART-0177,931-639-451-63,Brake Fluid Reservoir Heavy Duty,Braking Systems,Medium
+PART-0178,825-814-271-635,Navigation Switch Panel Extended Range,Navigation,Low
+PART-0179,605-931-399-53,Cargo Net Kit Field Repair,Logistics Equipment,Medium
+PART-0180,738-820-996-775,Rugged Tablet Battery Depot Level,Cyber Systems,Medium
+PART-0181,581-297-501-690,Return Line Fitting Mk I,Hydraulics,Mission Critical
+PART-0182,797-144-493-101,Load Center Panel Mk II,Electrical,Medium
+PART-0183,817-955-491-48,Data Bus Adapter Mk III,Avionics,High
+PART-0184,6-639-646-481,Combustion Liner Type A,Engines,Medium
+PART-0185,407-2-168-571,Vehicle Control Module Type B,Ground Vehicles,Medium
+PART-0186,133-315-198-521,Radio Control Head Type C,Communications,High
+PART-0187,545-600-361-962,Array Panel Segment Heavy Duty,Radar,Medium
+PART-0188,737-552-97-337,Fuel Sampling Kit Extended Range,Fuel Systems,High
+PART-0189,221-894-366-433,Thermal Control Valve Field Repair,Cooling Systems,Medium
+PART-0190,57-935-674-898,Door Seal Strip Depot Level,Structural,Medium
+PART-0191,187-992-609-978,Bleed Valve Mk I,Pneumatics,Medium
+PART-0192,701-95-347-774,Safety Interlock Switch Mk II,Weapons Support,Medium
+PART-0193,667-264-615-964,Humidity Sensor Mk III,Sensors,Medium
+PART-0194,68-521-496-906,Life Support Control Panel Type A,Life Support,Medium
+PART-0195,225-845-934-599,Safety Wire Spool Type B,Maintenance Consumables,Medium
+PART-0196,915-68-211-414,Transmission Control Solenoid Type C,Powertrain,Medium
+PART-0197,562-848-101-672,Wheel Cylinder Heavy Duty,Braking Systems,Mission Critical
+PART-0198,623-59-140-234,Waypoint Control Unit Extended Range,Navigation,Low
+PART-0199,485-818-624-391,Material Handling Roller Field Repair,Logistics Equipment,High
+PART-0200,674-125-258-437,System Drive Caddy Depot Level,Cyber Systems,Low
+PART-0201,856-687-342-519,Hydraulic Seal Kit Mk I Variant 2,Hydraulics,High
+PART-0202,597-248-83-124,Wiring Harness Mk II Variant 2,Electrical,High
+PART-0203,754-331-720-381,Navigation Control Unit Mk III Variant 2,Avionics,Medium
+PART-0204,940-903-238-15,Fuel Injector Assembly Type A Variant 2,Engines,High
+PART-0205,281-82-278-172,Track Tensioner Assembly Type B Variant 2,Ground Vehicles,Medium
+PART-0206,996-350-462-766,Radio Mounting Tray Type C Variant 2,Communications,High
+PART-0207,674-753-868-907,Waveguide Section Heavy Duty Variant 2,Radar,Medium
+PART-0208,288-810-121-170,Fuel Pump Cartridge Extended Range Variant 2,Fuel Systems,Medium
+PART-0209,251-635-908-568,Cooling Fan Assembly Field Repair Variant 2,Cooling Systems,Mission Critical
+PART-0210,707-478-521-658,Access Panel Depot Level Variant 2,Structural,Medium
+PART-0211,83-477-675-917,Air Compressor Valve Mk I Variant 2,Pneumatics,Medium
+PART-0212,24-192-520-936,Fire Control Cable Mk II Variant 2,Weapons Support,Medium
+PART-0213,30-317-141-325,Temperature Probe Mk III Variant 2,Sensors,High
+PART-0214,5-47-361-146,Oxygen Hose Assembly Type A Variant 2,Life Support,Low
+PART-0215,467-890-207-754,Gasket Set Type B Variant 2,Maintenance Consumables,Low
+PART-0216,251-379-466-114,Drive Shaft Assembly Type C Variant 2,Powertrain,High
+PART-0217,709-485-115-810,Brake Pad Set Heavy Duty Variant 2,Braking Systems,Medium
+PART-0218,152-406-954-786,GPS Antenna Extended Range Variant 2,Navigation,Medium
+PART-0219,465-200-560-554,Cargo Tie-Down Strap Field Repair Variant 2,Logistics Equipment,High
+PART-0220,1-502-638-360,Secure Network Card Depot Level Variant 2,Cyber Systems,Low
+PART-0221,938-523-163-129,Hydraulic Pump Assembly Mk I Variant 2,Hydraulics,Medium
+PART-0222,160-337-607-344,Power Distribution Module Mk II Variant 2,Electrical,Medium
+PART-0223,666-284-610-967,Radar Interface Module Mk III Variant 2,Avionics,Mission Critical
+PART-0224,824-53-297-399,Turbine Blade Set Type A Variant 2,Engines,Mission Critical
+PART-0225,298-635-600-580,Road Wheel Bearing Type B Variant 2,Ground Vehicles,Medium
+PART-0226,892-588-423-176,Encryption Module Type C Variant 2,Communications,Low
+PART-0227,816-401-499-696,Radar Cooling Fan Heavy Duty Variant 2,Radar,Medium
+PART-0228,750-401-83-681,Fuel Line Assembly Extended Range Variant 2,Fuel Systems,Medium
+PART-0229,144-933-920-148,Heat Exchanger Core Field Repair Variant 2,Cooling Systems,Medium
+PART-0230,201-202-281-872,Mounting Bracket Depot Level Variant 2,Structural,Medium
+PART-0231,26-911-202-938,Pneumatic Hose Kit Mk I Variant 2,Pneumatics,Medium
+PART-0232,696-329-462-483,Mount Stabilizer Bearing Mk II Variant 2,Weapons Support,Medium
+PART-0233,256-824-71-220,Pressure Transducer Mk III Variant 2,Sensors,Medium
+PART-0234,508-607-620-140,Breathing Regulator Type A Variant 2,Life Support,Medium
+PART-0235,16-938-76-553,O-Ring Assortment Type B Variant 2,Maintenance Consumables,Medium
+PART-0236,919-679-253-178,Clutch Plate Kit Type C Variant 2,Powertrain,High
+PART-0237,316-233-409-582,Brake Rotor Heavy Duty Variant 2,Braking Systems,Low
+PART-0238,46-987-41-23,Inertial Measurement Unit Extended Range Variant 2,Navigation,Medium
+PART-0239,929-145-874-470,Pallet Lock Assembly Field Repair Variant 2,Logistics Equipment,Medium
+PART-0240,586-746-800-885,Rugged Server Power Supply Depot Level Variant 2,Cyber Systems,Medium
+PART-0241,803-364-614-913,Pressure Relief Valve Mk I Variant 2,Hydraulics,Medium
+PART-0242,894-305-930-7,Circuit Breaker Mk II Variant 2,Electrical,High
+PART-0243,35-331-903-879,Signal Processor Card Mk III Variant 2,Avionics,Medium
+PART-0244,142-454-295-737,Ignition Exciter Type A Variant 2,Engines,Medium
+PART-0245,907-82-279-570,Brake Caliper Kit Type B Variant 2,Ground Vehicles,Mission Critical
+PART-0246,159-713-716-520,Coaxial Cable Assembly Type C Variant 2,Communications,High
+PART-0247,131-667-997-145,Receiver Module Heavy Duty Variant 2,Radar,High
+PART-0248,486-77-19-724,Fuel Pressure Sensor Extended Range Variant 2,Fuel Systems,High
+PART-0249,337-580-962-827,Coolant Pump Field Repair Variant 2,Cooling Systems,Medium
+PART-0250,748-168-89-64,Frame Reinforcement Plate Depot Level Variant 2,Structural,Low
+PART-0251,865-720-676-629,Pressure Regulator Mk I Variant 2,Pneumatics,Mission Critical
+PART-0252,556-368-542-895,Recoil Buffer Seal Mk II Variant 2,Weapons Support,High
+PART-0253,503-407-72-734,Optical Sensor Module Mk III Variant 2,Sensors,High
+PART-0254,918-752-610-581,Air Filtration Cartridge Type A Variant 2,Life Support,Low
+PART-0255,953-867-537-903,Lubricant Pack Type B Variant 2,Maintenance Consumables,Medium
+PART-0256,664-667-107-39,Gearbox Seal Type C Variant 2,Powertrain,Medium
+PART-0257,240-541-173-744,Hydraulic Brake Line Heavy Duty Variant 2,Braking Systems,Medium
+PART-0258,870-202-675-96,Compass Sensor Extended Range Variant 2,Navigation,Medium
+PART-0259,393-66-510-615,Forklift Chain Field Repair Variant 2,Logistics Equipment,Low
+PART-0260,123-989-99-203,Data Storage Module Depot Level Variant 2,Cyber Systems,High
+PART-0261,278-163-913-1000,Actuator Cylinder Mk I Variant 2,Hydraulics,High
+PART-0262,668-790-14-47,Voltage Regulator Mk II Variant 2,Electrical,Medium
+PART-0263,723-962-327-464,Flight Data Connector Mk III Variant 2,Avionics,Medium
+PART-0264,301-30-502-785,Oil Filter Cartridge Type A Variant 2,Engines,Low
+PART-0265,541-684-439-594,Transmission Filter Type B Variant 2,Ground Vehicles,Medium
+PART-0266,176-237-129-358,Antenna Mast Section Type C Variant 2,Communications,Mission Critical
+PART-0267,193-704-656-898,Transmitter Power Supply Heavy Duty Variant 2,Radar,High
+PART-0268,352-210-106-915,Fuel Filter Housing Extended Range Variant 2,Fuel Systems,Low
+PART-0269,390-584-740-927,Thermostat Housing Field Repair Variant 2,Cooling Systems,Low
+PART-0270,668-157-666-275,Hinge Assembly Depot Level Variant 2,Structural,Mission Critical
+PART-0271,291-505-979-9,Air Dryer Cartridge Mk I Variant 2,Pneumatics,Medium
+PART-0272,503-981-11-344,Turret Slip Ring Mk II Variant 2,Weapons Support,High
+PART-0273,761-831-998-746,Vibration Sensor Mk III Variant 2,Sensors,Mission Critical
+PART-0274,940-229-18-96,Mask Connector Kit Type A Variant 2,Life Support,High
+PART-0275,664-303-420-498,Threaded Insert Kit Type B Variant 2,Maintenance Consumables,Low
+PART-0276,919-950-848-267,Torque Converter Type C Variant 2,Powertrain,Medium
+PART-0277,797-320-693-759,Master Cylinder Kit Heavy Duty Variant 2,Braking Systems,Medium
+PART-0278,259-734-95-906,Navigation Display Cable Extended Range Variant 2,Navigation,Low
+PART-0279,437-964-365-263,Container Latch Field Repair Variant 2,Logistics Equipment,High
+PART-0280,977-437-172-90,Firewall Appliance Fan Depot Level Variant 2,Cyber Systems,High
+PART-0281,874-889-226-702,Hydraulic Hose Assembly Mk I Variant 2,Hydraulics,Mission Critical
+PART-0282,639-149-480-70,Battery Cable Assembly Mk II Variant 2,Electrical,High
+PART-0283,639-911-759-763,Antenna Coupler Mk III Variant 2,Avionics,Low
+PART-0284,901-100-379-146,Compressor Seal Type A Variant 2,Engines,High
+PART-0285,579-677-924-837,Steering Linkage Type B Variant 2,Ground Vehicles,High
+PART-0286,696-9-212-27,Handset Assembly Type C Variant 2,Communications,High
+PART-0287,70-91-209-823,Phase Shifter Unit Heavy Duty Variant 2,Radar,Medium
+PART-0288,301-62-826-776,Refueling Adapter Extended Range Variant 2,Fuel Systems,Medium
+PART-0289,994-471-84-206,Radiator Hose Kit Field Repair Variant 2,Cooling Systems,Medium
+PART-0290,511-511-685-102,Fastener Kit Depot Level Variant 2,Structural,Medium
+PART-0291,329-58-602-257,Pneumatic Actuator Mk I Variant 2,Pneumatics,High
+PART-0292,269-922-80-360,Elevation Drive Motor Mk II Variant 2,Weapons Support,Medium
+PART-0293,2-305-370-561,Position Encoder Mk III Variant 2,Sensors,Low
+PART-0294,210-81-852-16,Pressure Bottle Valve Type A Variant 2,Life Support,High
+PART-0295,894-698-402-145,Adhesive Sealant Tube Type B Variant 2,Maintenance Consumables,Medium
+PART-0296,983-551-467-499,Transfer Case Chain Type C Variant 2,Powertrain,Low
+PART-0297,388-324-973-596,Parking Brake Cable Heavy Duty Variant 2,Braking Systems,Medium
+PART-0298,911-914-174-711,Position Reference Module Extended Range Variant 2,Navigation,Low
+PART-0299,422-986-993-513,Load Sensor Pad Field Repair Variant 2,Logistics Equipment,High
+PART-0300,918-582-418-507,Crypto Key Loader Cable Depot Level Variant 2,Cyber Systems,High
+PART-0301,143-854-749-295,Fluid Reservoir Cap Mk I Variant 2,Hydraulics,Medium
+PART-0302,934-20-696-264,Terminal Block Mk II Variant 2,Electrical,Medium
+PART-0303,520-901-157-29,Transponder Module Mk III Variant 2,Avionics,High
+PART-0304,58-320-149-907,Engine Mount Bracket Type A Variant 2,Engines,Low
+PART-0305,776-820-173-172,Axle Seal Type B Variant 2,Ground Vehicles,Medium
+PART-0306,689-965-995-885,Signal Amplifier Type C Variant 2,Communications,Medium
+PART-0307,123-78-80-47,Antenna Drive Motor Heavy Duty Variant 2,Radar,Medium
+PART-0308,187-562-761-461,Fuel Shutoff Valve Extended Range Variant 2,Fuel Systems,Medium
+PART-0309,0-936-207-294,Temperature Sensor Field Repair Variant 2,Cooling Systems,Medium
+PART-0310,361-547-231-978,Support Strut Depot Level Variant 2,Structural,Medium
+PART-0311,291-254-805-807,Quick Release Valve Mk I Variant 2,Pneumatics,High
+PART-0312,899-421-919-472,Sight Mount Bracket Mk II Variant 2,Weapons Support,High
+PART-0313,838-15-153-335,Proximity Switch Mk III Variant 2,Sensors,Medium
+PART-0314,195-28-741-447,Cabin Air Duct Type A Variant 2,Life Support,Low
+PART-0315,32-351-507-899,Cleaning Solvent Kit Type B Variant 2,Maintenance Consumables,Medium
+PART-0316,779-626-288-757,Engine Coupling Type C Variant 2,Powertrain,Low
+PART-0317,609-536-510-89,ABS Sensor Heavy Duty Variant 2,Braking Systems,Medium
+PART-0318,649-672-799-176,Map Data Cartridge Extended Range Variant 2,Navigation,Medium
+PART-0319,648-205-119-933,Tow Bar Pin Field Repair Variant 2,Logistics Equipment,Low
+PART-0320,961-369-282-211,Network Switch Module Depot Level Variant 2,Cyber Systems,High
+PART-0321,643-237-294-145,Hydraulic Filter Element Mk I Variant 2,Hydraulics,Low
+PART-0322,400-526-118-628,Relay Module Mk II Variant 2,Electrical,Medium
+PART-0323,954-930-311-124,Mission Computer Card Mk III Variant 2,Avionics,High
+PART-0324,474-610-608-624,Fuel Control Valve Type A Variant 2,Engines,Medium
+PART-0325,512-225-624-534,Suspension Arm Type B Variant 2,Ground Vehicles,Medium
+PART-0326,481-741-656-659,Frequency Selector Unit Type C Variant 2,Communications,Mission Critical
+PART-0327,835-907-293-654,Signal Conditioning Board Heavy Duty Variant 2,Radar,Medium
+PART-0328,233-30-114-381,Fuel Tank Vent Extended Range Variant 2,Fuel Systems,Medium
+PART-0329,227-524-538-492,Expansion Tank Field Repair Variant 2,Cooling Systems,Medium
+PART-0330,717-899-524-817,Bulkhead Repair Panel Depot Level Variant 2,Structural,Medium
+PART-0331,238-215-860-37,Air Reservoir Fitting Mk I Variant 2,Pneumatics,High
+PART-0332,36-516-106-597,Ammunition Feed Guide Mk II Variant 2,Weapons Support,Medium
+PART-0333,280-41-816-938,Infrared Detector Mk III Variant 2,Sensors,Low
+PART-0334,281-190-232-505,Emergency Oxygen Valve Type A Variant 2,Life Support,Low
+PART-0335,297-609-358-940,Grease Cartridge Type B Variant 2,Maintenance Consumables,Mission Critical
+PART-0336,449-910-164-511,Universal Joint Type C Variant 2,Powertrain,High
+PART-0337,520-679-294-766,Brake Booster Valve Heavy Duty Variant 2,Braking Systems,High
+PART-0338,664-817-75-738,Heading Processor Extended Range Variant 2,Navigation,Medium
+PART-0339,648-681-947-547,Lift Cylinder Seal Field Repair Variant 2,Logistics Equipment,Low
+PART-0340,796-505-934-979,Fiber Patch Cable Depot Level Variant 2,Cyber Systems,Medium
+PART-0341,569-309-566-578,Servo Valve Mk I Variant 2,Hydraulics,Medium
+PART-0342,496-699-329-515,Connector Kit Mk II Variant 2,Electrical,Mission Critical
+PART-0343,500-873-448-601,Display Control Panel Mk III Variant 2,Avionics,Medium
+PART-0344,536-690-604-244,Starter Generator Type A Variant 2,Engines,Low
+PART-0345,506-652-83-936,Differential Gear Set Type B Variant 2,Ground Vehicles,Medium
+PART-0346,554-153-78-100,Comms Power Adapter Type C Variant 2,Communications,High
+PART-0347,822-262-415-975,RF Cable Assembly Heavy Duty Variant 2,Radar,High
+PART-0348,238-13-146-88,Fuel Metering Unit Extended Range Variant 2,Fuel Systems,Medium
+PART-0349,392-154-380-515,Fan Drive Belt Field Repair Variant 2,Cooling Systems,Low
+PART-0350,731-407-719-733,Latch Mechanism Depot Level Variant 2,Structural,Medium
+PART-0351,534-692-545-486,Control Manifold Mk I Variant 2,Pneumatics,Medium
+PART-0352,597-670-606-518,Trigger Control Module Mk II Variant 2,Weapons Support,High
+PART-0353,222-668-837-999,Flow Sensor Mk III Variant 2,Sensors,Medium
+PART-0354,885-616-249-488,CO2 Scrubber Cartridge Type A Variant 2,Life Support,Medium
+PART-0355,325-154-54-783,Anti-Seize Compound Type B Variant 2,Maintenance Consumables,Medium
+PART-0356,767-428-4-100,Final Drive Gear Type C Variant 2,Powertrain,High
+PART-0357,172-917-883-695,Caliper Piston Seal Heavy Duty Variant 2,Braking Systems,Medium
+PART-0358,710-932-168-895,Timing Receiver Extended Range Variant 2,Navigation,Low
+PART-0359,57-913-467-230,Dock Ramp Hinge Field Repair Variant 2,Logistics Equipment,High
+PART-0360,948-384-507-726,Access Control Reader Depot Level Variant 2,Cyber Systems,Medium
+PART-0361,366-608-210-712,Pump Drive Coupling Mk I Variant 2,Hydraulics,High
+PART-0362,167-274-478-561,Ground Strap Mk II Variant 2,Electrical,Medium
+PART-0363,616-812-360-500,Sensor Interface Board Mk III Variant 2,Avionics,Medium
+PART-0364,732-544-34-77,Exhaust Clamp Type A Variant 2,Engines,High
+PART-0365,133-274-698-722,Fuel Tank Sender Type B Variant 2,Ground Vehicles,Mission Critical
+PART-0366,14-787-609-522,Audio Interface Cable Type C Variant 2,Communications,Mission Critical
+PART-0367,431-869-386-101,Radar Processor Card Heavy Duty Variant 2,Radar,Low
+PART-0368,510-905-125-422,Quick Disconnect Coupler Extended Range Variant 2,Fuel Systems,Mission Critical
+PART-0369,392-189-416-818,Coolant Filter Field Repair Variant 2,Cooling Systems,Medium
+PART-0370,252-332-237-63,Armor Panel Insert Depot Level Variant 2,Structural,Medium
+PART-0371,692-425-870-493,Pressure Gauge Mk I Variant 2,Pneumatics,Medium
+PART-0372,846-580-322-99,Traverse Gear Set Mk II Variant 2,Weapons Support,Medium
+PART-0373,264-899-262-761,Gyro Sensor Assembly Mk III Variant 2,Sensors,High
+PART-0374,964-324-136-377,Ventilation Fan Type A Variant 2,Life Support,Medium
+PART-0375,916-762-558-623,Protective Cap Set Type B Variant 2,Maintenance Consumables,Medium
+PART-0376,336-271-816-674,Powertrain Mount Type C Variant 2,Powertrain,Medium
+PART-0377,439-631-423-314,Brake Fluid Reservoir Heavy Duty Variant 2,Braking Systems,Mission Critical
+PART-0378,101-358-322-594,Navigation Switch Panel Extended Range Variant 2,Navigation,Medium
+PART-0379,239-643-274-650,Cargo Net Kit Field Repair Variant 2,Logistics Equipment,High
+PART-0380,904-801-975-330,Rugged Tablet Battery Depot Level Variant 2,Cyber Systems,Medium
+PART-0381,95-54-495-272,Return Line Fitting Mk I Variant 2,Hydraulics,Mission Critical
+PART-0382,279-435-530-430,Load Center Panel Mk II Variant 2,Electrical,Low
+PART-0383,590-945-461-976,Data Bus Adapter Mk III Variant 2,Avionics,Low
+PART-0384,231-34-376-668,Combustion Liner Type A Variant 2,Engines,Medium
+PART-0385,467-895-33-603,Vehicle Control Module Type B Variant 2,Ground Vehicles,Medium
+PART-0386,859-21-81-656,Radio Control Head Type C Variant 2,Communications,Medium
+PART-0387,415-21-999-266,Array Panel Segment Heavy Duty Variant 2,Radar,Medium
+PART-0388,857-157-77-217,Fuel Sampling Kit Extended Range Variant 2,Fuel Systems,Medium
+PART-0389,41-351-589-991,Thermal Control Valve Field Repair Variant 2,Cooling Systems,Medium
+PART-0390,452-924-276-84,Door Seal Strip Depot Level Variant 2,Structural,Low
+PART-0391,472-840-578-836,Bleed Valve Mk I Variant 2,Pneumatics,High
+PART-0392,667-741-323-849,Safety Interlock Switch Mk II Variant 2,Weapons Support,Medium
+PART-0393,575-62-283-409,Humidity Sensor Mk III Variant 2,Sensors,High
+PART-0394,302-542-820-964,Life Support Control Panel Type A Variant 2,Life Support,Medium
+PART-0395,720-930-3-917,Safety Wire Spool Type B Variant 2,Maintenance Consumables,High
+PART-0396,249-24-178-929,Transmission Control Solenoid Type C Variant 2,Powertrain,Low
+PART-0397,587-179-380-18,Wheel Cylinder Heavy Duty Variant 2,Braking Systems,Medium
+PART-0398,937-364-60-552,Waypoint Control Unit Extended Range Variant 2,Navigation,Low
+PART-0399,556-720-968-214,Material Handling Roller Field Repair Variant 2,Logistics Equipment,Medium
+PART-0400,651-623-905-287,System Drive Caddy Depot Level Variant 2,Cyber Systems,Medium
+PART-0401,903-706-491-441,Hydraulic Seal Kit Mk I Variant 3,Hydraulics,High
+PART-0402,11-81-725-165,Wiring Harness Mk II Variant 3,Electrical,High
+PART-0403,868-701-717-198,Navigation Control Unit Mk III Variant 3,Avionics,Medium
+PART-0404,544-980-555-190,Fuel Injector Assembly Type A Variant 3,Engines,Medium
+PART-0405,396-485-769-501,Track Tensioner Assembly Type B Variant 3,Ground Vehicles,High
+PART-0406,333-115-785-329,Radio Mounting Tray Type C Variant 3,Communications,Medium
+PART-0407,18-752-146-329,Waveguide Section Heavy Duty Variant 3,Radar,Low
+PART-0408,561-181-224-723,Fuel Pump Cartridge Extended Range Variant 3,Fuel Systems,Mission Critical
+PART-0409,161-889-617-281,Cooling Fan Assembly Field Repair Variant 3,Cooling Systems,Low
+PART-0410,540-665-751-747,Access Panel Depot Level Variant 3,Structural,Medium
+PART-0411,927-727-249-967,Air Compressor Valve Mk I Variant 3,Pneumatics,Medium
+PART-0412,354-245-157-265,Fire Control Cable Mk II Variant 3,Weapons Support,High
+PART-0413,431-916-105-604,Temperature Probe Mk III Variant 3,Sensors,Low
+PART-0414,250-743-914-547,Oxygen Hose Assembly Type A Variant 3,Life Support,Mission Critical
+PART-0415,936-837-978-578,Gasket Set Type B Variant 3,Maintenance Consumables,High
+PART-0416,881-457-598-55,Drive Shaft Assembly Type C Variant 3,Powertrain,Medium
+PART-0417,140-475-203-198,Brake Pad Set Heavy Duty Variant 3,Braking Systems,Medium
+PART-0418,289-286-631-514,GPS Antenna Extended Range Variant 3,Navigation,Mission Critical
+PART-0419,925-427-73-116,Cargo Tie-Down Strap Field Repair Variant 3,Logistics Equipment,High
+PART-0420,861-542-456-207,Secure Network Card Depot Level Variant 3,Cyber Systems,Medium
+PART-0421,606-33-94-271,Hydraulic Pump Assembly Mk I Variant 3,Hydraulics,Medium
+PART-0422,984-511-289-811,Power Distribution Module Mk II Variant 3,Electrical,Medium
+PART-0423,418-271-399-966,Radar Interface Module Mk III Variant 3,Avionics,Mission Critical
+PART-0424,217-809-365-61,Turbine Blade Set Type A Variant 3,Engines,Medium
+PART-0425,920-127-794-294,Road Wheel Bearing Type B Variant 3,Ground Vehicles,Mission Critical
+PART-0426,95-969-506-735,Encryption Module Type C Variant 3,Communications,High
+PART-0427,537-186-705-784,Radar Cooling Fan Heavy Duty Variant 3,Radar,Low
+PART-0428,482-743-925-579,Fuel Line Assembly Extended Range Variant 3,Fuel Systems,Medium
+PART-0429,877-916-629-211,Heat Exchanger Core Field Repair Variant 3,Cooling Systems,High
+PART-0430,208-380-252-70,Mounting Bracket Depot Level Variant 3,Structural,Medium
+PART-0431,190-607-418-424,Pneumatic Hose Kit Mk I Variant 3,Pneumatics,Low
+PART-0432,866-738-465-708,Mount Stabilizer Bearing Mk II Variant 3,Weapons Support,Medium
+PART-0433,815-241-560-67,Pressure Transducer Mk III Variant 3,Sensors,Low
+PART-0434,778-751-161-98,Breathing Regulator Type A Variant 3,Life Support,Medium
+PART-0435,135-183-6-882,O-Ring Assortment Type B Variant 3,Maintenance Consumables,High
+PART-0436,222-218-992-616,Clutch Plate Kit Type C Variant 3,Powertrain,Medium
+PART-0437,929-95-721-753,Brake Rotor Heavy Duty Variant 3,Braking Systems,Medium
+PART-0438,104-864-458-930,Inertial Measurement Unit Extended Range Variant 3,Navigation,Low
+PART-0439,574-322-249-738,Pallet Lock Assembly Field Repair Variant 3,Logistics Equipment,High
+PART-0440,971-908-811-220,Rugged Server Power Supply Depot Level Variant 3,Cyber Systems,Medium
+PART-0441,473-205-133-175,Pressure Relief Valve Mk I Variant 3,Hydraulics,Mission Critical
+PART-0442,448-721-690-887,Circuit Breaker Mk II Variant 3,Electrical,Medium
+PART-0443,216-511-223-496,Signal Processor Card Mk III Variant 3,Avionics,Medium
+PART-0444,688-873-415-576,Ignition Exciter Type A Variant 3,Engines,High
+PART-0445,959-304-518-975,Brake Caliper Kit Type B Variant 3,Ground Vehicles,Low
+PART-0446,642-128-824-686,Coaxial Cable Assembly Type C Variant 3,Communications,High
+PART-0447,242-360-294-799,Receiver Module Heavy Duty Variant 3,Radar,Low
+PART-0448,125-714-225-401,Fuel Pressure Sensor Extended Range Variant 3,Fuel Systems,High
+PART-0449,47-673-756-586,Coolant Pump Field Repair Variant 3,Cooling Systems,Medium
+PART-0450,880-951-847-314,Frame Reinforcement Plate Depot Level Variant 3,Structural,Medium
+PART-0451,426-839-73-582,Pressure Regulator Mk I Variant 3,Pneumatics,High
+PART-0452,139-790-248-969,Recoil Buffer Seal Mk II Variant 3,Weapons Support,Medium
+PART-0453,216-718-75-318,Optical Sensor Module Mk III Variant 3,Sensors,Mission Critical
+PART-0454,450-141-817-347,Air Filtration Cartridge Type A Variant 3,Life Support,High
+PART-0455,582-917-336-311,Lubricant Pack Type B Variant 3,Maintenance Consumables,Medium
+PART-0456,659-77-546-470,Gearbox Seal Type C Variant 3,Powertrain,High
+PART-0457,346-564-827-688,Hydraulic Brake Line Heavy Duty Variant 3,Braking Systems,Medium
+PART-0458,920-815-847-152,Compass Sensor Extended Range Variant 3,Navigation,Medium
+PART-0459,665-793-299-6,Forklift Chain Field Repair Variant 3,Logistics Equipment,High
+PART-0460,39-795-69-417,Data Storage Module Depot Level Variant 3,Cyber Systems,Low
+PART-0461,851-506-621-345,Actuator Cylinder Mk I Variant 3,Hydraulics,Medium
+PART-0462,491-167-596-577,Voltage Regulator Mk II Variant 3,Electrical,High
+PART-0463,864-133-908-308,Flight Data Connector Mk III Variant 3,Avionics,Medium
+PART-0464,797-487-505-315,Oil Filter Cartridge Type A Variant 3,Engines,Mission Critical
+PART-0465,507-58-358-434,Transmission Filter Type B Variant 3,Ground Vehicles,Medium
+PART-0466,877-968-313-145,Antenna Mast Section Type C Variant 3,Communications,High
+PART-0467,614-175-747-257,Transmitter Power Supply Heavy Duty Variant 3,Radar,Mission Critical
+PART-0468,935-398-543-130,Fuel Filter Housing Extended Range Variant 3,Fuel Systems,Medium
+PART-0469,537-561-608-451,Thermostat Housing Field Repair Variant 3,Cooling Systems,Medium
+PART-0470,551-321-272-460,Hinge Assembly Depot Level Variant 3,Structural,Medium
+PART-0471,746-588-399-296,Air Dryer Cartridge Mk I Variant 3,Pneumatics,Medium
+PART-0472,24-418-944-299,Turret Slip Ring Mk II Variant 3,Weapons Support,High
+PART-0473,944-978-106-685,Vibration Sensor Mk III Variant 3,Sensors,Mission Critical
+PART-0474,395-441-926-253,Mask Connector Kit Type A Variant 3,Life Support,High
+PART-0475,481-78-242-521,Threaded Insert Kit Type B Variant 3,Maintenance Consumables,Low
+PART-0476,877-523-570-662,Torque Converter Type C Variant 3,Powertrain,High
+PART-0477,534-731-893-747,Master Cylinder Kit Heavy Duty Variant 3,Braking Systems,High
+PART-0478,149-64-436-239,Navigation Display Cable Extended Range Variant 3,Navigation,Mission Critical
+PART-0479,930-3-639-564,Container Latch Field Repair Variant 3,Logistics Equipment,High
+PART-0480,925-776-77-613,Firewall Appliance Fan Depot Level Variant 3,Cyber Systems,Medium
+PART-0481,50-118-664-635,Hydraulic Hose Assembly Mk I Variant 3,Hydraulics,Medium
+PART-0482,408-355-665-980,Battery Cable Assembly Mk II Variant 3,Electrical,Low
+PART-0483,590-754-553-634,Antenna Coupler Mk III Variant 3,Avionics,Medium
+PART-0484,600-621-69-503,Compressor Seal Type A Variant 3,Engines,Medium
+PART-0485,94-202-335-501,Steering Linkage Type B Variant 3,Ground Vehicles,Medium
+PART-0486,804-454-684-840,Handset Assembly Type C Variant 3,Communications,Medium
+PART-0487,807-724-293-297,Phase Shifter Unit Heavy Duty Variant 3,Radar,Medium
+PART-0488,173-820-411-610,Refueling Adapter Extended Range Variant 3,Fuel Systems,High
+PART-0489,932-217-883-98,Radiator Hose Kit Field Repair Variant 3,Cooling Systems,Low
+PART-0490,188-628-606-527,Fastener Kit Depot Level Variant 3,Structural,High
+PART-0491,307-149-536-272,Pneumatic Actuator Mk I Variant 3,Pneumatics,Medium
+PART-0492,903-163-270-544,Elevation Drive Motor Mk II Variant 3,Weapons Support,Medium
+PART-0493,492-874-299-864,Position Encoder Mk III Variant 3,Sensors,High
+PART-0494,585-944-981-166,Pressure Bottle Valve Type A Variant 3,Life Support,High
+PART-0495,215-881-428-462,Adhesive Sealant Tube Type B Variant 3,Maintenance Consumables,Medium
+PART-0496,770-938-90-298,Transfer Case Chain Type C Variant 3,Powertrain,Medium
+PART-0497,75-546-120-342,Parking Brake Cable Heavy Duty Variant 3,Braking Systems,High
+PART-0498,95-882-789-1000,Position Reference Module Extended Range Variant 3,Navigation,Low
+PART-0499,401-551-309-573,Load Sensor Pad Field Repair Variant 3,Logistics Equipment,High
+PART-0500,98-81-157-879,Crypto Key Loader Cable Depot Level Variant 3,Cyber Systems,High
+PART-0501,295-154-593-541,Fluid Reservoir Cap Mk I Variant 3,Hydraulics,High
+PART-0502,315-53-867-803,Terminal Block Mk II Variant 3,Electrical,High
+PART-0503,420-621-265-47,Transponder Module Mk III Variant 3,Avionics,High
+PART-0504,351-767-369-998,Engine Mount Bracket Type A Variant 3,Engines,Medium
+PART-0505,87-76-487-805,Axle Seal Type B Variant 3,Ground Vehicles,Medium
+PART-0506,988-35-578-105,Signal Amplifier Type C Variant 3,Communications,Mission Critical
+PART-0507,799-750-374-947,Antenna Drive Motor Heavy Duty Variant 3,Radar,High
+PART-0508,364-333-473-389,Fuel Shutoff Valve Extended Range Variant 3,Fuel Systems,Low
+PART-0509,323-604-787-933,Temperature Sensor Field Repair Variant 3,Cooling Systems,Medium
+PART-0510,407-629-764-286,Support Strut Depot Level Variant 3,Structural,Low
+PART-0511,275-124-480-746,Quick Release Valve Mk I Variant 3,Pneumatics,Mission Critical
+PART-0512,278-757-871-920,Sight Mount Bracket Mk II Variant 3,Weapons Support,Medium
+PART-0513,312-310-328-492,Proximity Switch Mk III Variant 3,Sensors,High
+PART-0514,645-29-798-382,Cabin Air Duct Type A Variant 3,Life Support,Medium
+PART-0515,899-436-785-236,Cleaning Solvent Kit Type B Variant 3,Maintenance Consumables,Low
+PART-0516,970-468-320-431,Engine Coupling Type C Variant 3,Powertrain,Mission Critical
+PART-0517,778-487-557-601,ABS Sensor Heavy Duty Variant 3,Braking Systems,High
+PART-0518,106-792-152-587,Map Data Cartridge Extended Range Variant 3,Navigation,Medium
+PART-0519,76-412-845-825,Tow Bar Pin Field Repair Variant 3,Logistics Equipment,High
+PART-0520,232-848-124-413,Network Switch Module Depot Level Variant 3,Cyber Systems,Mission Critical
+PART-0521,962-543-580-463,Hydraulic Filter Element Mk I Variant 3,Hydraulics,Medium
+PART-0522,889-663-474-400,Relay Module Mk II Variant 3,Electrical,Low
+PART-0523,62-441-934-806,Mission Computer Card Mk III Variant 3,Avionics,Medium
+PART-0524,209-985-320-80,Fuel Control Valve Type A Variant 3,Engines,High
+PART-0525,316-724-233-972,Suspension Arm Type B Variant 3,Ground Vehicles,Medium
+PART-0526,217-538-66-108,Frequency Selector Unit Type C Variant 3,Communications,Medium
+PART-0527,99-914-652-179,Signal Conditioning Board Heavy Duty Variant 3,Radar,High
+PART-0528,34-895-602-990,Fuel Tank Vent Extended Range Variant 3,Fuel Systems,Medium
+PART-0529,831-635-276-314,Expansion Tank Field Repair Variant 3,Cooling Systems,Medium
+PART-0530,860-333-510-253,Bulkhead Repair Panel Depot Level Variant 3,Structural,Medium
+PART-0531,866-176-180-4,Air Reservoir Fitting Mk I Variant 3,Pneumatics,High
+PART-0532,258-507-924-25,Ammunition Feed Guide Mk II Variant 3,Weapons Support,Medium
+PART-0533,963-767-663-206,Infrared Detector Mk III Variant 3,Sensors,Medium
+PART-0534,798-764-62-142,Emergency Oxygen Valve Type A Variant 3,Life Support,Low
+PART-0535,145-947-912-996,Grease Cartridge Type B Variant 3,Maintenance Consumables,High
+PART-0536,747-660-112-749,Universal Joint Type C Variant 3,Powertrain,High
+PART-0537,586-310-418-28,Brake Booster Valve Heavy Duty Variant 3,Braking Systems,Mission Critical
+PART-0538,805-323-875-156,Heading Processor Extended Range Variant 3,Navigation,Medium
+PART-0539,926-996-499-806,Lift Cylinder Seal Field Repair Variant 3,Logistics Equipment,Low
+PART-0540,506-332-241-868,Fiber Patch Cable Depot Level Variant 3,Cyber Systems,Medium
+PART-0541,242-473-660-610,Servo Valve Mk I Variant 3,Hydraulics,Low
+PART-0542,532-805-360-205,Connector Kit Mk II Variant 3,Electrical,Low
+PART-0543,144-982-654-960,Display Control Panel Mk III Variant 3,Avionics,Low
+PART-0544,986-257-63-831,Starter Generator Type A Variant 3,Engines,Medium
+PART-0545,418-951-317-278,Differential Gear Set Type B Variant 3,Ground Vehicles,High
+PART-0546,732-996-746-671,Comms Power Adapter Type C Variant 3,Communications,Mission Critical
+PART-0547,388-534-127-280,RF Cable Assembly Heavy Duty Variant 3,Radar,Low
+PART-0548,411-708-321-125,Fuel Metering Unit Extended Range Variant 3,Fuel Systems,Medium
+PART-0549,177-215-159-751,Fan Drive Belt Field Repair Variant 3,Cooling Systems,Medium
+PART-0550,875-307-65-390,Latch Mechanism Depot Level Variant 3,Structural,High
+PART-0551,894-542-273-876,Control Manifold Mk I Variant 3,Pneumatics,Medium
+PART-0552,377-367-348-937,Trigger Control Module Mk II Variant 3,Weapons Support,Low
+PART-0553,82-311-363-983,Flow Sensor Mk III Variant 3,Sensors,Mission Critical
+PART-0554,424-51-377-841,CO2 Scrubber Cartridge Type A Variant 3,Life Support,Low
+PART-0555,908-338-657-394,Anti-Seize Compound Type B Variant 3,Maintenance Consumables,Low
+PART-0556,650-853-546-706,Final Drive Gear Type C Variant 3,Powertrain,Mission Critical
+PART-0557,453-892-869-657,Caliper Piston Seal Heavy Duty Variant 3,Braking Systems,Medium
+PART-0558,774-731-862-25,Timing Receiver Extended Range Variant 3,Navigation,Medium
+PART-0559,942-547-815-362,Dock Ramp Hinge Field Repair Variant 3,Logistics Equipment,Medium
+PART-0560,583-586-43-740,Access Control Reader Depot Level Variant 3,Cyber Systems,Low
+PART-0561,432-434-497-567,Pump Drive Coupling Mk I Variant 3,Hydraulics,High
+PART-0562,95-102-9-726,Ground Strap Mk II Variant 3,Electrical,Medium
+PART-0563,821-249-189-794,Sensor Interface Board Mk III Variant 3,Avionics,High
+PART-0564,466-190-821-871,Exhaust Clamp Type A Variant 3,Engines,Low
+PART-0565,94-698-106-819,Fuel Tank Sender Type B Variant 3,Ground Vehicles,Medium
+PART-0566,767-226-937-21,Audio Interface Cable Type C Variant 3,Communications,High
+PART-0567,127-414-371-725,Radar Processor Card Heavy Duty Variant 3,Radar,High
+PART-0568,163-256-262-24,Quick Disconnect Coupler Extended Range Variant 3,Fuel Systems,Medium
+PART-0569,659-387-11-645,Coolant Filter Field Repair Variant 3,Cooling Systems,Mission Critical
+PART-0570,36-315-124-707,Armor Panel Insert Depot Level Variant 3,Structural,Medium
+PART-0571,379-489-337-938,Pressure Gauge Mk I Variant 3,Pneumatics,Medium
+PART-0572,188-251-279-843,Traverse Gear Set Mk II Variant 3,Weapons Support,Low
+PART-0573,761-703-678-545,Gyro Sensor Assembly Mk III Variant 3,Sensors,High
+PART-0574,425-60-507-840,Ventilation Fan Type A Variant 3,Life Support,Medium
+PART-0575,549-688-944-530,Protective Cap Set Type B Variant 3,Maintenance Consumables,Medium
+PART-0576,478-725-710-921,Powertrain Mount Type C Variant 3,Powertrain,Mission Critical
+PART-0577,696-44-347-547,Brake Fluid Reservoir Heavy Duty Variant 3,Braking Systems,Medium
+PART-0578,439-643-875-982,Navigation Switch Panel Extended Range Variant 3,Navigation,Medium
+PART-0579,208-279-73-811,Cargo Net Kit Field Repair Variant 3,Logistics Equipment,Medium
+PART-0580,41-437-231-383,Rugged Tablet Battery Depot Level Variant 3,Cyber Systems,Low
+PART-0581,227-75-569-456,Return Line Fitting Mk I Variant 3,Hydraulics,Medium
+PART-0582,195-784-9-235,Load Center Panel Mk II Variant 3,Electrical,Low
+PART-0583,164-630-694-413,Data Bus Adapter Mk III Variant 3,Avionics,Medium
+PART-0584,265-155-993-586,Combustion Liner Type A Variant 3,Engines,Medium
+PART-0585,115-510-661-44,Vehicle Control Module Type B Variant 3,Ground Vehicles,Medium
+PART-0586,957-549-656-501,Radio Control Head Type C Variant 3,Communications,Mission Critical
+PART-0587,986-372-324-690,Array Panel Segment Heavy Duty Variant 3,Radar,Medium
+PART-0588,254-196-858-9,Fuel Sampling Kit Extended Range Variant 3,Fuel Systems,Low
+PART-0589,470-357-375-209,Thermal Control Valve Field Repair Variant 3,Cooling Systems,Low
+PART-0590,340-823-654-502,Door Seal Strip Depot Level Variant 3,Structural,High
+PART-0591,596-494-311-370,Bleed Valve Mk I Variant 3,Pneumatics,Low
+PART-0592,407-705-71-509,Safety Interlock Switch Mk II Variant 3,Weapons Support,Medium
+PART-0593,723-793-483-1,Humidity Sensor Mk III Variant 3,Sensors,Medium
+PART-0594,981-882-954-801,Life Support Control Panel Type A Variant 3,Life Support,Medium
+PART-0595,795-424-864-573,Safety Wire Spool Type B Variant 3,Maintenance Consumables,Medium
+PART-0596,698-539-338-156,Transmission Control Solenoid Type C Variant 3,Powertrain,Medium
+PART-0597,496-268-415-137,Wheel Cylinder Heavy Duty Variant 3,Braking Systems,Low
+PART-0598,117-142-404-917,Waypoint Control Unit Extended Range Variant 3,Navigation,Medium
+PART-0599,690-238-483-691,Material Handling Roller Field Repair Variant 3,Logistics Equipment,High
+PART-0600,894-516-252-592,System Drive Caddy Depot Level Variant 3,Cyber Systems,High
+PART-0601,890-465-760-463,Hydraulic Seal Kit Mk I Variant 4,Hydraulics,Medium
+PART-0602,637-774-300-122,Wiring Harness Mk II Variant 4,Electrical,Medium
+PART-0603,232-740-315-107,Navigation Control Unit Mk III Variant 4,Avionics,Medium
+PART-0604,704-260-366-105,Fuel Injector Assembly Type A Variant 4,Engines,Low
+PART-0605,998-94-169-167,Track Tensioner Assembly Type B Variant 4,Ground Vehicles,High
+PART-0606,627-223-692-266,Radio Mounting Tray Type C Variant 4,Communications,High
+PART-0607,765-181-15-791,Waveguide Section Heavy Duty Variant 4,Radar,Mission Critical
+PART-0608,716-846-649-336,Fuel Pump Cartridge Extended Range Variant 4,Fuel Systems,Mission Critical
+PART-0609,420-555-519-706,Cooling Fan Assembly Field Repair Variant 4,Cooling Systems,High
+PART-0610,105-844-963-415,Access Panel Depot Level Variant 4,Structural,High
+PART-0611,667-200-963-168,Air Compressor Valve Mk I Variant 4,Pneumatics,Low
+PART-0612,551-288-347-539,Fire Control Cable Mk II Variant 4,Weapons Support,High
+PART-0613,812-905-738-626,Temperature Probe Mk III Variant 4,Sensors,Medium
+PART-0614,502-155-190-235,Oxygen Hose Assembly Type A Variant 4,Life Support,Medium
+PART-0615,703-498-446-457,Gasket Set Type B Variant 4,Maintenance Consumables,Medium
+PART-0616,892-37-707-908,Drive Shaft Assembly Type C Variant 4,Powertrain,High
+PART-0617,498-874-170-427,Brake Pad Set Heavy Duty Variant 4,Braking Systems,Low
+PART-0618,510-961-980-569,GPS Antenna Extended Range Variant 4,Navigation,High
+PART-0619,102-127-460-565,Cargo Tie-Down Strap Field Repair Variant 4,Logistics Equipment,Mission Critical
+PART-0620,879-887-700-923,Secure Network Card Depot Level Variant 4,Cyber Systems,Medium
+PART-0621,614-79-502-918,Hydraulic Pump Assembly Mk I Variant 4,Hydraulics,Medium
+PART-0622,96-140-740-966,Power Distribution Module Mk II Variant 4,Electrical,Medium
+PART-0623,865-200-490-724,Radar Interface Module Mk III Variant 4,Avionics,High
+PART-0624,687-654-653-848,Turbine Blade Set Type A Variant 4,Engines,Medium
+PART-0625,886-654-337-967,Road Wheel Bearing Type B Variant 4,Ground Vehicles,Medium
+PART-0626,460-586-137-608,Encryption Module Type C Variant 4,Communications,Medium
+PART-0627,155-702-724-320,Radar Cooling Fan Heavy Duty Variant 4,Radar,Low
+PART-0628,727-509-889-4,Fuel Line Assembly Extended Range Variant 4,Fuel Systems,Low
+PART-0629,434-845-528-296,Heat Exchanger Core Field Repair Variant 4,Cooling Systems,Medium
+PART-0630,613-883-145-150,Mounting Bracket Depot Level Variant 4,Structural,High
+PART-0631,912-696-412-173,Pneumatic Hose Kit Mk I Variant 4,Pneumatics,High
+PART-0632,709-919-413-556,Mount Stabilizer Bearing Mk II Variant 4,Weapons Support,Medium
+PART-0633,57-212-494-726,Pressure Transducer Mk III Variant 4,Sensors,Medium
+PART-0634,821-644-564-828,Breathing Regulator Type A Variant 4,Life Support,Medium
+PART-0635,358-838-929-470,O-Ring Assortment Type B Variant 4,Maintenance Consumables,High
+PART-0636,755-310-235-682,Clutch Plate Kit Type C Variant 4,Powertrain,Medium
+PART-0637,113-157-961-425,Brake Rotor Heavy Duty Variant 4,Braking Systems,High
+PART-0638,883-534-782-22,Inertial Measurement Unit Extended Range Variant 4,Navigation,Medium
+PART-0639,698-815-757-460,Pallet Lock Assembly Field Repair Variant 4,Logistics Equipment,Medium
+PART-0640,880-424-708-597,Rugged Server Power Supply Depot Level Variant 4,Cyber Systems,Low
+PART-0641,468-835-740-546,Pressure Relief Valve Mk I Variant 4,Hydraulics,Medium
+PART-0642,281-173-539-0,Circuit Breaker Mk II Variant 4,Electrical,Medium
+PART-0643,969-936-95-436,Signal Processor Card Mk III Variant 4,Avionics,Low
+PART-0644,291-589-299-521,Ignition Exciter Type A Variant 4,Engines,Low
+PART-0645,766-766-123-570,Brake Caliper Kit Type B Variant 4,Ground Vehicles,Medium
+PART-0646,257-166-960-700,Coaxial Cable Assembly Type C Variant 4,Communications,Medium
+PART-0647,624-857-503-16,Receiver Module Heavy Duty Variant 4,Radar,Medium
+PART-0648,703-664-210-569,Fuel Pressure Sensor Extended Range Variant 4,Fuel Systems,Medium
+PART-0649,641-511-605-849,Coolant Pump Field Repair Variant 4,Cooling Systems,High
+PART-0650,420-844-492-57,Frame Reinforcement Plate Depot Level Variant 4,Structural,Medium
+PART-0651,446-609-231-399,Pressure Regulator Mk I Variant 4,Pneumatics,High
+PART-0652,744-78-368-825,Recoil Buffer Seal Mk II Variant 4,Weapons Support,High
+PART-0653,192-372-665-691,Optical Sensor Module Mk III Variant 4,Sensors,Medium
+PART-0654,387-435-77-173,Air Filtration Cartridge Type A Variant 4,Life Support,Medium
+PART-0655,479-185-675-429,Lubricant Pack Type B Variant 4,Maintenance Consumables,Medium
+PART-0656,392-197-933-945,Gearbox Seal Type C Variant 4,Powertrain,High
+PART-0657,364-170-283-480,Hydraulic Brake Line Heavy Duty Variant 4,Braking Systems,Medium
+PART-0658,783-607-264-906,Compass Sensor Extended Range Variant 4,Navigation,Medium
+PART-0659,512-867-180-26,Forklift Chain Field Repair Variant 4,Logistics Equipment,High
+PART-0660,15-115-376-518,Data Storage Module Depot Level Variant 4,Cyber Systems,Low
+PART-0661,620-23-676-364,Actuator Cylinder Mk I Variant 4,Hydraulics,Medium
+PART-0662,488-106-103-222,Voltage Regulator Mk II Variant 4,Electrical,Medium
+PART-0663,731-820-129-334,Flight Data Connector Mk III Variant 4,Avionics,High
+PART-0664,835-283-491-804,Oil Filter Cartridge Type A Variant 4,Engines,Low
+PART-0665,560-633-911-785,Transmission Filter Type B Variant 4,Ground Vehicles,Medium
+PART-0666,649-950-725-456,Antenna Mast Section Type C Variant 4,Communications,Medium
+PART-0667,287-97-362-430,Transmitter Power Supply Heavy Duty Variant 4,Radar,Medium
+PART-0668,536-926-186-773,Fuel Filter Housing Extended Range Variant 4,Fuel Systems,Mission Critical
+PART-0669,155-214-580-800,Thermostat Housing Field Repair Variant 4,Cooling Systems,Medium
+PART-0670,605-680-176-909,Hinge Assembly Depot Level Variant 4,Structural,Medium
+PART-0671,941-517-674-795,Air Dryer Cartridge Mk I Variant 4,Pneumatics,Low
+PART-0672,524-878-467-104,Turret Slip Ring Mk II Variant 4,Weapons Support,Medium
+PART-0673,910-576-742-819,Vibration Sensor Mk III Variant 4,Sensors,Medium
+PART-0674,144-839-538-249,Mask Connector Kit Type A Variant 4,Life Support,High
+PART-0675,265-265-900-647,Threaded Insert Kit Type B Variant 4,Maintenance Consumables,Low
+PART-0676,554-547-120-391,Torque Converter Type C Variant 4,Powertrain,High
+PART-0677,329-591-498-764,Master Cylinder Kit Heavy Duty Variant 4,Braking Systems,Medium
+PART-0678,549-966-456-619,Navigation Display Cable Extended Range Variant 4,Navigation,High
+PART-0679,16-757-629-689,Container Latch Field Repair Variant 4,Logistics Equipment,Medium
+PART-0680,371-275-856-64,Firewall Appliance Fan Depot Level Variant 4,Cyber Systems,Medium
+PART-0681,284-462-564-370,Hydraulic Hose Assembly Mk I Variant 4,Hydraulics,Medium
+PART-0682,331-319-778-271,Battery Cable Assembly Mk II Variant 4,Electrical,Low
+PART-0683,185-428-480-464,Antenna Coupler Mk III Variant 4,Avionics,High
+PART-0684,49-323-236-949,Compressor Seal Type A Variant 4,Engines,Medium
+PART-0685,573-4-151-992,Steering Linkage Type B Variant 4,Ground Vehicles,Medium
+PART-0686,446-225-1000-117,Handset Assembly Type C Variant 4,Communications,High
+PART-0687,599-683-847-294,Phase Shifter Unit Heavy Duty Variant 4,Radar,Medium
+PART-0688,100-150-387-725,Refueling Adapter Extended Range Variant 4,Fuel Systems,Medium
+PART-0689,992-291-782-854,Radiator Hose Kit Field Repair Variant 4,Cooling Systems,Low
+PART-0690,261-639-834-794,Fastener Kit Depot Level Variant 4,Structural,Medium
+PART-0691,573-665-125-849,Pneumatic Actuator Mk I Variant 4,Pneumatics,High
+PART-0692,787-184-405-731,Elevation Drive Motor Mk II Variant 4,Weapons Support,Mission Critical
+PART-0693,852-619-887-594,Position Encoder Mk III Variant 4,Sensors,Low
+PART-0694,64-190-597-233,Pressure Bottle Valve Type A Variant 4,Life Support,Mission Critical
+PART-0695,91-836-282-176,Adhesive Sealant Tube Type B Variant 4,Maintenance Consumables,Low
+PART-0696,500-914-259-616,Transfer Case Chain Type C Variant 4,Powertrain,High
+PART-0697,440-433-559-31,Parking Brake Cable Heavy Duty Variant 4,Braking Systems,High
+PART-0698,566-143-160-618,Position Reference Module Extended Range Variant 4,Navigation,Medium
+PART-0699,552-911-443-437,Load Sensor Pad Field Repair Variant 4,Logistics Equipment,Low
+PART-0700,231-804-516-710,Crypto Key Loader Cable Depot Level Variant 4,Cyber Systems,High
+PART-0701,401-382-869-510,Fluid Reservoir Cap Mk I Variant 4,Hydraulics,Mission Critical
+PART-0702,640-581-901-48,Terminal Block Mk II Variant 4,Electrical,Medium
+PART-0703,992-7-873-571,Transponder Module Mk III Variant 4,Avionics,Medium
+PART-0704,351-586-916-481,Engine Mount Bracket Type A Variant 4,Engines,Low
+PART-0705,172-894-230-471,Axle Seal Type B Variant 4,Ground Vehicles,Medium
+PART-0706,40-173-446-375,Signal Amplifier Type C Variant 4,Communications,Medium
+PART-0707,342-47-310-601,Antenna Drive Motor Heavy Duty Variant 4,Radar,High
+PART-0708,260-740-871-220,Fuel Shutoff Valve Extended Range Variant 4,Fuel Systems,High
+PART-0709,67-829-807-788,Temperature Sensor Field Repair Variant 4,Cooling Systems,Medium
+PART-0710,869-496-502-288,Support Strut Depot Level Variant 4,Structural,Mission Critical
+PART-0711,217-898-990-241,Quick Release Valve Mk I Variant 4,Pneumatics,Mission Critical
+PART-0712,141-263-828-402,Sight Mount Bracket Mk II Variant 4,Weapons Support,Low
+PART-0713,34-324-647-68,Proximity Switch Mk III Variant 4,Sensors,Medium
+PART-0714,541-790-457-487,Cabin Air Duct Type A Variant 4,Life Support,Medium
+PART-0715,378-53-116-367,Cleaning Solvent Kit Type B Variant 4,Maintenance Consumables,High
+PART-0716,794-747-734-349,Engine Coupling Type C Variant 4,Powertrain,Medium
+PART-0717,108-496-422-898,ABS Sensor Heavy Duty Variant 4,Braking Systems,Low
+PART-0718,295-362-228-455,Map Data Cartridge Extended Range Variant 4,Navigation,Low
+PART-0719,353-172-544-68,Tow Bar Pin Field Repair Variant 4,Logistics Equipment,High
+PART-0720,829-78-110-621,Network Switch Module Depot Level Variant 4,Cyber Systems,Mission Critical
+PART-0721,986-749-19-823,Hydraulic Filter Element Mk I Variant 4,Hydraulics,High
+PART-0722,665-573-839-58,Relay Module Mk II Variant 4,Electrical,Medium
+PART-0723,744-273-129-74,Mission Computer Card Mk III Variant 4,Avionics,High
+PART-0724,646-468-550-812,Fuel Control Valve Type A Variant 4,Engines,Low
+PART-0725,200-576-65-211,Suspension Arm Type B Variant 4,Ground Vehicles,High
+PART-0726,172-464-577-132,Frequency Selector Unit Type C Variant 4,Communications,Medium
+PART-0727,632-733-581-690,Signal Conditioning Board Heavy Duty Variant 4,Radar,Medium
+PART-0728,339-769-558-220,Fuel Tank Vent Extended Range Variant 4,Fuel Systems,High
+PART-0729,938-40-988-683,Expansion Tank Field Repair Variant 4,Cooling Systems,Low
+PART-0730,262-251-235-311,Bulkhead Repair Panel Depot Level Variant 4,Structural,Medium
+PART-0731,824-993-689-683,Air Reservoir Fitting Mk I Variant 4,Pneumatics,High
+PART-0732,45-481-388-828,Ammunition Feed Guide Mk II Variant 4,Weapons Support,Medium
+PART-0733,152-778-280-186,Infrared Detector Mk III Variant 4,Sensors,High
+PART-0734,779-377-369-986,Emergency Oxygen Valve Type A Variant 4,Life Support,Low
+PART-0735,401-154-975-269,Grease Cartridge Type B Variant 4,Maintenance Consumables,Low
+PART-0736,990-40-209-309,Universal Joint Type C Variant 4,Powertrain,High
+PART-0737,785-781-239-435,Brake Booster Valve Heavy Duty Variant 4,Braking Systems,Low
+PART-0738,867-908-358-736,Heading Processor Extended Range Variant 4,Navigation,High
+PART-0739,160-707-396-681,Lift Cylinder Seal Field Repair Variant 4,Logistics Equipment,High
+PART-0740,988-204-269-414,Fiber Patch Cable Depot Level Variant 4,Cyber Systems,Mission Critical
+PART-0741,353-657-70-220,Servo Valve Mk I Variant 4,Hydraulics,Low
+PART-0742,340-986-478-345,Connector Kit Mk II Variant 4,Electrical,High
+PART-0743,897-689-974-817,Display Control Panel Mk III Variant 4,Avionics,Mission Critical
+PART-0744,772-62-111-702,Starter Generator Type A Variant 4,Engines,High
+PART-0745,22-949-441-483,Differential Gear Set Type B Variant 4,Ground Vehicles,Medium
+PART-0746,648-321-368-786,Comms Power Adapter Type C Variant 4,Communications,High
+PART-0747,365-827-431-743,RF Cable Assembly Heavy Duty Variant 4,Radar,High
+PART-0748,45-522-703-488,Fuel Metering Unit Extended Range Variant 4,Fuel Systems,Low
+PART-0749,303-549-576-161,Fan Drive Belt Field Repair Variant 4,Cooling Systems,Mission Critical
+PART-0750,224-85-925-36,Latch Mechanism Depot Level Variant 4,Structural,Low
+PART-0751,956-566-722-205,Control Manifold Mk I Variant 4,Pneumatics,Medium
+PART-0752,250-10-214-24,Trigger Control Module Mk II Variant 4,Weapons Support,Medium
+PART-0753,704-432-673-701,Flow Sensor Mk III Variant 4,Sensors,Medium
+PART-0754,49-647-861-482,CO2 Scrubber Cartridge Type A Variant 4,Life Support,Medium
+PART-0755,258-581-980-501,Anti-Seize Compound Type B Variant 4,Maintenance Consumables,Medium
+PART-0756,306-827-248-397,Final Drive Gear Type C Variant 4,Powertrain,Medium
+PART-0757,502-860-522-385,Caliper Piston Seal Heavy Duty Variant 4,Braking Systems,Mission Critical
+PART-0758,240-483-678-392,Timing Receiver Extended Range Variant 4,Navigation,Low
+PART-0759,257-964-834-979,Dock Ramp Hinge Field Repair Variant 4,Logistics Equipment,Medium
+PART-0760,21-152-103-103,Access Control Reader Depot Level Variant 4,Cyber Systems,Low
+PART-0761,340-704-582-722,Pump Drive Coupling Mk I Variant 4,Hydraulics,Low
+PART-0762,897-606-536-869,Ground Strap Mk II Variant 4,Electrical,Mission Critical
+PART-0763,90-756-212-828,Sensor Interface Board Mk III Variant 4,Avionics,Low
+PART-0764,601-383-151-427,Exhaust Clamp Type A Variant 4,Engines,High
+PART-0765,144-959-178-892,Fuel Tank Sender Type B Variant 4,Ground Vehicles,Medium
+PART-0766,596-487-347-188,Audio Interface Cable Type C Variant 4,Communications,High
+PART-0767,841-664-120-437,Radar Processor Card Heavy Duty Variant 4,Radar,Mission Critical
+PART-0768,788-548-871-31,Quick Disconnect Coupler Extended Range Variant 4,Fuel Systems,High
+PART-0769,70-449-805-455,Coolant Filter Field Repair Variant 4,Cooling Systems,High
+PART-0770,860-911-372-895,Armor Panel Insert Depot Level Variant 4,Structural,Medium
+PART-0771,565-296-638-486,Pressure Gauge Mk I Variant 4,Pneumatics,High
+PART-0772,273-33-823-687,Traverse Gear Set Mk II Variant 4,Weapons Support,Medium
+PART-0773,583-779-975-686,Gyro Sensor Assembly Mk III Variant 4,Sensors,Medium
+PART-0774,356-920-666-935,Ventilation Fan Type A Variant 4,Life Support,High
+PART-0775,449-570-351-133,Protective Cap Set Type B Variant 4,Maintenance Consumables,High
+PART-0776,173-406-375-724,Powertrain Mount Type C Variant 4,Powertrain,High
+PART-0777,146-183-984-133,Brake Fluid Reservoir Heavy Duty Variant 4,Braking Systems,High
+PART-0778,456-990-681-230,Navigation Switch Panel Extended Range Variant 4,Navigation,High
+PART-0779,36-235-888-234,Cargo Net Kit Field Repair Variant 4,Logistics Equipment,High
+PART-0780,611-486-592-260,Rugged Tablet Battery Depot Level Variant 4,Cyber Systems,Medium
+PART-0781,943-252-690-643,Return Line Fitting Mk I Variant 4,Hydraulics,Medium
+PART-0782,969-905-138-137,Load Center Panel Mk II Variant 4,Electrical,Medium
+PART-0783,191-607-661-123,Data Bus Adapter Mk III Variant 4,Avionics,Medium
+PART-0784,60-263-831-921,Combustion Liner Type A Variant 4,Engines,Medium
+PART-0785,913-327-405-624,Vehicle Control Module Type B Variant 4,Ground Vehicles,Low
+PART-0786,418-872-517-30,Radio Control Head Type C Variant 4,Communications,Medium
+PART-0787,992-819-963-600,Array Panel Segment Heavy Duty Variant 4,Radar,Medium
+PART-0788,949-391-534-230,Fuel Sampling Kit Extended Range Variant 4,Fuel Systems,Medium
+PART-0789,856-517-898-373,Thermal Control Valve Field Repair Variant 4,Cooling Systems,Medium
+PART-0790,575-319-546-866,Door Seal Strip Depot Level Variant 4,Structural,High
+PART-0791,858-558-521-191,Bleed Valve Mk I Variant 4,Pneumatics,Medium
+PART-0792,529-230-291-953,Safety Interlock Switch Mk II Variant 4,Weapons Support,High
+PART-0793,270-118-753-180,Humidity Sensor Mk III Variant 4,Sensors,High
+PART-0794,413-870-369-282,Life Support Control Panel Type A Variant 4,Life Support,Low
+PART-0795,421-56-646-222,Safety Wire Spool Type B Variant 4,Maintenance Consumables,Medium
+PART-0796,290-869-426-816,Transmission Control Solenoid Type C Variant 4,Powertrain,High
+PART-0797,670-371-230-524,Wheel Cylinder Heavy Duty Variant 4,Braking Systems,Medium
+PART-0798,713-401-961-277,Waypoint Control Unit Extended Range Variant 4,Navigation,Medium
+PART-0799,758-90-833-811,Material Handling Roller Field Repair Variant 4,Logistics Equipment,Low
+PART-0800,928-885-8-434,System Drive Caddy Depot Level Variant 4,Cyber Systems,Medium
+PART-0801,73-613-21-724,Hydraulic Seal Kit Mk I Variant 5,Hydraulics,Medium
+PART-0802,849-924-244-641,Wiring Harness Mk II Variant 5,Electrical,Low
+PART-0803,600-82-144-309,Navigation Control Unit Mk III Variant 5,Avionics,High
+PART-0804,557-75-519-529,Fuel Injector Assembly Type A Variant 5,Engines,High
+PART-0805,424-924-992-686,Track Tensioner Assembly Type B Variant 5,Ground Vehicles,High
+PART-0806,17-429-410-643,Radio Mounting Tray Type C Variant 5,Communications,High
+PART-0807,566-555-927-591,Waveguide Section Heavy Duty Variant 5,Radar,High
+PART-0808,764-138-257-643,Fuel Pump Cartridge Extended Range Variant 5,Fuel Systems,High
+PART-0809,339-479-335-209,Cooling Fan Assembly Field Repair Variant 5,Cooling Systems,High
+PART-0810,969-263-97-25,Access Panel Depot Level Variant 5,Structural,Mission Critical
+PART-0811,892-583-791-710,Air Compressor Valve Mk I Variant 5,Pneumatics,Medium
+PART-0812,491-811-85-715,Fire Control Cable Mk II Variant 5,Weapons Support,Medium
+PART-0813,7-53-842-174,Temperature Probe Mk III Variant 5,Sensors,Mission Critical
+PART-0814,549-374-598-339,Oxygen Hose Assembly Type A Variant 5,Life Support,Low
+PART-0815,179-444-852-930,Gasket Set Type B Variant 5,Maintenance Consumables,Medium
+PART-0816,422-662-277-316,Drive Shaft Assembly Type C Variant 5,Powertrain,Low
+PART-0817,303-342-325-231,Brake Pad Set Heavy Duty Variant 5,Braking Systems,Medium
+PART-0818,45-600-410-407,GPS Antenna Extended Range Variant 5,Navigation,Low
+PART-0819,206-269-164-119,Cargo Tie-Down Strap Field Repair Variant 5,Logistics Equipment,Medium
+PART-0820,659-750-672-177,Secure Network Card Depot Level Variant 5,Cyber Systems,Medium
+PART-0821,265-598-665-226,Hydraulic Pump Assembly Mk I Variant 5,Hydraulics,High
+PART-0822,865-809-527-218,Power Distribution Module Mk II Variant 5,Electrical,Low
+PART-0823,906-619-667-151,Radar Interface Module Mk III Variant 5,Avionics,Low
+PART-0824,289-171-427-755,Turbine Blade Set Type A Variant 5,Engines,Medium
+PART-0825,965-952-73-383,Road Wheel Bearing Type B Variant 5,Ground Vehicles,High
+PART-0826,572-138-786-493,Encryption Module Type C Variant 5,Communications,Low
+PART-0827,716-574-217-830,Radar Cooling Fan Heavy Duty Variant 5,Radar,Low
+PART-0828,84-778-792-803,Fuel Line Assembly Extended Range Variant 5,Fuel Systems,High
+PART-0829,569-769-61-246,Heat Exchanger Core Field Repair Variant 5,Cooling Systems,High
+PART-0830,459-650-389-985,Mounting Bracket Depot Level Variant 5,Structural,High
+PART-0831,432-413-478-296,Pneumatic Hose Kit Mk I Variant 5,Pneumatics,Medium
+PART-0832,949-822-603-254,Mount Stabilizer Bearing Mk II Variant 5,Weapons Support,Mission Critical
+PART-0833,590-636-597-358,Pressure Transducer Mk III Variant 5,Sensors,Medium
+PART-0834,817-485-307-408,Breathing Regulator Type A Variant 5,Life Support,Medium
+PART-0835,469-846-48-329,O-Ring Assortment Type B Variant 5,Maintenance Consumables,Medium
+PART-0836,958-789-525-821,Clutch Plate Kit Type C Variant 5,Powertrain,High
+PART-0837,172-116-565-624,Brake Rotor Heavy Duty Variant 5,Braking Systems,Medium
+PART-0838,928-127-78-52,Inertial Measurement Unit Extended Range Variant 5,Navigation,Medium
+PART-0839,849-130-967-843,Pallet Lock Assembly Field Repair Variant 5,Logistics Equipment,Mission Critical
+PART-0840,891-672-842-671,Rugged Server Power Supply Depot Level Variant 5,Cyber Systems,Low
+PART-0841,715-679-100-967,Pressure Relief Valve Mk I Variant 5,Hydraulics,Medium
+PART-0842,106-909-488-428,Circuit Breaker Mk II Variant 5,Electrical,Low
+PART-0843,180-633-72-103,Signal Processor Card Mk III Variant 5,Avionics,Medium
+PART-0844,426-655-199-404,Ignition Exciter Type A Variant 5,Engines,Medium
+PART-0845,830-767-753-748,Brake Caliper Kit Type B Variant 5,Ground Vehicles,Mission Critical
+PART-0846,884-329-681-542,Coaxial Cable Assembly Type C Variant 5,Communications,Medium
+PART-0847,720-110-741-184,Receiver Module Heavy Duty Variant 5,Radar,Low
+PART-0848,294-387-280-113,Fuel Pressure Sensor Extended Range Variant 5,Fuel Systems,High
+PART-0849,969-638-586-121,Coolant Pump Field Repair Variant 5,Cooling Systems,Medium
+PART-0850,666-645-869-558,Frame Reinforcement Plate Depot Level Variant 5,Structural,Medium
+PART-0851,546-791-353-69,Pressure Regulator Mk I Variant 5,Pneumatics,Medium
+PART-0852,294-187-260-911,Recoil Buffer Seal Mk II Variant 5,Weapons Support,High
+PART-0853,60-992-804-142,Optical Sensor Module Mk III Variant 5,Sensors,Mission Critical
+PART-0854,129-721-372-356,Air Filtration Cartridge Type A Variant 5,Life Support,Medium
+PART-0855,455-276-136-159,Lubricant Pack Type B Variant 5,Maintenance Consumables,Mission Critical
+PART-0856,691-965-632-122,Gearbox Seal Type C Variant 5,Powertrain,Low
+PART-0857,37-915-649-900,Hydraulic Brake Line Heavy Duty Variant 5,Braking Systems,High
+PART-0858,559-97-882-938,Compass Sensor Extended Range Variant 5,Navigation,Medium
+PART-0859,72-738-484-452,Forklift Chain Field Repair Variant 5,Logistics Equipment,High
+PART-0860,614-753-45-975,Data Storage Module Depot Level Variant 5,Cyber Systems,Medium
+PART-0861,119-857-661-676,Actuator Cylinder Mk I Variant 5,Hydraulics,Medium
+PART-0862,645-841-834-694,Voltage Regulator Mk II Variant 5,Electrical,High
+PART-0863,162-961-224-775,Flight Data Connector Mk III Variant 5,Avionics,Low
+PART-0864,189-970-737-388,Oil Filter Cartridge Type A Variant 5,Engines,Medium
+PART-0865,120-30-114-398,Transmission Filter Type B Variant 5,Ground Vehicles,Medium
+PART-0866,72-136-60-48,Antenna Mast Section Type C Variant 5,Communications,Medium
+PART-0867,338-285-297-107,Transmitter Power Supply Heavy Duty Variant 5,Radar,High
+PART-0868,118-575-340-86,Fuel Filter Housing Extended Range Variant 5,Fuel Systems,High
+PART-0869,448-106-87-328,Thermostat Housing Field Repair Variant 5,Cooling Systems,Mission Critical
+PART-0870,165-752-202-190,Hinge Assembly Depot Level Variant 5,Structural,Mission Critical
+PART-0871,241-569-257-163,Air Dryer Cartridge Mk I Variant 5,Pneumatics,Medium
+PART-0872,307-209-375-431,Turret Slip Ring Mk II Variant 5,Weapons Support,Medium
+PART-0873,24-390-290-591,Vibration Sensor Mk III Variant 5,Sensors,Medium
+PART-0874,986-169-33-568,Mask Connector Kit Type A Variant 5,Life Support,Low
+PART-0875,53-29-648-223,Threaded Insert Kit Type B Variant 5,Maintenance Consumables,Low
+PART-0876,384-495-327-377,Torque Converter Type C Variant 5,Powertrain,Medium
+PART-0877,731-331-250-766,Master Cylinder Kit Heavy Duty Variant 5,Braking Systems,High
+PART-0878,555-775-544-183,Navigation Display Cable Extended Range Variant 5,Navigation,Medium
+PART-0879,351-454-500-344,Container Latch Field Repair Variant 5,Logistics Equipment,High
+PART-0880,123-176-439-125,Firewall Appliance Fan Depot Level Variant 5,Cyber Systems,Medium
+PART-0881,789-783-682-130,Hydraulic Hose Assembly Mk I Variant 5,Hydraulics,Medium
+PART-0882,512-463-628-891,Battery Cable Assembly Mk II Variant 5,Electrical,Low
+PART-0883,739-886-309-676,Antenna Coupler Mk III Variant 5,Avionics,Medium
+PART-0884,701-794-967-23,Compressor Seal Type A Variant 5,Engines,High
+PART-0885,289-312-569-312,Steering Linkage Type B Variant 5,Ground Vehicles,High
+PART-0886,195-932-594-264,Handset Assembly Type C Variant 5,Communications,High
+PART-0887,8-436-391-356,Phase Shifter Unit Heavy Duty Variant 5,Radar,Low
+PART-0888,516-370-684-342,Refueling Adapter Extended Range Variant 5,Fuel Systems,Medium
+PART-0889,59-539-168-731,Radiator Hose Kit Field Repair Variant 5,Cooling Systems,Low
+PART-0890,669-488-727-949,Fastener Kit Depot Level Variant 5,Structural,Low
+PART-0891,265-878-403-193,Pneumatic Actuator Mk I Variant 5,Pneumatics,High
+PART-0892,977-261-795-182,Elevation Drive Motor Mk II Variant 5,Weapons Support,Medium
+PART-0893,779-152-208-304,Position Encoder Mk III Variant 5,Sensors,High
+PART-0894,901-376-497-879,Pressure Bottle Valve Type A Variant 5,Life Support,High
+PART-0895,275-541-17-784,Adhesive Sealant Tube Type B Variant 5,Maintenance Consumables,Medium
+PART-0896,169-153-761-398,Transfer Case Chain Type C Variant 5,Powertrain,Medium
+PART-0897,802-138-831-189,Parking Brake Cable Heavy Duty Variant 5,Braking Systems,Medium
+PART-0898,416-540-457-439,Position Reference Module Extended Range Variant 5,Navigation,Medium
+PART-0899,432-748-203-320,Load Sensor Pad Field Repair Variant 5,Logistics Equipment,Low
+PART-0900,324-778-43-250,Crypto Key Loader Cable Depot Level Variant 5,Cyber Systems,Medium
+PART-0901,543-497-782-486,Fluid Reservoir Cap Mk I Variant 5,Hydraulics,High
+PART-0902,939-0-566-233,Terminal Block Mk II Variant 5,Electrical,Medium
+PART-0903,668-291-442-493,Transponder Module Mk III Variant 5,Avionics,Low
+PART-0904,477-49-599-839,Engine Mount Bracket Type A Variant 5,Engines,Mission Critical
+PART-0905,729-661-775-671,Axle Seal Type B Variant 5,Ground Vehicles,Low
+PART-0906,560-534-120-458,Signal Amplifier Type C Variant 5,Communications,High
+PART-0907,242-314-764-445,Antenna Drive Motor Heavy Duty Variant 5,Radar,High
+PART-0908,986-42-149-521,Fuel Shutoff Valve Extended Range Variant 5,Fuel Systems,Medium
+PART-0909,611-898-956-112,Temperature Sensor Field Repair Variant 5,Cooling Systems,Mission Critical
+PART-0910,911-790-897-459,Support Strut Depot Level Variant 5,Structural,High
+PART-0911,397-640-147-247,Quick Release Valve Mk I Variant 5,Pneumatics,Mission Critical
+PART-0912,864-174-598-996,Sight Mount Bracket Mk II Variant 5,Weapons Support,Low
+PART-0913,103-927-599-968,Proximity Switch Mk III Variant 5,Sensors,Medium
+PART-0914,832-947-478-287,Cabin Air Duct Type A Variant 5,Life Support,Medium
+PART-0915,517-353-63-823,Cleaning Solvent Kit Type B Variant 5,Maintenance Consumables,Medium
+PART-0916,225-945-692-505,Engine Coupling Type C Variant 5,Powertrain,Low
+PART-0917,709-449-45-675,ABS Sensor Heavy Duty Variant 5,Braking Systems,Low
+PART-0918,1-673-554-294,Map Data Cartridge Extended Range Variant 5,Navigation,Low
+PART-0919,862-669-963-253,Tow Bar Pin Field Repair Variant 5,Logistics Equipment,High
+PART-0920,737-479-750-617,Network Switch Module Depot Level Variant 5,Cyber Systems,High
+PART-0921,743-746-303-257,Hydraulic Filter Element Mk I Variant 5,Hydraulics,Low
+PART-0922,529-523-663-225,Relay Module Mk II Variant 5,Electrical,Medium
+PART-0923,78-794-849-603,Mission Computer Card Mk III Variant 5,Avionics,High
+PART-0924,624-412-903-534,Fuel Control Valve Type A Variant 5,Engines,Low
+PART-0925,384-755-758-16,Suspension Arm Type B Variant 5,Ground Vehicles,Mission Critical
+PART-0926,341-105-287-923,Frequency Selector Unit Type C Variant 5,Communications,Low
+PART-0927,394-101-938-463,Signal Conditioning Board Heavy Duty Variant 5,Radar,Mission Critical
+PART-0928,969-849-708-499,Fuel Tank Vent Extended Range Variant 5,Fuel Systems,High
+PART-0929,446-532-950-450,Expansion Tank Field Repair Variant 5,Cooling Systems,Medium
+PART-0930,323-106-985-272,Bulkhead Repair Panel Depot Level Variant 5,Structural,Mission Critical
+PART-0931,834-316-815-145,Air Reservoir Fitting Mk I Variant 5,Pneumatics,High
+PART-0932,515-326-78-15,Ammunition Feed Guide Mk II Variant 5,Weapons Support,High
+PART-0933,703-805-505-272,Infrared Detector Mk III Variant 5,Sensors,Mission Critical
+PART-0934,999-270-534-274,Emergency Oxygen Valve Type A Variant 5,Life Support,Low
+PART-0935,608-369-312-139,Grease Cartridge Type B Variant 5,Maintenance Consumables,Mission Critical
+PART-0936,872-672-963-288,Universal Joint Type C Variant 5,Powertrain,Medium
+PART-0937,243-403-831-600,Brake Booster Valve Heavy Duty Variant 5,Braking Systems,Medium
+PART-0938,676-651-32-690,Heading Processor Extended Range Variant 5,Navigation,Low
+PART-0939,784-967-759-667,Lift Cylinder Seal Field Repair Variant 5,Logistics Equipment,High
+PART-0940,604-276-66-605,Fiber Patch Cable Depot Level Variant 5,Cyber Systems,High
+PART-0941,548-371-916-991,Servo Valve Mk I Variant 5,Hydraulics,Low
+PART-0942,563-249-145-273,Connector Kit Mk II Variant 5,Electrical,Low
+PART-0943,373-861-426-463,Display Control Panel Mk III Variant 5,Avionics,Mission Critical
+PART-0944,152-65-22-725,Starter Generator Type A Variant 5,Engines,Medium
+PART-0945,487-685-382-971,Differential Gear Set Type B Variant 5,Ground Vehicles,High
+PART-0946,401-379-887-937,Comms Power Adapter Type C Variant 5,Communications,Mission Critical
+PART-0947,156-788-243-646,RF Cable Assembly Heavy Duty Variant 5,Radar,Low
+PART-0948,869-653-329-568,Fuel Metering Unit Extended Range Variant 5,Fuel Systems,High
+PART-0949,518-461-476-414,Fan Drive Belt Field Repair Variant 5,Cooling Systems,Medium
+PART-0950,753-520-226-156,Latch Mechanism Depot Level Variant 5,Structural,Medium
+PART-0951,196-454-375-410,Control Manifold Mk I Variant 5,Pneumatics,High
+PART-0952,290-578-824-773,Trigger Control Module Mk II Variant 5,Weapons Support,High
+PART-0953,185-547-328-28,Flow Sensor Mk III Variant 5,Sensors,Mission Critical
+PART-0954,715-988-737-350,CO2 Scrubber Cartridge Type A Variant 5,Life Support,Medium
+PART-0955,102-862-289-787,Anti-Seize Compound Type B Variant 5,Maintenance Consumables,High
+PART-0956,2-752-20-905,Final Drive Gear Type C Variant 5,Powertrain,High
+PART-0957,893-242-117-653,Caliper Piston Seal Heavy Duty Variant 5,Braking Systems,Medium
+PART-0958,474-43-500-560,Timing Receiver Extended Range Variant 5,Navigation,Medium
+PART-0959,181-545-838-484,Dock Ramp Hinge Field Repair Variant 5,Logistics Equipment,Medium
+PART-0960,860-384-597-318,Access Control Reader Depot Level Variant 5,Cyber Systems,High
+PART-0961,472-948-831-652,Pump Drive Coupling Mk I Variant 5,Hydraulics,Medium
+PART-0962,25-146-3-160,Ground Strap Mk II Variant 5,Electrical,Medium
+PART-0963,503-640-206-96,Sensor Interface Board Mk III Variant 5,Avionics,Medium
+PART-0964,828-314-281-377,Exhaust Clamp Type A Variant 5,Engines,High
+PART-0965,493-904-943-907,Fuel Tank Sender Type B Variant 5,Ground Vehicles,Medium
+PART-0966,658-381-343-424,Audio Interface Cable Type C Variant 5,Communications,Low
+PART-0967,633-821-818-744,Radar Processor Card Heavy Duty Variant 5,Radar,High
+PART-0968,525-296-425-874,Quick Disconnect Coupler Extended Range Variant 5,Fuel Systems,High
+PART-0969,924-153-808-322,Coolant Filter Field Repair Variant 5,Cooling Systems,Medium
+PART-0970,570-121-311-848,Armor Panel Insert Depot Level Variant 5,Structural,Low
+PART-0971,66-191-846-846,Pressure Gauge Mk I Variant 5,Pneumatics,Medium
+PART-0972,38-91-467-628,Traverse Gear Set Mk II Variant 5,Weapons Support,Low
+PART-0973,926-745-983-27,Gyro Sensor Assembly Mk III Variant 5,Sensors,High
+PART-0974,959-757-241-572,Ventilation Fan Type A Variant 5,Life Support,Mission Critical
+PART-0975,428-718-943-402,Protective Cap Set Type B Variant 5,Maintenance Consumables,Medium
+PART-0976,550-232-973-583,Powertrain Mount Type C Variant 5,Powertrain,Mission Critical
+PART-0977,932-797-829-688,Brake Fluid Reservoir Heavy Duty Variant 5,Braking Systems,Mission Critical
+PART-0978,781-488-894-790,Navigation Switch Panel Extended Range Variant 5,Navigation,Medium
+PART-0979,641-440-755-728,Cargo Net Kit Field Repair Variant 5,Logistics Equipment,Medium
+PART-0980,821-886-861-501,Rugged Tablet Battery Depot Level Variant 5,Cyber Systems,Medium
+PART-0981,943-764-930-829,Return Line Fitting Mk I Variant 5,Hydraulics,High
+PART-0982,427-992-879-808,Load Center Panel Mk II Variant 5,Electrical,High
+PART-0983,728-824-31-801,Data Bus Adapter Mk III Variant 5,Avionics,High
+PART-0984,458-544-561-659,Combustion Liner Type A Variant 5,Engines,Low
+PART-0985,543-258-78-172,Vehicle Control Module Type B Variant 5,Ground Vehicles,Medium
+PART-0986,73-224-886-195,Radio Control Head Type C Variant 5,Communications,Medium
+PART-0987,157-610-197-670,Array Panel Segment Heavy Duty Variant 5,Radar,High
+PART-0988,966-280-585-262,Fuel Sampling Kit Extended Range Variant 5,Fuel Systems,Medium
+PART-0989,863-235-675-63,Thermal Control Valve Field Repair Variant 5,Cooling Systems,Medium
+PART-0990,121-713-82-700,Door Seal Strip Depot Level Variant 5,Structural,Medium
+PART-0991,922-972-203-629,Bleed Valve Mk I Variant 5,Pneumatics,High
+PART-0992,288-909-659-380,Safety Interlock Switch Mk II Variant 5,Weapons Support,High
+PART-0993,866-606-725-444,Humidity Sensor Mk III Variant 5,Sensors,Medium
+PART-0994,662-474-367-567,Life Support Control Panel Type A Variant 5,Life Support,Medium
+PART-0995,526-389-813-381,Safety Wire Spool Type B Variant 5,Maintenance Consumables,Low
+PART-0996,350-192-166-262,Transmission Control Solenoid Type C Variant 5,Powertrain,Mission Critical
+PART-0997,403-54-849-933,Wheel Cylinder Heavy Duty Variant 5,Braking Systems,Low
+PART-0998,152-578-678-349,Waypoint Control Unit Extended Range Variant 5,Navigation,Mission Critical
+PART-0999,81-540-987-309,Material Handling Roller Field Repair Variant 5,Logistics Equipment,Low
+PART-1000,170-556-798-220,System Drive Caddy Depot Level Variant 5,Cyber Systems,Medium

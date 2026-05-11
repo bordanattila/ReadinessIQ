@@ -112,6 +112,8 @@ def generate_shipments_data(sites_df: pd.DataFrame, parts_df: pd.DataFrame, num_
     for i in range(num_shipments):
         site = random.choice(site_records)
         part = random.choice(part_records)
+        supplier_name = random.choice(supplier_list)
+        supplier_id = _generate_supplier_id(supplier_name)
 
         ship_date = get_random_date(2025)
         expected_delivery_date = ship_date + timedelta(days=random.randint(3, 10))
@@ -131,16 +133,18 @@ def generate_shipments_data(sites_df: pd.DataFrame, parts_df: pd.DataFrame, num_
         delay_days = max((actual_delivery_date - expected_delivery_date).days, 0)
 
         shipment = {
-            "shipment_id": i + 1,
-            "site_id": site["site_id"],
-            "part_id": part["part_id"],
-            "ship_date": ship_date,
-            "expected_delivery_date": expected_delivery_date,
-            "actual_delivery_date": actual_delivery_date,
-            "quantity_shipped": random.randint(1, 1000),
-            "shipment_status": random.choice(["pending", "shipped", "delivered"]),
-            "delayed_flag": delayed_flag,
-            "delay_days": delay_days,
+            'shipment_id': i + 1,
+            'site_id': site['site_id'],
+            'part_id': part['part_id'],
+            'ship_date': ship_date,
+            'expected_delivery_date': expected_delivery_date,
+            'actual_delivery_date': actual_delivery_date,
+            'quantity_shipped': random.randint(1, 1000),
+            'shipment_status': random.choice(['pending', 'shipped', 'delivered']),
+            'delayed_flag': delayed_flag,
+            'delay_days': delay_days,
+            'supplier_id': supplier_id,
+            'supplier_name': supplier_name,
         }
         shipments.append(shipment)
     return pd.DataFrame(shipments)
@@ -153,21 +157,38 @@ def _generate_supplier_id(supplier_name: str) -> str:
             supplier_id += supplier_name[i]
     return supplier_id
 
-def generate_supplier_orders_data(num_orders: int = 10000) -> pd.DataFrame:
-    """Generate synthetic supplier order data with random order dates and statuses"""
+def generate_supplier_orders_data(
+    sites_df: pd.DataFrame,
+    parts_df: pd.DataFrame,
+    num_orders: int = 10000,
+) -> pd.DataFrame:
+    """Generate synthetic supplier order data with random order dates and statuses.
+
+    ``order_part_id`` is always a ``part_master.part_id`` string. ``site_id``
+    is the customer site this order supports (for supplier coverage metrics).
+    """
     orders = []
+
+    part_records = parts_df.to_dict(orient='records')
+    site_records = sites_df.to_dict(orient='records')
+
     for i in range(num_orders):
         supplier_name = random.choice(supplier_list)
         order_created_at = get_random_date()
+
+        part = random.choice(part_records)
+        site = random.choice(site_records)
+
         order = {
             'order_id': i + 1,
             'order_supplier_name': supplier_name,
             'order_supplier_id': _generate_supplier_id(supplier_name),
-            'order_part_id': random.randint(1, 1000),
+            'order_part_id': part['part_id'],
             'order_quantity': random.randint(0, 1000),
             'order_status': random.choice(['pending', 'shipped', 'delivered']),
             'order_created_at': order_created_at,
             'order_updated_at': order_created_at + timedelta(days=random.randint(1, 30)),
+            'site_id': site['site_id'],
         }
         orders.append(order)
     return pd.DataFrame(orders)
@@ -223,7 +244,7 @@ def generate_all_data():
         sites_df=sites,
         parts_df=parts
     )
-    orders = generate_supplier_orders_data()
+    orders = generate_supplier_orders_data(sites_df=sites, parts_df=parts)
     events = generate_maintenance_events_data(
         sites_df=sites,
         parts_df=parts

@@ -141,7 +141,11 @@ def test_maintenance_events_completed_have_zero_backlog():
 # ---------- generate_supplier_orders_data ----------
 
 def test_supplier_orders_has_expected_columns():
-    df = gsd.generate_supplier_orders_data(num_orders=100)
+    sites = gsd.generate_sites_data()
+    parts = gsd.generate_part_master_data()
+    df = gsd.generate_supplier_orders_data(
+        sites_df=sites, parts_df=parts, num_orders=100
+    )
 
     expected = {
         "order_id",
@@ -152,8 +156,11 @@ def test_supplier_orders_has_expected_columns():
         "order_status",
         "order_created_at",
         "order_updated_at",
+        "site_id",
     }
     assert expected.issubset(df.columns)
     assert len(df) == 100
+    assert df["order_part_id"].isin(parts["part_id"]).all()
+    assert df["site_id"].isin(sites["site_id"]).all()
     # updated_at should be on or after created_at
     assert (df["order_updated_at"] >= df["order_created_at"]).all()
