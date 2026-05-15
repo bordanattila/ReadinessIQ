@@ -1,0 +1,43 @@
+.sidebar {
+  background: var(--riq-sidebar-bg);
+  border-right: 1px solid var(--riq-border);
+  padding: 1.25rem;
+  width: min(11rem, 22vw);
+  min-width: 7.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.sidebar nav a {
+  color: var(--riq-link);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.sidebar nav a:hover {
+  text-decoration: underline;
+}
+
+.sidebar img {
+  width: 100%;
+  max-width: 6rem;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0.5rem;
+  box-shadow: var(--riq-img-shadow);
+}

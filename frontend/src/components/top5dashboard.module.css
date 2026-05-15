@@ -1,0 +1,19 @@
+.section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.25rem 1.5rem 2rem;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--riq-text);
+  margin: 0 0 1rem;
+}
+
+.top5cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}

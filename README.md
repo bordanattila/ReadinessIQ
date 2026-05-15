@@ -3,6 +3,7 @@
 Logistics readiness API: inventory, shipments, maintenance, and supplier-style synthetic data surfaced through KPIs, site risk ranking, and part-level impact.
 
 ![Tests](https://github.com/bordanattila/ReadinessIQ/actions/workflows/test.yml/badge.svg)
+![Dashboar - Risk Cards](frontend/src/assets/top5_risk_cards.png)
 
 ## Quick start
 
