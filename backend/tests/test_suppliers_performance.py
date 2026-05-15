@@ -35,3 +35,17 @@ def test_suppliers_performance_bad_supplier_first(supplier_risk_engine, client_f
     assert bad["on_time_delivery_rate"] == 0.2
     assert bad["sites_supported"] == 1
     assert bad["parts_supported"] == 1
+
+    # risk_drivers: human-readable strings tied to the same metrics as the score
+    assert bad["risk_drivers"] == [
+        "20 open_orders",
+        "8 delayed_shipments",
+        "4.80 average_delay_days",
+    ]
+
+    good = suppliers[1]
+    assert good["risk_drivers"] == [
+        "0 open_orders",
+        "0 delayed_shipments",
+        "0.00 average_delay_days",
+    ]

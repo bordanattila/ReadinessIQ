@@ -178,6 +178,13 @@ def get_suppliers_performance(engine: Engine = Depends(get_engine)):
                 row['average_days_non_mission_capable'], 2
             )
 
+        for row in rows:
+            row['risk_drivers'] = [
+                f"{row['open_orders']} open_orders",
+                f"{row['delayed_shipments']} delayed_shipments",
+                f"{row['average_delay_days']:.2f} average_delay_days",
+            ]
+
         rows.sort(key=lambda r: r['performance_risk_score'], reverse=True)
 
         return {'status': 'ok', 'suppliers': rows}

@@ -194,8 +194,22 @@ def generate_supplier_orders_data(
     return pd.DataFrame(orders)
 
 # Generate maintenance_events data with random event dates and statuses
-def generate_maintenance_events_data(sites_df: pd.DataFrame, parts_df: pd.DataFrame, num_events: int = 10000) -> pd.DataFrame:
-    """Generate synthetic maintenance event data with random event dates and statuses"""
+_MAINTENANCE_STATUSES = (
+    "open",
+    "in_progress",
+    "awaiting_parts",
+    "completed",
+    "deferred",
+)
+# Most work is closed history; a minority stays active so KPIs / root-cause are
+# not dominated by ~80% "open pipeline" rows from a flat status distribution.
+_MAINTENANCE_STATUS_WEIGHTS = (0.12, 0.10, 0.10, 0.58, 0.10)
+
+
+def generate_maintenance_events_data(
+    sites_df: pd.DataFrame, parts_df: pd.DataFrame, num_events: int = 4000
+) -> pd.DataFrame:
+    """Generate synthetic maintenance event data with random event dates and statuses."""
     events = []
 
     site_records = sites_df.to_dict(orient='records')
@@ -206,7 +220,9 @@ def generate_maintenance_events_data(sites_df: pd.DataFrame, parts_df: pd.DataFr
         part = random.choice(part_records)
 
         event_date = get_random_date()
-        status = random.choice(["open", "in_progress", "awaiting_parts", "completed", "deferred"])
+        status = random.choices(
+            _MAINTENANCE_STATUSES, weights=_MAINTENANCE_STATUS_WEIGHTS, k=1
+        )[0]
 
         if status == "completed":
             days_non_mission_capable = random.randint(0, 10)

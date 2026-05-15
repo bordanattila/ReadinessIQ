@@ -4,6 +4,7 @@ from app.routers.kpis import router as kpis_router
 from app.routers.sites import router as sites_router
 from app.routers.parts import router as parts_router
 from app.routers.suppliers import router as suppliers_router
+from app.routers.root_cause import router as root_cause_router
 
 app = FastAPI(
     title='ReadinessIQ API',
@@ -18,6 +19,7 @@ app.include_router(kpis_router)
 app.include_router(sites_router)
 app.include_router(parts_router)
 app.include_router(suppliers_router)
+app.include_router(root_cause_router)
 
 
 @app.get('/')

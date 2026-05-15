@@ -709,6 +709,107 @@ def _seed_supplier_risk_ranking(engine: Engine) -> None:
     ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
 
 
+def _create_empty_root_cause_tables(engine: Engine) -> None:
+    """Minimal schema for GET /api/root-cause/readiness-risk."""
+    pd.DataFrame(columns=["shipment_id", "delayed_flag"]).to_sql(
+        "shipments", engine, if_exists="replace", index=False
+    )
+    pd.DataFrame(
+        columns=[
+            "order_id",
+            "site_id",
+            "order_part_id",
+            "order_status",
+            "order_created_at",
+        ]
+    ).to_sql("supplier_orders", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "inventory_id",
+            "site_id",
+            "part_id",
+            "below_reorder_point",
+            "below_safety_stock",
+            "stockout_flag",
+            "snapshot_date",
+        ]
+    ).to_sql("inventory_positions", engine, if_exists="replace", index=False)
+    pd.DataFrame(columns=["maintenance_event_id", "status"]).to_sql(
+        "maintenance_events", engine, if_exists="replace", index=False
+    )
+
+
+def _seed_root_cause_readiness(engine: Engine) -> None:
+    """Deterministic counts: supplier_delay=2, late_site=5 (reactive POs), inventory=4, maint=3."""
+    pd.DataFrame(
+        [
+            {"shipment_id": 1, "delayed_flag": True},
+            {"shipment_id": 2, "delayed_flag": True},
+            {"shipment_id": 3, "delayed_flag": False},
+        ]
+    ).to_sql("shipments", engine, if_exists="replace", index=False)
+
+    orders = []
+    for i in range(5):
+        orders.append({
+            "order_id": i + 1,
+            "site_id": "SITE-ROOT",
+            "order_part_id": "PART-R1",
+            "order_status": "pending" if i % 2 == 0 else "delivered",
+            "order_created_at": "2026-06-01",
+        })
+    orders.append({
+        "order_id": 6,
+        "site_id": "SITE-ROOT",
+        "order_part_id": "PART-R1",
+        "order_status": "delivered",
+        "order_created_at": "2026-01-01",
+    })
+    pd.DataFrame(orders).to_sql(
+        "supplier_orders", engine, if_exists="replace", index=False
+    )
+
+    inv = []
+    for i in range(4):
+        inv.append({
+            "inventory_id": i + 1,
+            "site_id": "SITE-ROOT",
+            "part_id": "PART-R1",
+            "below_reorder_point": True,
+            "below_safety_stock": False,
+            "stockout_flag": False,
+            "snapshot_date": "2026-01-01",
+        })
+    pd.DataFrame(inv).to_sql(
+        "inventory_positions", engine, if_exists="replace", index=False
+    )
+
+    pd.DataFrame(
+        [
+            {"maintenance_event_id": 1, "status": "open"},
+            {"maintenance_event_id": 2, "status": "in_progress"},
+            {"maintenance_event_id": 3, "status": "deferred"},
+            {"maintenance_event_id": 4, "status": "completed"},
+        ]
+    ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+@pytest.fixture
+def empty_root_cause_engine() -> Engine:
+    """All four tables present with zero rows."""
+    engine = _make_memory_engine()
+    _create_empty_root_cause_tables(engine)
+    return engine
+
+
+@pytest.fixture
+def root_cause_readiness_engine() -> Engine:
+    """Seeded for GET /api/root-cause/readiness-risk."""
+    engine = _make_memory_engine()
+    _seed_root_cause_readiness(engine)
+    return engine
+
+
 @pytest.fixture
 def empty_supplier_risk_engine() -> Engine:
     """In-memory DB with supplier ranking schema and no supplier rows."""
