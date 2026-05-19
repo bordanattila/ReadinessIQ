@@ -82,3 +82,21 @@ export async function fetchSuppliersPerformance(): Promise<SupplierPerformanceRo
   assertOk(body)
   return body.suppliers ?? []
 }
+
+export interface RootCauseSummaryRow {
+  total_risk_signals: number
+  supplier_delay_signals: number
+  reactive_site_order_signals: number
+  inventory_policy_signals: number
+  maintenance_demand_signals: number
+}
+
+export async function fetchRootCauseSummary(): Promise<RootCauseSummaryRow> {
+  const response = await fetch(`${BASE_URL}/api/root-cause/readiness-risk`)
+  if (!response.ok) {
+    throw new Error(`Root cause summary failed: ${response.status}`)
+  }
+  const body = (await response.json()) as { status?: string; message?: string; summary: RootCauseSummaryRow }
+  assertOk(body)
+  return body.summary
+}

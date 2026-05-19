@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import logo from '../assets/readinessiq_logo.png'
 import styles from './sidebar.module.css'
 
@@ -7,18 +8,20 @@ export default function Sidebar() {
       <img src={logo} alt="ReadinessIQ" />
       <nav>
         <ul>
-            <li>
-                <a href="/">Overview</a>
-            </li>
-            <li>
-                <a href="/">Sites</a>
-            </li>
-            <li>
-                <a href="/">Parts</a>
-            </li>
-            <li>
-                <a href="/">Suppliers</a>
-            </li>
+          <li>
+            <NavLink to="/" end>
+              Overview
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/sites">Sites</NavLink>
+          </li>
+          <li>
+            <NavLink to="/parts">Parts</NavLink>
+          </li>
+          <li>
+            <NavLink to="/suppliers">Suppliers</NavLink>
+          </li>
         </ul>
       </nav>
     </div>

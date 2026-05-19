@@ -1,13 +1,9 @@
+import { Link } from 'react-router-dom'
+import type { Top5CardIcon, Top5Column } from './top5ColumnTypes'
+import { RankingCell } from './rankingCell'
 import styles from './top5card.module.css'
 
-export type Top5Column =
-  | { key: string; header: string; kind: 'text'; headerAlign?: 'left' | 'right' }
-  | { key: string; header: string; kind: 'link'; idKey: string; path: string; headerAlign?: 'left' | 'right' }
-  | { key: string; header: string; kind: 'badge'; headerAlign?: 'left' | 'right' }
-  | { key: string; header: string; kind: 'criticality'; headerAlign?: 'left' | 'right' }
-  | { key: string; header: string; kind: 'missionPriority'; headerAlign?: 'left' | 'right' }
-
-export type Top5CardIcon = 'location' | 'gear' | 'building'
+export type { Top5CardIcon, Top5Column } from './top5ColumnTypes'
 
 interface Top5CardProps {
   title: string
@@ -45,10 +41,10 @@ function IconGear() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      aria-hidden
+      aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+       <path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5Z" />
+      <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3a2 2 0 1 1 4 0v.1A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.2.36.52.65.9.82.22.1.46.16.7.18H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" />
     </svg>
   )
 }
@@ -81,84 +77,8 @@ function CardIcon({ name }: { name: Top5CardIcon }) {
   }
 }
 
-function scoreBadgeClass(score: number): string {
-  if (score >= 80) return styles.badgeHigh
-  if (score >= 70) return styles.badgeMed
-  if (score >= 60) return styles.badgeWarn
-  return styles.badgeMuted
-}
-
-function criticalityDotClass(value: string): string {
-  const v = value.toLowerCase()
-  if (v.includes('mission') || v === 'critical') return styles.dotCritical
-  if (v.includes('high')) return styles.dotHigh
-  if (v.includes('medium')) return styles.dotMedium
-  return styles.dotLow
-}
-
-function missionPriorityLabel(n: number): { label: string; dotClass: string } {
-  if (n >= 5) return { label: 'High', dotClass: styles.dotCritical }
-  if (n >= 4) return { label: 'Medium', dotClass: styles.dotHigh }
-  if (n >= 3) return { label: 'Medium', dotClass: styles.dotMedium }
-  if (n >= 2) return { label: 'Medium-Low', dotClass: styles.dotWarn }
-  return { label: 'Low', dotClass: styles.dotLow }
-}
-
-function Cell({
-  col,
-  row,
-}: {
-  col: Top5Column
-  row: Record<string, unknown>
-}) {
-  switch (col.kind) {
-    case 'text': {
-      const v = row[col.key]
-      return <>{v != null ? String(v) : ''}</>
-    }
-    case 'link': {
-      const id = String(row[col.idKey] ?? '')
-      const label = row[col.key] != null ? String(row[col.key]) : ''
-      const href = `${col.path.replace(/\/$/, '')}/${encodeURIComponent(id)}`
-      return (
-        <a className={styles.cellLink} href={href}>
-          {label}
-        </a>
-      )
-    }
-    case 'badge': {
-      const raw = row[col.key]
-      const score = typeof raw === 'number' ? raw : Number(raw)
-      const safe = Number.isFinite(score) ? score : 0
-      return (
-        <span className={`${styles.badge} ${scoreBadgeClass(safe)}`}>
-          {safe.toFixed(1)}
-        </span>
-      )
-    }
-    case 'criticality': {
-      const value = row[col.key] != null ? String(row[col.key]) : ''
-      return (
-        <span className={styles.dotRow}>
-          <span className={`${styles.dot} ${criticalityDotClass(value)}`} aria-hidden />
-          <span>{value}</span>
-        </span>
-      )
-    }
-    case 'missionPriority': {
-      const raw = row[col.key]
-      const n = typeof raw === 'number' ? raw : Number(raw)
-      const { label, dotClass } = missionPriorityLabel(Number.isFinite(n) ? n : 0)
-      return (
-        <span className={styles.dotRow}>
-          <span className={`${styles.dot} ${dotClass}`} aria-hidden />
-          <span>{label}</span>
-        </span>
-      )
-    }
-    default:
-      return null
-  }
+export function RankingHeaderIcon({ name }: { name: Top5CardIcon }) {
+  return <CardIcon name={name} />
 }
 
 export default function Top5Card({
@@ -181,9 +101,9 @@ export default function Top5Card({
           <h2 className={styles.title}>{title}</h2>
         </div>
         {viewAllHref ? (
-          <a className={styles.viewAll} href={viewAllHref}>
+          <Link className={styles.viewAll} to={viewAllHref}>
             View all
-          </a>
+          </Link>
         ) : null}
       </header>
 
@@ -220,7 +140,7 @@ export default function Top5Card({
                           : undefined
                       }
                     >
-                      <Cell col={col} row={item} />
+                      <RankingCell col={col} row={item} />
                     </td>
                   ))}
                 </tr>
