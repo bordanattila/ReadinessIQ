@@ -62,40 +62,41 @@ export default function EntityDetailPage({ category }: { category: EntityDetailC
   const cfg = DETAIL_PAGES[category]
   const entityId = params[cfg.paramKey] ?? ''
 
+  const hasEntityId = entityId.length > 0
   const [raw, setRaw] = useState<unknown>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [fetchError, setFetchError] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!hasEntityId) return
+
     const page = DETAIL_PAGES[category]
-
-    if (!entityId) {
-      setLoading(false)
-      setError('Missing entity id')
-      return
-    }
-
     let cancelled = false
+
     async function run() {
       setLoading(true)
-      setError(null)
+      setFetchError(null)
+      setRaw(null)
       try {
         const data = await page.load(entityId)
         if (!cancelled) setRaw(data)
       } catch (e) {
         if (!cancelled) {
-          setError(e instanceof Error ? e.message : 'Failed to load summary')
-          setRaw(null)
+          setFetchError(e instanceof Error ? e.message : 'Failed to load summary')
         }
       } finally {
         if (!cancelled) setLoading(false)
       }
     }
+
     void run()
     return () => {
       cancelled = true
     }
-  }, [category, entityId])
+  }, [category, entityId, hasEntityId])
+
+  const error = hasEntityId ? fetchError : 'Missing entity id'
+  const isLoading = hasEntityId && loading
 
   const view = useMemo(() => {
     if (!raw) return null
@@ -105,13 +106,13 @@ export default function EntityDetailPage({ category }: { category: EntityDetailC
   return (
     <DetailedView
       icon={cfg.icon}
-      title={view?.title ?? (loading ? 'Loading…' : entityId)}
+      title={view?.title ?? (isLoading ? 'Loading…' : entityId)}
       subtitle={view?.subtitle}
       entityId={view?.entityId ?? entityId}
       backHref={cfg.listHref}
       backLabel={cfg.listLabel}
       sections={view?.sections ?? []}
-      loading={loading}
+      loading={isLoading}
       error={error}
     />
   )

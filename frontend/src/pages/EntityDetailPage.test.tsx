@@ -191,6 +191,19 @@ describe('EntityDetailPage', () => {
     expect(fetchSupplierSummary).toHaveBeenCalledWith('ACME')
   })
 
+  it('shows error when route param is missing', async () => {
+    render(
+      <MemoryRouter initialEntries={['/sites']}>
+        <Routes>
+          <Route path="/sites" element={<EntityDetailPage category="sites" />} />
+        </Routes>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('alert')).toHaveTextContent('Missing entity id')
+    expect(fetchSiteSummary).not.toHaveBeenCalled()
+  })
+
   it('shows fetch error from the API layer', async () => {
     vi.mocked(fetchSiteSummary).mockRejectedValueOnce(new Error('Site summary failed: 404'))
 
