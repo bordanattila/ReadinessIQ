@@ -1,7 +1,9 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
+import MetricsCardDashboard from './components/merticsCardDashboard'
 import RootCauseSummaryChart from './components/rootCauseSummaryChart'
 import Sidebar from './components/sidebar'
 import Top5Dashboard from './components/top5dashboard'
+import EntityDetailPage from './pages/EntityDetailPage'
 import RankingViewAllPage from './pages/RankingViewAllPage'
 import styles from './App.module.css'
 
@@ -35,7 +37,14 @@ function AppShell() {
 function OverviewPage() {
   return (
     <>
-      <RootCauseSummaryChart />
+      <div className={styles.overviewRow}>
+        <div className={styles.overviewChart}>
+          <RootCauseSummaryChart />
+        </div>
+        <aside className={styles.overviewMetrics} aria-label="Key metrics">
+          <MetricsCardDashboard />
+        </aside>
+      </div>
       <Top5Dashboard />
     </>
   )
@@ -47,8 +56,11 @@ export default function App() {
       <Route path="/" element={<AppShell />}>
         <Route index element={<OverviewPage />} />
         <Route path="sites" element={<RankingViewAllPage category="sites" />} />
+        <Route path="sites/:siteId" element={<EntityDetailPage category="sites" />} />
         <Route path="parts" element={<RankingViewAllPage category="parts" />} />
+        <Route path="parts/:partId" element={<EntityDetailPage category="parts" />} />
         <Route path="suppliers" element={<RankingViewAllPage category="suppliers" />} />
+        <Route path="suppliers/:supplierId" element={<EntityDetailPage category="suppliers" />} />
       </Route>
     </Routes>
   )

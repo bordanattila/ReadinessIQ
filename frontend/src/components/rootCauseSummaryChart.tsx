@@ -125,7 +125,7 @@ const DRIVER_META: Record<
     Icon: IconTruck,
   },
   reactive_site_order_signals: {
-    label: 'Late Site Order',
+    label: 'Reactive Site Ordering',
     color: '#dc2626',
     Icon: IconBell,
   },

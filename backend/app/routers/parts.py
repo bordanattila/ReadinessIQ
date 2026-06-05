@@ -116,6 +116,55 @@ def _raw_part_risk_score(row: dict) -> float:
     return base * mult
 
 
+# Primary supplier for a part: most activity across shipments + supplier_orders.
+_PART_PRIMARY_SUPPLIER_SQL = """
+WITH activity AS (
+    SELECT supplier_id, supplier_name, activity_weight, source
+    FROM (
+        SELECT
+            supplier_id,
+            MAX(supplier_name) AS supplier_name,
+            COUNT(*) AS activity_weight,
+            'shipment' AS source
+        FROM shipments
+        WHERE part_id = :part_id
+          AND supplier_id IS NOT NULL
+          AND supplier_id != ''
+        GROUP BY supplier_id
+        UNION ALL
+        SELECT
+            order_supplier_id AS supplier_id,
+            MAX(order_supplier_name) AS supplier_name,
+            COUNT(*) AS activity_weight,
+            'order' AS source
+        FROM supplier_orders
+        WHERE order_part_id = :part_id
+          AND order_supplier_id IS NOT NULL
+          AND order_supplier_id != ''
+        GROUP BY order_supplier_id
+    ) src
+)
+SELECT
+    supplier_id,
+    MAX(supplier_name) AS supplier_name
+FROM activity
+GROUP BY supplier_id
+ORDER BY
+    SUM(CASE WHEN source = 'shipment' THEN activity_weight ELSE 0 END) DESC,
+    SUM(activity_weight) DESC
+LIMIT 1
+"""
+
+
+def _part_supplier_payload(row: dict | None) -> dict | None:
+    if row is None:
+        return None
+    return {
+        'supplier_id': row['supplier_id'],
+        'supplier_name': row['supplier_name'],
+    }
+
+
 @router.get('/readiness-impact')
 def get_parts_readiness_impact(engine: Engine = Depends(get_engine)):
     """Rank parts by contribution to readiness risk (highest first).
@@ -160,6 +209,165 @@ def get_parts_readiness_impact(engine: Engine = Depends(get_engine)):
 
         return {'status': 'ok', 'parts': out}
 
+    except Exception as e:
+        return {
+            'status': 'error',
+            'message': str(e),
+        }
+
+@router.get('/{part_id}/summary')
+def get_part_summary(part_id: str, engine: Engine = Depends(get_engine)):
+    """Return a detailed readiness summary for a single part.
+
+        Args:
+        part_id: The part identifier, e.g. ``"PART-001"``.
+
+        Returns:
+            On success, a JSON object shaped like::
+            {
+                "status": "ok",
+                "part": {
+                    "part_id": "PART-001",
+                    "part_name": "Hydraulic Seal Kit",
+                    "part_family": "Hydraulics",
+                    "criticality": "High",
+                },
+                "supplier": {
+                    "supplier_id": "SUP-001",
+                    "supplier_name": "Supplier Inc.",
+                },
+                "inventory": {
+                    "stockout_count": 3,
+                    "below_reorder_count": 18,
+                    "below_safety_stock_count": 9,
+                },
+                "shipments": {
+                    "total_shipments": 104,
+                    "delayed_shipments": 27,
+                    "delayed_shipment_rate": 0.2596,
+                    "average_delay_days": 3.7,
+                },
+                "sites_impacted": [
+                    {
+                        "site_id": "SITE-001",
+                        "site_name": "Fort Liberty Sustainment Hub",
+                        "site_region": "Southeast",
+                        "site_type": "Depot",
+                        "mission_priority": 5,
+                    }
+                ],
+            }
+    """
+
+    try:
+        with engine.connect() as conn:
+            params = {'part_id': part_id}
+
+            # Part metadata. `mappings().first()` gives a dict-like single row
+            # or None if no part matches.
+            part = conn.execute(
+                text("""
+                    SELECT
+                        part_id,
+                        part_name,
+                        part_family,
+                        criticality
+                    FROM part_master
+                    WHERE part_id = :part_id
+                """),
+                params,
+            ).mappings().first()
+
+            if part is None:
+                return {
+                    'status': 'error',
+                    'message': f'Part {part_id!r} not found',
+                }
+
+            # All four aggregate queries below use SUM(CASE WHEN ...) so the
+            # result is always a single row (even when the part has zero
+            # inventory / shipments / maintenance events).
+            inventory = conn.execute(
+                text("""
+                    SELECT
+                        COALESCE(SUM(CASE WHEN stockout_flag THEN 1 ELSE 0 END), 0)
+                            AS stockout_count,
+                        COALESCE(SUM(CASE WHEN below_reorder_point THEN 1 ELSE 0 END), 0)
+                            AS below_reorder_count,
+                        COALESCE(SUM(CASE WHEN below_safety_stock THEN 1 ELSE 0 END), 0)
+                            AS below_safety_stock_count
+                    FROM inventory_positions
+                    WHERE part_id = :part_id
+                """),
+                params,
+            ).mappings().first()
+
+            shipments = conn.execute(
+                text("""
+                    SELECT
+                        COUNT(*) AS total_shipments,
+                        COALESCE(SUM(CASE WHEN delayed_flag THEN 1 ELSE 0 END), 0)
+                            AS delayed_shipments,
+                        AVG(CASE WHEN delayed_flag THEN delay_days END)
+                            AS average_delay_days
+                    FROM shipments
+                    WHERE part_id = :part_id
+                """),
+                params,
+            ).mappings().first()
+
+            # Sites are linked to parts through inventory_positions, not a part_id
+            # column on sites. Match readiness-impact: sites with stockout,
+            # below reorder, or below safety stock for this part.
+            sites_impacted = conn.execute(
+                text("""
+                    SELECT DISTINCT
+                        s.site_id,
+                        s.site_name,
+                        s.site_region,
+                        s.site_type,
+                        s.site_mission_priority AS mission_priority
+                    FROM inventory_positions i
+                    JOIN sites s ON s.site_id = i.site_id
+                    WHERE i.part_id = :part_id
+                      AND (
+                          i.stockout_flag
+                          OR i.below_reorder_point
+                          OR i.below_safety_stock
+                      )
+                    ORDER BY mission_priority DESC, s.site_name
+                """),
+                params,
+            ).mappings().all()
+
+            supplier = conn.execute(
+                text(_PART_PRIMARY_SUPPLIER_SQL),
+                params,
+            ).mappings().first()
+
+        total_shipments = int(shipments['total_shipments'])
+        delayed_shipments = int(shipments['delayed_shipments'])
+        delayed_rate = (
+            delayed_shipments / total_shipments if total_shipments > 0 else 0
+        )
+
+        return {
+            'status': 'ok',
+            'part': dict(part),
+            'supplier': _part_supplier_payload(dict(supplier) if supplier else None),
+            'sites_impacted': [dict(s) for s in sites_impacted],
+            'inventory': {
+                'stockout_count': int(inventory['stockout_count']),
+                'below_reorder_count': int(inventory['below_reorder_count']),
+                'below_safety_stock_count': int(inventory['below_safety_stock_count']),
+            },
+            'shipments': {
+                'total_shipments': total_shipments,
+                'delayed_shipments': delayed_shipments,
+                'delayed_shipment_rate': round(delayed_rate, 4),
+                'average_delay_days': round(float(shipments['average_delay_days'] or 0), 2),
+            },
+        }
     except Exception as e:
         return {
             'status': 'error',

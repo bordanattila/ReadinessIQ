@@ -24,7 +24,6 @@ def test_overview_reports_correct_inventory_metrics(client_factory, seeded_engin
     body = client.get("/api/kpis/overview").json()
     inventory = body["inventory"]
 
-    assert inventory["total_inventory_positions"] == 10
     assert inventory["stockout_count"] == 2
     assert inventory["stockout_rate"] == 0.2
     assert inventory["below_reorder_count"] == 4
@@ -60,7 +59,6 @@ def test_overview_handles_empty_database(client_factory, empty_engine):
     body = client.get("/api/kpis/overview").json()
 
     assert body["status"] == "ok"
-    assert body["inventory"]["total_inventory_positions"] == 0
     assert body["inventory"]["stockout_rate"] == 0
     assert body["shipments"]["delayed_shipment_rate"] == 0
     # Defensive `or 0` in the router protects against AVG returning NULL

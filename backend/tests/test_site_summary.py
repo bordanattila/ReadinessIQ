@@ -38,10 +38,14 @@ def test_summary_inventory_aggregates(client_factory, risk_ranking_engine):
     inventory = client.get("/api/sites/SITE-A/summary").json()["inventory"]
 
     assert inventory == {
-        "total_inventory_positions": 8,
         "stockout_count": 5,
         "below_reorder_count": 8,
         "below_safety_stock_count": 5,
+    }
+    assert set(inventory.keys()) == {
+        "stockout_count",
+        "below_reorder_count",
+        "below_safety_stock_count",
     }
 
 
@@ -72,23 +76,50 @@ def test_summary_maintenance_aggregates(client_factory, risk_ranking_engine):
     }
 
 
-def test_summary_top_constrained_parts_lists_stockouts_first(
+def test_summary_inventory_positions_lists_full_rows(
     client_factory, risk_ranking_engine
 ):
-    """ORDER BY (quantity_available - reorder_point) ASC puts stockouts first."""
+    """Each part at the site returns a full inventory position row."""
     client = client_factory(risk_ranking_engine)
 
-    top_parts = client.get("/api/sites/SITE-A/summary").json()["top_constrained_parts"]
+    positions = client.get("/api/sites/SITE-A/summary").json()["inventory_positions"]
 
-    assert len(top_parts) == 5
-    # All 5 should be stockouts (qty=0, reorder=10 -> diff=-10), and they
-    # should come from SITE-A (PART-A001..A005).
-    for part in top_parts:
-        assert part["quantity_available"] == 0
-        assert part["reorder_point"] == 10
-        assert part["part_family"] == "Hydraulics"
-        assert part["criticality"] == "High"
-        assert part["part_id"].startswith("PART-A")
+    assert len(positions) == 8
+    first = positions[0]
+    assert first["quantity_available"] == 0
+    assert first["reorder_point"] == 10
+    assert first["quantity_on_hand"] == 2
+    assert first["quantity_allocated"] == 2
+    assert first["safety_stock"] == 8
+    assert first["stockout_flag"] is True
+    assert first["below_reorder_point"] is True
+    assert first["part_family"] == "Hydraulics"
+    assert first["criticality"] == "High"
+    assert first["part_id"].startswith("PART-A")
+    assert first["snapshot_date"] == "2026-01-15"
+
+
+def test_summary_inventory_positions_row_shape(client_factory, risk_ranking_engine):
+    client = client_factory(risk_ranking_engine)
+    row = client.get("/api/sites/SITE-A/summary").json()["inventory_positions"][0]
+
+    assert set(row.keys()) == {
+        "inventory_id",
+        "part_id",
+        "part_name",
+        "part_family",
+        "criticality",
+        "quantity_on_hand",
+        "quantity_allocated",
+        "quantity_available",
+        "reorder_point",
+        "safety_stock",
+        "stockout_flag",
+        "below_reorder_point",
+        "below_safety_stock",
+        "days_of_supply",
+        "snapshot_date",
+    }
 
 
 def test_summary_handles_site_with_no_issues(client_factory, risk_ranking_engine):
@@ -98,7 +129,6 @@ def test_summary_handles_site_with_no_issues(client_factory, risk_ranking_engine
     body = client.get("/api/sites/SITE-C/summary").json()
 
     assert body["status"] == "ok"
-    assert body["inventory"]["total_inventory_positions"] == 1
     assert body["inventory"]["stockout_count"] == 0
     # Zero delayed shipments -> AVG returned NULL -> defensive `or 0` kicks in.
     assert body["shipments"]["delayed_shipment_rate"] == 0
@@ -123,3 +153,17 @@ def test_summary_handles_empty_database(client_factory, empty_risk_ranking_engin
 
     assert body["status"] == "error"
     assert "not found" in body["message"].lower()
+
+
+def test_summary_response_shape(client_factory, risk_ranking_engine):
+    client = client_factory(risk_ranking_engine)
+    body = client.get("/api/sites/SITE-A/summary").json()
+
+    assert set(body.keys()) == {
+        "status",
+        "site",
+        "inventory",
+        "shipments",
+        "maintenance",
+        "inventory_positions",
+    }

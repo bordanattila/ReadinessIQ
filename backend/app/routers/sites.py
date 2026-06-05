@@ -147,7 +147,7 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
     """Return a detailed readiness summary for a single site.
 
     Aggregates inventory, shipment, and maintenance metrics scoped to one
-    site, plus the top constrained parts (those most starved of stock).
+    site, plus each part's inventory position at that site.
 
     Args:
         site_id: The site identifier, e.g. ``"SITE-001"``.
@@ -165,7 +165,6 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
                     "mission_priority": 5,
                 },
                 "inventory": {
-                    "total_inventory_positions": 52,
                     "stockout_count": 3,
                     "below_reorder_count": 18,
                     "below_safety_stock_count": 9,
@@ -181,14 +180,23 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
                     "average_backlog_days": 21.4,
                     "total_days_non_mission_capable": 166,
                 },
-                "top_constrained_parts": [
+                "inventory_positions": [
                     {
+                        "inventory_id": 1042,
                         "part_id": "PART-0042",
                         "part_name": "Hydraulic Seal Kit",
                         "part_family": "Hydraulics",
-                        "quantity_available": 0,
-                        "reorder_point": 44,
                         "criticality": "High",
+                        "quantity_on_hand": 12,
+                        "quantity_allocated": 4,
+                        "quantity_available": 8,
+                        "reorder_point": 44,
+                        "safety_stock": 20,
+                        "stockout_flag": false,
+                        "below_reorder_point": true,
+                        "below_safety_stock": true,
+                        "days_of_supply": 6.5,
+                        "snapshot_date": "2026-01-15",
                     }
                 ],
             }
@@ -227,7 +235,6 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
             inventory = conn.execute(
                 text("""
                     SELECT
-                        COUNT(*) AS total_inventory_positions,
                         COALESCE(SUM(CASE WHEN stockout_flag THEN 1 ELSE 0 END), 0)
                             AS stockout_count,
                         COALESCE(SUM(CASE WHEN below_reorder_point THEN 1 ELSE 0 END), 0)
@@ -269,23 +276,31 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
                 params,
             ).mappings().first()
 
-            # Top 5 most starved parts at this site, joined with part_master
-            # for descriptive columns. "Most starved" = biggest shortfall
-            # vs. reorder point (negative diffs first).
-            top_parts = conn.execute(
+            # One row per part at this site: full inventory position joined
+            # with part_master. Most constrained positions first.
+            inventory_positions = conn.execute(
                 text("""
                     SELECT
+                        i.inventory_id,
                         p.part_id,
                         p.part_name,
                         p.part_family,
+                        p.criticality,
+                        i.quantity_on_hand,
+                        i.quantity_allocated,
                         i.quantity_available,
                         i.reorder_point,
-                        p.criticality
+                        i.safety_stock,
+                        i.stockout_flag,
+                        i.below_reorder_point,
+                        i.below_safety_stock,
+                        i.days_of_supply,
+                        i.snapshot_date
                     FROM inventory_positions i
                     JOIN part_master p ON p.part_id = i.part_id
                     WHERE i.site_id = :site_id
-                    ORDER BY (i.quantity_available - i.reorder_point) ASC
-                    LIMIT 5
+                    ORDER BY (i.quantity_available - i.reorder_point) ASC,
+                             p.part_name
                 """),
                 params,
             ).mappings().all()
@@ -300,7 +315,6 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
             'status': 'ok',
             'site': dict(site),
             'inventory': {
-                'total_inventory_positions': int(inventory['total_inventory_positions']),
                 'stockout_count': int(inventory['stockout_count']),
                 'below_reorder_count': int(inventory['below_reorder_count']),
                 'below_safety_stock_count': int(inventory['below_safety_stock_count']),
@@ -317,7 +331,26 @@ def get_site_summary(site_id: str, engine: Engine = Depends(get_engine)):
                 'average_backlog_days': round(float(maintenance['average_backlog_days'] or 0), 2),
                 'total_days_non_mission_capable': int(maintenance['total_days_non_mission_capable']),
             },
-            'top_constrained_parts': [dict(p) for p in top_parts],
+            'inventory_positions': [
+                {
+                    'inventory_id': int(row['inventory_id']),
+                    'part_id': row['part_id'],
+                    'part_name': row['part_name'],
+                    'part_family': row['part_family'],
+                    'criticality': row['criticality'],
+                    'quantity_on_hand': int(row['quantity_on_hand']),
+                    'quantity_allocated': int(row['quantity_allocated']),
+                    'quantity_available': int(row['quantity_available']),
+                    'reorder_point': int(row['reorder_point']),
+                    'safety_stock': int(row['safety_stock']),
+                    'stockout_flag': bool(row['stockout_flag']),
+                    'below_reorder_point': bool(row['below_reorder_point']),
+                    'below_safety_stock': bool(row['below_safety_stock']),
+                    'days_of_supply': round(float(row['days_of_supply'] or 0), 2),
+                    'snapshot_date': str(row['snapshot_date']),
+                }
+                for row in inventory_positions
+            ],
         }
     except Exception as e:
         return {

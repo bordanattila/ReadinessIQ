@@ -91,6 +91,7 @@ def _create_empty_tables(engine: Engine) -> None:
             "stockout_flag",
             "below_reorder_point",
             "below_safety_stock",
+            "quantity_available",
         ]
     ).to_sql("inventory_positions", engine, if_exists="replace", index=False)
     pd.DataFrame(
@@ -111,6 +112,7 @@ def _seed_inventory(engine: Engine) -> None:
                 "stockout_flag": i < 2,
                 "below_reorder_point": i < 4,
                 "below_safety_stock": i < 1,
+                "quantity_available": 10,
             }
         )
     pd.DataFrame(rows).to_sql(
@@ -166,16 +168,42 @@ def _create_empty_risk_ranking_tables(engine: Engine) -> None:
             "inventory_id",
             "site_id",
             "part_id",
+            "quantity_on_hand",
+            "quantity_allocated",
+            "quantity_available",
+            "reorder_point",
+            "safety_stock",
             "stockout_flag",
             "below_reorder_point",
             "below_safety_stock",
-            "quantity_available",
-            "reorder_point",
+            "days_of_supply",
+            "snapshot_date",
         ]
     ).to_sql("inventory_positions", engine, if_exists="replace", index=False)
     pd.DataFrame(
-        columns=["shipment_id", "site_id", "delayed_flag", "delay_days"]
+        columns=[
+            "shipment_id",
+            "site_id",
+            "part_id",
+            "delayed_flag",
+            "delay_days",
+            "supplier_id",
+            "supplier_name",
+        ]
     ).to_sql("shipments", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
+            "order_id",
+            "order_supplier_name",
+            "order_supplier_id",
+            "order_part_id",
+            "order_quantity",
+            "order_status",
+            "order_created_at",
+            "order_updated_at",
+            "site_id",
+        ]
+    ).to_sql("supplier_orders", engine, if_exists="replace", index=False)
     pd.DataFrame(
         columns=[
             "maintenance_event_id",
@@ -237,32 +265,44 @@ def _seed_risk_ranking(engine: Engine) -> None:
     # SITE-A: 8 inventory rows. First 5 are stockouts (qty_available=0,
     # reorder=10 -> diff=-10), next 3 are below_reorder (qty=5, reorder=10 ->
     # diff=-5). All 8 are "below_reorder_point". Stockouts will dominate the
-    # "top constrained parts" ranking.
+    # inventory position ranking (most constrained first).
     for i in range(8):
         is_stockout = i < 5
+        qty_avail = 0 if is_stockout else 5
         inv_rows.append({
             "inventory_id": inv_id,
             "site_id": "SITE-A",
             "part_id": f"PART-A{i + 1:03d}",
+            "quantity_on_hand": qty_avail + 2,
+            "quantity_allocated": 2,
+            "quantity_available": qty_avail,
+            "reorder_point": 10,
+            "safety_stock": 8,
             "stockout_flag": is_stockout,
             "below_reorder_point": True,
             "below_safety_stock": is_stockout,
-            "quantity_available": 0 if is_stockout else 5,
-            "reorder_point": 10,
+            "days_of_supply": 0.0 if is_stockout else 12.5,
+            "snapshot_date": "2026-01-15",
         })
         inv_id += 1
     # SITE-B: 1 stockout, 2 below_reorder
     for i in range(2):
         is_stockout = i < 1
+        qty_avail = 0 if is_stockout else 5
         inv_rows.append({
             "inventory_id": inv_id,
             "site_id": "SITE-B",
             "part_id": f"PART-B{i + 1:03d}",
+            "quantity_on_hand": qty_avail + 1,
+            "quantity_allocated": 1,
+            "quantity_available": qty_avail,
+            "reorder_point": 10,
+            "safety_stock": 6,
             "stockout_flag": is_stockout,
             "below_reorder_point": True,
             "below_safety_stock": False,
-            "quantity_available": 0 if is_stockout else 5,
-            "reorder_point": 10,
+            "days_of_supply": 0.0 if is_stockout else 8.0,
+            "snapshot_date": "2026-01-15",
         })
         inv_id += 1
     # SITE-C: 1 row, no issues — exercises the COALESCE/zero path
@@ -270,11 +310,16 @@ def _seed_risk_ranking(engine: Engine) -> None:
         "inventory_id": inv_id,
         "site_id": "SITE-C",
         "part_id": "PART-C001",
+        "quantity_on_hand": 110,
+        "quantity_allocated": 10,
+        "quantity_available": 100,
+        "reorder_point": 10,
+        "safety_stock": 15,
         "stockout_flag": False,
         "below_reorder_point": False,
         "below_safety_stock": False,
-        "quantity_available": 100,
-        "reorder_point": 10,
+        "days_of_supply": 45.0,
+        "snapshot_date": "2026-01-15",
     })
     pd.DataFrame(inv_rows).to_sql(
         "inventory_positions", engine, if_exists="replace", index=False
@@ -313,27 +358,55 @@ def _seed_risk_ranking(engine: Engine) -> None:
     site_a_delays = [2, 3, 4, 3, 3, 3]
     for delay in site_a_delays:
         ship_rows.append({
-            "shipment_id": ship_id, "site_id": "SITE-A",
-            "delayed_flag": True, "delay_days": delay,
+            "shipment_id": ship_id,
+            "site_id": "SITE-A",
+            "part_id": "PART-A001",
+            "delayed_flag": True,
+            "delay_days": delay,
+            "supplier_id": "ACME",
+            "supplier_name": "Acme Corp",
         })
         ship_id += 1
     # SITE-B: 2 delayed (delay_days 5 and 5, mean 5.0), 1 on time
     for delayed, delay in [(True, 5), (True, 5), (False, 0)]:
         ship_rows.append({
-            "shipment_id": ship_id, "site_id": "SITE-B",
-            "delayed_flag": delayed, "delay_days": delay,
+            "shipment_id": ship_id,
+            "site_id": "SITE-B",
+            "part_id": "PART-B001",
+            "delayed_flag": delayed,
+            "delay_days": delay,
+            "supplier_id": "BRAVO",
+            "supplier_name": "Bravo Supply",
         })
         ship_id += 1
     # SITE-C: 2 on-time shipments, no delays
     for _ in range(2):
         ship_rows.append({
-            "shipment_id": ship_id, "site_id": "SITE-C",
-            "delayed_flag": False, "delay_days": 0,
+            "shipment_id": ship_id,
+            "site_id": "SITE-C",
+            "part_id": "PART-C001",
+            "delayed_flag": False,
+            "delay_days": 0,
+            "supplier_id": "CHARLIE",
+            "supplier_name": "Charlie Logistics",
         })
         ship_id += 1
     pd.DataFrame(ship_rows).to_sql(
         "shipments", engine, if_exists="replace", index=False
     )
+    pd.DataFrame(
+        columns=[
+            "order_id",
+            "order_supplier_name",
+            "order_supplier_id",
+            "order_part_id",
+            "order_quantity",
+            "order_status",
+            "order_created_at",
+            "order_updated_at",
+            "site_id",
+        ]
+    ).to_sql("supplier_orders", engine, if_exists="replace", index=False)
 
     maint_rows = [
         # SITE-A: 3 open events with backlog 20/30/40 (mean 30); NMC days sum = 60.
@@ -583,6 +656,19 @@ def _create_empty_supplier_risk_tables(engine: Engine) -> None:
     """Tables for GET /api/suppliers/performance with zero rows."""
     pd.DataFrame(
         columns=[
+            "site_id",
+            "site_name",
+            "site_region",
+            "site_type",
+            "site_mission_priority",
+            "site_active_flag",
+        ]
+    ).to_sql("sites", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=["part_id", "part_name", "part_family", "criticality"]
+    ).to_sql("part_master", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        columns=[
             "order_id",
             "order_supplier_name",
             "order_supplier_id",
@@ -621,6 +707,43 @@ def _seed_supplier_risk_ranking(engine: Engine) -> None:
 
     BAD must rank first (higher performance_risk_score).
     """
+    pd.DataFrame(
+        [
+            {
+                "site_id": "SITE-1",
+                "site_name": "Alpha Depot",
+                "site_region": "North",
+                "site_type": "Depot",
+                "site_mission_priority": 5,
+                "site_active_flag": True,
+            },
+            {
+                "site_id": "SITE-2",
+                "site_name": "Bravo Hub",
+                "site_region": "South",
+                "site_type": "Hub",
+                "site_mission_priority": 3,
+                "site_active_flag": True,
+            },
+        ]
+    ).to_sql("sites", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        [
+            {
+                "part_id": "PART-A",
+                "part_name": "Alpha Component",
+                "part_family": "Hydraulics",
+                "criticality": "High",
+            },
+            {
+                "part_id": "PART-B",
+                "part_name": "Bravo Component",
+                "part_family": "Avionics",
+                "criticality": "Medium",
+            },
+        ]
+    ).to_sql("part_master", engine, if_exists="replace", index=False)
+
     order_rows = []
     oid = 1
     for _ in range(20):
@@ -823,6 +946,56 @@ def supplier_risk_engine() -> Engine:
     """In-memory DB seeded for GET /api/suppliers/performance."""
     engine = _make_memory_engine()
     _seed_supplier_risk_ranking(engine)
+    return engine
+
+
+def _seed_orders_only_supplier(engine: Engine) -> None:
+    """Supplier with ``supplier_orders`` rows but no ``shipments`` rows."""
+    pd.DataFrame(
+        [
+            {
+                "site_id": "SITE-X",
+                "site_name": "X Depot",
+                "site_region": "West",
+                "site_type": "Depot",
+                "site_mission_priority": 4,
+                "site_active_flag": True,
+            },
+        ]
+    ).to_sql("sites", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        [
+            {
+                "part_id": "PART-X",
+                "part_name": "X Component",
+                "part_family": "General",
+                "criticality": "Medium",
+            },
+        ]
+    ).to_sql("part_master", engine, if_exists="replace", index=False)
+    pd.DataFrame(
+        [
+            {
+                "order_id": 1,
+                "order_supplier_name": "Orders Only LLC",
+                "order_supplier_id": "ORD",
+                "order_part_id": "PART-X",
+                "order_quantity": 12,
+                "order_status": "pending",
+                "order_created_at": "2026-01-01",
+                "order_updated_at": "2026-01-02",
+                "site_id": "SITE-X",
+            },
+        ]
+    ).to_sql("supplier_orders", engine, if_exists="replace", index=False)
+
+
+@pytest.fixture
+def orders_only_supplier_engine() -> Engine:
+    """Supplier resolvable from orders only (no shipment history)."""
+    engine = _make_memory_engine()
+    _create_empty_supplier_risk_tables(engine)
+    _seed_orders_only_supplier(engine)
     return engine
 
 

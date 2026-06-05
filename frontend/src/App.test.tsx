@@ -6,6 +6,13 @@ vi.mock('./api', () => ({
   fetchSitesRiskRanking: vi.fn(() => Promise.resolve([])),
   fetchPartsReadinessImpact: vi.fn(() => Promise.resolve([])),
   fetchSuppliersPerformance: vi.fn(() => Promise.resolve([])),
+  fetchMetrics: vi.fn(() =>
+    Promise.resolve([
+      { metric: 'Fill rate', value: 0.92 },
+      { metric: 'On-time delivery', value: 0.88 },
+      { metric: 'Overall risk score', value: 0.75 },
+    ]),
+  ),
   fetchRootCauseSummary: vi.fn(() =>
     Promise.resolve({
       total_risk_signals: 10,

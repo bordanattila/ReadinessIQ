@@ -49,6 +49,9 @@ async def get_kpi_overview(engine: Engine = Depends(get_engine)):
                 text('SELECT AVG(backlog_days) FROM maintenance_events WHERE status = :status'),
                 {'status': 'open'},
                 ).scalar()
+            total_quantity_available = conn.execute(
+                text('SELECT SUM(quantity_available) FROM inventory_positions')
+                ).scalar()
 
         stockout_rate = (
             stockout_count / total_inventory_rows
@@ -67,11 +70,22 @@ async def get_kpi_overview(engine: Engine = Depends(get_engine)):
             delayed_shipments_count / total_shipments_count
             if total_shipments_count > 0 else 0
         )
-        
+
+        fill_rate = (
+            (total_inventory_rows - stockout_count) / total_inventory_rows
+            if total_inventory_rows > 0 else 0
+        )
+        on_time_delivery_rate = (
+            (total_shipments_count - delayed_shipments_count) / total_shipments_count
+            if total_shipments_count > 0 else 0
+        )
+        overall_risk_score = (
+            (fill_rate + on_time_delivery_rate + below_safety_stock_rate + below_reorder_rate) / 4
+            if total_inventory_rows > 0 and total_shipments_count > 0 else 0
+        )
         return {
             'status': 'ok',
             'inventory': {
-                'total_inventory_positions': total_inventory_rows,
                 'stockout_count': stockout_count,
                 'stockout_rate': round(stockout_rate, 4),
                 'below_reorder_count': below_reorder_point_count,
@@ -87,7 +101,13 @@ async def get_kpi_overview(engine: Engine = Depends(get_engine)):
                 'open_maintenance_events': open_maintenance_events_count,
                 'average_backlog_days': round(float(average_backlog_days or 0), 2),
             },
-            }
+            'metrics': {
+                'fill_rate': round(fill_rate, 4),
+                'on_time_delivery_rate': round(on_time_delivery_rate, 4),
+                'overall_risk_score': round(overall_risk_score, 4),
+            },
+        }
+        
     except Exception as e:
         return {
             'status': 'error',

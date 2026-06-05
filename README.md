@@ -3,8 +3,35 @@
 Logistics readiness API: inventory, shipments, maintenance, and supplier-style synthetic data surfaced through KPIs, site risk ranking, and part-level impact.
 
 ![Tests](https://github.com/bordanattila/ReadinessIQ/actions/workflows/test.yml/badge.svg)
-![Dashboard — Risk Cards](frontend/src/assets/dashboard.png)
-![Detailed View](frontend/src/assets/view_all.png)
+
+## What it does
+
+ReadinessIQ helps answer:
+
+- Which sites are at greatest readiness risk?
+- Which parts are driving readiness impact?
+- Which suppliers are associated with delays or backlog?
+- What root-cause signals are contributing most to readiness risk?
+- What should a logistics or sustainment manager review first?
+
+## Tech stack
+
+- Frontend: React, Vite, TypeScript, React Router
+- Backend: FastAPI, SQLAlchemy
+- Database: PostgreSQL
+- Data workflow: Pandas synthetic data generation, validation, CSV-to-Postgres loading
+- Testing: Pytest, Vitest, Testing Library
+- DevOps: Docker Compose, GitHub Actions
+
+## Screenshots
+
+### Dashboard overview
+
+![Dashboard overview](frontend/src/assets/dashboard.png)
+
+### Full ranking view
+
+![Full ranking view](frontend/src/assets/view_all.png)
 
 ## Quick start
 
@@ -84,3 +111,13 @@ ReadinessIQ/
 ├── docker-compose.yml
 └── backend/Dockerfile
 ```
+
+## API highlights
+
+- `GET /health` — verifies API and database connectivity
+- `GET /api/kpis/overview` — inventory, shipment, and maintenance KPIs
+- `GET /api/sites/risk-ranking` — ranks sites by readiness risk
+- `GET /api/sites/{site_id}/summary` — site-level drill-down
+- `GET /api/parts/readiness-impact` — ranks parts by readiness impact
+- `GET /api/suppliers/risk-ranking` — ranks supplier-associated risk
+- `GET /api/root-cause/readiness-risk` — summarizes readiness root-cause signals

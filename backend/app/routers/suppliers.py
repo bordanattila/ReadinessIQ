@@ -193,3 +193,186 @@ def get_suppliers_performance(engine: Engine = Depends(get_engine)):
             'status': 'error',
             'message': str(e),
         }
+
+@router.get('/{supplier_id}/summary')
+def get_supplier_summary(supplier_id: str, engine: Engine = Depends(get_engine)):
+    """Return a detailed supplier summary for a single supplier.
+
+    There is no ``suppliers`` master table; identity and coverage are derived
+    from ``supplier_orders`` and ``shipments``, consistent with
+    ``GET /api/suppliers/performance``.
+
+    Args:
+        supplier_id: The supplier identifier, e.g. ``"ADC"``.
+
+    Returns:
+        On success, a JSON object shaped like::
+
+            {
+                "status": "ok",
+                "supplier": {
+                    "supplier_id": "ADC",
+                    "supplier_name": "Apex Defense Components",
+                },
+                "parts_supplied": [
+                    {
+                        "part_id": "PART-001",
+                        "part_name": "Hydraulic Seal Kit",
+                        "part_family": "Hydraulics",
+                        "criticality": "High",
+                    }
+                ],
+                "sites_supported": [
+                    {
+                        "site_id": "SITE-001",
+                        "site_name": "Fort Liberty Sustainment Hub",
+                        "site_region": "Southeast",
+                        "site_type": "Depot",
+                        "mission_priority": 5,
+                    }
+                ],
+                "orders": {
+                    "total_orders": 104,
+                    "open_orders": 27,
+                },
+                "shipments": {
+                    "total_shipments": 104,
+                    "delayed_shipments": 27,
+                    "delayed_shipment_rate": 0.7404,
+                    "average_delay_days": 3.7,
+                },
+            }
+    """
+    try:
+        with engine.connect() as conn:
+            params = {'supplier_id': supplier_id}
+
+            supplier = conn.execute(
+                text("""
+                    SELECT supplier_id, MAX(supplier_name) AS supplier_name
+                    FROM (
+                        SELECT
+                            order_supplier_id AS supplier_id,
+                            order_supplier_name AS supplier_name
+                        FROM supplier_orders
+                        WHERE order_supplier_id = :supplier_id
+                        UNION ALL
+                        SELECT supplier_id, supplier_name
+                        FROM shipments
+                        WHERE supplier_id = :supplier_id
+                    ) u
+                    GROUP BY supplier_id
+                """),
+                params,
+            ).mappings().first()
+
+            if supplier is None:
+                return {
+                    'status': 'error',
+                    'message': f'Supplier {supplier_id!r} not found',
+                }
+
+            parts_supplied = conn.execute(
+                text("""
+                    SELECT DISTINCT
+                        p.part_id,
+                        p.part_name,
+                        p.part_family,
+                        p.criticality
+                    FROM part_master p
+                    INNER JOIN (
+                        SELECT part_id
+                        FROM shipments
+                        WHERE supplier_id = :supplier_id
+                        UNION
+                        SELECT order_part_id AS part_id
+                        FROM supplier_orders
+                        WHERE order_supplier_id = :supplier_id
+                    ) cov ON cov.part_id = p.part_id
+                    ORDER BY p.part_name
+                """),
+                params,
+            ).mappings().all()
+
+            sites_supported = conn.execute(
+                text("""
+                    SELECT DISTINCT
+                        st.site_id,
+                        st.site_name,
+                        st.site_region,
+                        st.site_type,
+                        st.site_mission_priority AS mission_priority
+                    FROM sites st
+                    INNER JOIN (
+                        SELECT site_id
+                        FROM shipments
+                        WHERE supplier_id = :supplier_id
+                        UNION
+                        SELECT site_id
+                        FROM supplier_orders
+                        WHERE order_supplier_id = :supplier_id
+                    ) cov ON cov.site_id = st.site_id
+                    ORDER BY mission_priority DESC, st.site_name
+                """),
+                params,
+            ).mappings().all()
+
+            orders = conn.execute(
+                text("""
+                    SELECT
+                        COUNT(*) AS total_orders,
+                        COALESCE(
+                            SUM(CASE WHEN order_status = 'pending' THEN 1 ELSE 0 END),
+                            0
+                        ) AS open_orders
+                    FROM supplier_orders
+                    WHERE order_supplier_id = :supplier_id
+                """),
+                params,
+            ).mappings().first()
+
+            shipments = conn.execute(
+                text("""
+                    SELECT
+                        COUNT(*) AS total_shipments,
+                        COALESCE(
+                            SUM(CASE WHEN delayed_flag THEN 1 ELSE 0 END),
+                            0
+                        ) AS delayed_shipments,
+                        AVG(CASE WHEN delayed_flag THEN delay_days END)
+                            AS average_delay_days
+                    FROM shipments
+                    WHERE supplier_id = :supplier_id
+                """),
+                params,
+            ).mappings().first()
+
+        total_shipments = int(shipments['total_shipments'])
+        delayed_shipments = int(shipments['delayed_shipments'])
+        delayed_rate = (
+            delayed_shipments / total_shipments if total_shipments > 0 else 0
+        )
+
+        return {
+            'status': 'ok',
+            'supplier': dict(supplier),
+            'parts_supplied': [dict(p) for p in parts_supplied],
+            'sites_supported': [dict(s) for s in sites_supported],
+            'orders': {
+                'total_orders': int(orders['total_orders']),
+                'open_orders': int(orders['open_orders']),
+            },
+            'shipments': {
+                'total_shipments': total_shipments,
+                'delayed_shipments': delayed_shipments,
+                'delayed_shipment_rate': round(delayed_rate, 4),
+                'average_delay_days': round(
+                    float(shipments['average_delay_days'] or 0), 2
+                ),
+            },
+        }
+    except Exception as e:
+        return {
+            'status': 'error',
+            'message': str(e),
+        }

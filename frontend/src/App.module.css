@@ -62,3 +62,30 @@
     overflow: auto;
     background: var(--riq-main-bg);
   }
+
+  /* Overview: chart and KPIs split 50 / 50 */
+  .overviewRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1.25rem 1.5rem 0;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .overviewChart {
+    min-width: 0;
+  }
+
+  .overviewMetrics {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 960px) {
+    .overviewRow {
+      grid-template-columns: 1fr;
+    }
+  }
