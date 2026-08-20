@@ -72,6 +72,14 @@ def empty_risk_ranking_engine() -> Engine:
 
 
 @pytest.fixture
+def users_engine() -> Engine:
+    """In-memory engine with the users table and no rows."""
+    engine = _make_memory_engine()
+    _create_users_table(engine)
+    return engine
+
+
+@pytest.fixture
 def client_factory():
     """Returns a function that builds a TestClient bound to a given engine."""
 
@@ -100,6 +108,13 @@ def _create_empty_tables(engine: Engine) -> None:
     pd.DataFrame(
         columns=["maintenance_event_id", "status", "backlog_days"]
     ).to_sql("maintenance_events", engine, if_exists="replace", index=False)
+
+
+def _create_users_table(engine: Engine) -> None:
+    """Create the users table the register_user router writes to."""
+    pd.DataFrame(
+        columns=["id", "name", "email", "password"]
+    ).to_sql("users", engine, if_exists="replace", index=False)
 
 
 def _seed_inventory(engine: Engine) -> None:

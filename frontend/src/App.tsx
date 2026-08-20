@@ -6,18 +6,26 @@ import Top5Dashboard from './components/top5dashboard'
 import EntityDetailPage from './pages/EntityDetailPage'
 import RankingViewAllPage from './pages/RankingViewAllPage'
 import styles from './App.module.css'
+import DateRangePicker from './components/dateRangePicker'
 
 function AppShell() {
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <h1 className={styles.title}>
-            Readiness<span className={styles.title_blue}>IQ</span>
-          </h1>
-          <p className={styles.subtitle}>
-            Defense Logistics Readiness and Supply Visibility Platform
-          </p>
+          <div className={styles.headerTop}>
+            <div>
+              <h1 className={styles.title}>
+                Readiness<span className={styles.title_blue}>IQ</span>
+              </h1>
+              <p className={styles.subtitle}>
+                Defense Logistics Readiness and Supply Visibility Platform
+              </p>
+            </div>
+            <div className={styles.dateRangePicker}>
+              <DateRangePicker />
+            </div>
+          </div>
           <div className={styles.meta}>
             <span>v0.1.0</span>
           </div>

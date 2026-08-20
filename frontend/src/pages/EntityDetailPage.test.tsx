@@ -1,5 +1,6 @@
 import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -202,6 +203,79 @@ describe('EntityDetailPage', () => {
 
     expect(screen.getByRole('alert')).toHaveTextContent('Missing entity id')
     expect(fetchSiteSummary).not.toHaveBeenCalled()
+  })
+
+  it('renders part detail after navigating from supplier detail via in-table link', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetchSupplierSummary).mockResolvedValueOnce({
+      supplier: { supplier_id: 'LSEG', supplier_name: 'LSEG Corp' },
+      orders: { total_orders: 5, open_orders: 1 },
+      shipments: {
+        total_shipments: 10,
+        delayed_shipments: 2,
+        delayed_shipment_rate: 0.2,
+        average_delay_days: 4,
+      },
+      parts_supplied: [
+        {
+          part_id: 'PART-0117',
+          part_name: 'Seal Kit 117',
+          part_family: 'Seals',
+          criticality: 'High',
+        },
+      ],
+      sites_supported: [],
+    })
+    vi.mocked(fetchPartSummary).mockResolvedValueOnce({
+      part: {
+        part_id: 'PART-0117',
+        part_name: 'Seal Kit 117',
+        part_family: 'Seals',
+        criticality: 'High',
+      },
+      supplier: { supplier_id: 'LSEG', supplier_name: 'LSEG Corp' },
+      inventory: {
+        stockout_count: 0,
+        below_reorder_count: 1,
+        below_safety_stock_count: 0,
+      },
+      shipments: {
+        total_shipments: 4,
+        delayed_shipments: 1,
+        delayed_shipment_rate: 0.25,
+        average_delay_days: 2,
+      },
+      sites_impacted: [],
+    })
+
+    const router = createMemoryRouter(
+      [
+        {
+          path: '/suppliers/:supplierId',
+          element: <EntityDetailPage category="suppliers" />,
+        },
+        {
+          path: '/parts/:partId',
+          element: <EntityDetailPage category="parts" />,
+        },
+      ],
+      { initialEntries: ['/suppliers/LSEG'] },
+    )
+
+    render(<RouterProvider router={router} />)
+
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { name: 'LSEG Corp' })).toBeInTheDocument()
+    })
+
+    await user.click(screen.getByRole('link', { name: 'PART-0117' }))
+
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { name: 'Seal Kit 117' })).toBeInTheDocument()
+    })
+    expect(screen.getByText('PART-0117')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Sites impacted' })).toBeInTheDocument()
+    expect(fetchPartSummary).toHaveBeenCalledWith('PART-0117')
   })
 
   it('shows fetch error from the API layer', async () => {

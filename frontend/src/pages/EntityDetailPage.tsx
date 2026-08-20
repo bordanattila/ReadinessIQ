@@ -63,7 +63,8 @@ export default function EntityDetailPage({ category }: { category: EntityDetailC
   const entityId = params[cfg.paramKey] ?? ''
 
   const hasEntityId = entityId.length > 0
-  const [raw, setRaw] = useState<unknown>(null)
+  const fetchKey = `${category}:${entityId}`
+  const [loaded, setLoaded] = useState<{ key: string; data: unknown } | null>(null)
   const [loading, setLoading] = useState(false)
   const [fetchError, setFetchError] = useState<string | null>(null)
 
@@ -76,13 +77,13 @@ export default function EntityDetailPage({ category }: { category: EntityDetailC
     async function run() {
       setLoading(true)
       setFetchError(null)
-      setRaw(null)
       try {
         const data = await page.load(entityId)
-        if (!cancelled) setRaw(data)
+        if (!cancelled) setLoaded({ key: fetchKey, data })
       } catch (e) {
         if (!cancelled) {
           setFetchError(e instanceof Error ? e.message : 'Failed to load summary')
+          setLoaded(null)
         }
       } finally {
         if (!cancelled) setLoading(false)
@@ -93,15 +94,16 @@ export default function EntityDetailPage({ category }: { category: EntityDetailC
     return () => {
       cancelled = true
     }
-  }, [category, entityId, hasEntityId])
+  }, [category, entityId, fetchKey, hasEntityId])
 
   const error = hasEntityId ? fetchError : 'Missing entity id'
-  const isLoading = hasEntityId && loading
+  const hasCurrentData = loaded?.key === fetchKey
+  const isLoading = hasEntityId && (loading || (!hasCurrentData && !fetchError))
 
   const view = useMemo(() => {
-    if (!raw) return null
-    return DETAIL_PAGES[category].build(raw as never)
-  }, [raw, category])
+    if (!hasCurrentData || !loaded) return null
+    return DETAIL_PAGES[category].build(loaded.data as never)
+  }, [hasCurrentData, loaded, category])
 
   return (
     <DetailedView

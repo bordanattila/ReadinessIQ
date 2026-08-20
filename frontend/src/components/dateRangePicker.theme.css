@@ -1,0 +1,304 @@
+/* React Aria date range picker — global class names (not CSS modules). */
+.riq-date-range-picker {
+  --drp-spacing-1: 0.25rem;
+  --drp-spacing-2: 0.5rem;
+  --drp-spacing-3: 0.75rem;
+  --drp-spacing-4: 1rem;
+  --drp-spacing-7: 1.75rem;
+  --drp-spacing-8: 2rem;
+  --drp-spacing-9: 2.25rem;
+  --drp-font-size: 0.875rem;
+  --drp-font-size-lg: 1rem;
+  --drp-font-size-sm: 0.75rem;
+  --drp-radius: 8px;
+  --drp-gap: 2px;
+  --drp-text-color: var(--riq-text, #e2e8f0);
+  --drp-field-text-color: var(--riq-text, #e2e8f0);
+  --drp-field-background: var(--riq-card-bg, #1a2234);
+  --drp-border-color: var(--riq-border, #2d3748);
+  --drp-focus-ring-color: var(--riq-link, #60a5fa);
+  --drp-button-background: rgba(124, 58, 237, 0.38);
+  --drp-tint-700: #6d28d9;
+  --drp-tint-1200: #ede9fe;
+  --drp-invalid-color: var(--riq-error, #f87171);
+  --drp-highlight-background: #7c3aed;
+  --drp-highlight-foreground: #ffffff;
+  --drp-popover-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--drp-spacing-1);
+  color: var(--drp-text-color);
+  max-width: 100%;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-Label {
+  font-size: var(--drp-font-size-sm);
+  font-weight: 600;
+  color: var(--riq-text-muted, #94a3b8);
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-Group {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-width: 220px;
+  max-width: 100%;
+  height: var(--drp-spacing-8);
+  box-sizing: border-box;
+  overflow: clip;
+  position: relative;
+  padding: 0 var(--drp-spacing-1) 0 var(--drp-spacing-3);
+  border: 1px solid var(--drp-border-color);
+  border-radius: var(--drp-radius);
+  background: var(--drp-field-background);
+  font-size: var(--drp-font-size);
+  color: var(--drp-field-text-color);
+  white-space: nowrap;
+  cursor: text;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-Group[data-focus-within] {
+  outline: 2px solid var(--drp-focus-ring-color);
+  outline-offset: -1px;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .date-fields {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  overflow-x: auto;
+  overflow-y: clip;
+  scrollbar-width: none;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker [slot='start'] ~ .range-separator {
+  padding: 0 4px;
+  color: var(--riq-text-muted, #94a3b8);
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker [slot='end'] {
+  margin-right: 1.75rem;
+  flex: 1;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-DateInput {
+  width: unset;
+  min-width: unset;
+  padding: unset;
+  border: unset;
+  box-shadow: none;
+  background: none;
+  height: auto;
+  line-height: normal;
+  display: inline-flex;
+  gap: 0.1rem;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-DateInput[data-focus-within] {
+  outline: unset;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-DateSegment {
+  padding: 0 1px;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  border-radius: 4px;
+  caret-color: transparent;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-DateSegment[data-placeholder] {
+  color: var(--riq-text-subtle, #64748b);
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .react-aria-DateSegment:focus {
+  background: var(--drp-button-background);
+  color: var(--drp-highlight-foreground);
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .field-Button {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: var(--drp-highlight-background);
+  color: var(--drp-highlight-foreground);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.riq-date-range-picker .react-aria-DateRangePicker .field-Button[data-focus-visible] {
+  outline: 2px solid var(--drp-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.riq-date-range-picker .react-aria-Popover[data-trigger='DateRangePicker'] {
+  max-width: unset;
+}
+
+.riq-date-range-picker .react-aria-Popover .react-aria-Dialog {
+  outline: none;
+  padding: var(--drp-spacing-3);
+  border: 1px solid var(--drp-border-color);
+  border-radius: 12px;
+  background: var(--drp-field-background);
+  box-shadow: var(--drp-popover-shadow);
+}
+
+.riq-date-range-picker .react-aria-RangeCalendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--drp-spacing-2);
+  overflow: auto;
+  width: 100%;
+  max-width: fit-content;
+  font-size: var(--drp-font-size);
+  color: var(--drp-text-color);
+}
+
+.riq-date-range-picker .react-aria-RangeCalendar header {
+  display: flex;
+  align-items: center;
+  margin: 0 var(--drp-spacing-1) var(--drp-spacing-3) var(--drp-spacing-1);
+  min-height: var(--drp-spacing-8);
+}
+
+.riq-date-range-picker .react-aria-RangeCalendar .react-aria-Heading,
+.riq-date-range-picker .react-aria-RangeCalendar .react-aria-CalendarHeading {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  font-size: var(--drp-font-size-lg);
+  font-weight: 600;
+}
+
+.riq-date-range-picker .react-aria-RangeCalendar header .react-aria-Button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--drp-border-color);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--drp-text-color);
+  cursor: pointer;
+}
+
+.riq-date-range-picker .react-aria-RangeCalendar header .react-aria-Button[data-focus-visible] {
+  outline: 2px solid var(--drp-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.riq-date-range-picker .react-aria-CalendarGrid {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: calc(var(--drp-spacing-9) * 7);
+  table-layout: fixed;
+}
+
+.riq-date-range-picker .react-aria-CalendarHeaderCell {
+  width: var(--drp-spacing-9);
+  height: var(--drp-spacing-7);
+  font-size: var(--drp-font-size-sm);
+  font-weight: 600;
+  color: var(--riq-text-muted, #94a3b8);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell {
+  width: var(--drp-spacing-9);
+  height: var(--drp-spacing-9);
+  margin: 2px 0;
+  padding: 0 calc(var(--drp-gap) / 2);
+  position: relative;
+  z-index: 1;
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: default;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  transition: scale 200ms;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-outside-month] {
+  color: var(--riq-text-subtle, #64748b);
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-selected] {
+  border-radius: 0;
+  background: var(--drp-button-background);
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 0.5px;
+  border-bottom-width: 0.5px;
+  border-color: var(--drp-tint-700);
+  margin: 1.5px 0;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-start],
+.riq-date-range-picker .react-aria-CalendarCell[data-selected]:is(td:first-child > *, [aria-disabled] + td > *) {
+  border-start-start-radius: 9999px;
+  border-end-start-radius: 9999px;
+  border-inline-start-width: 0.5px;
+  margin-inline-start: calc(var(--drp-gap) / 2 - 0.5px);
+  padding-inline-start: 0;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-end],
+.riq-date-range-picker .react-aria-CalendarCell[data-selected]:is(td:last-child > *, td:has(+ [aria-disabled]) > *) {
+  border-end-end-radius: 9999px;
+  border-start-end-radius: 9999px;
+  border-inline-end-width: 0.5px;
+  margin-inline-end: calc(var(--drp-gap) / 2 - 0.5px);
+  padding-inline-end: 0;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-start],
+.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-end] {
+  z-index: 2;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-start] span,
+.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-end] span {
+  background: var(--drp-highlight-background);
+  color: var(--drp-highlight-foreground);
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-selected]:not([data-selection-start], [data-selection-end]) span {
+  color: var(--drp-tint-1200);
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-pressed] span {
+  scale: 0.9;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-focus-visible] {
+  outline: none;
+  z-index: 2;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-focus-visible] span {
+  outline: 2px solid var(--drp-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.riq-date-range-picker .react-aria-CalendarCell[data-disabled] {
+  color: var(--riq-text-subtle, #64748b);
+  cursor: not-allowed;
+}
