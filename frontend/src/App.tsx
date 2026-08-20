@@ -4,7 +4,9 @@ import RootCauseSummaryChart from './components/rootCauseSummaryChart'
 import Sidebar from './components/sidebar'
 import Top5Dashboard from './components/top5dashboard'
 import EntityDetailPage from './pages/EntityDetailPage'
+import LoginPage from './pages/LoginPage'
 import RankingViewAllPage from './pages/RankingViewAllPage'
+import RegisterPage from './pages/RegisterPage'
 import styles from './App.module.css'
 import DateRangePicker from './components/dateRangePicker'
 
@@ -61,6 +63,8 @@ function OverviewPage() {
 export default function App() {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<AppShell />}>
         <Route index element={<OverviewPage />} />
         <Route path="sites" element={<RankingViewAllPage category="sites" />} />

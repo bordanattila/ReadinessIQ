@@ -6,6 +6,63 @@ function assertOk(body: { status?: string; message?: string }) {
   }
 }
 
+async function parseApiError(response: Response): Promise<string> {
+  const body = (await response.json().catch(() => ({}))) as {
+    detail?: string | Array<{ msg?: string }>
+  }
+  if (typeof body.detail === 'string') {
+    return body.detail
+  }
+  if (Array.isArray(body.detail)) {
+    const messages = body.detail
+      .map((entry) => entry.msg)
+      .filter((msg): msg is string => typeof msg === 'string')
+    if (messages.length > 0) {
+      return messages.join(', ')
+    }
+  }
+  return `Request failed: ${response.status}`
+}
+
+export interface AuthMessageResponse {
+  message: string
+}
+
+export interface RegisterUserPayload {
+  name: string
+  email: string
+  password: string
+}
+
+export interface LoginUserPayload {
+  email: string
+  password: string
+}
+
+export async function registerUser(payload: RegisterUserPayload): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/register_user/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
+}
+
+export async function loginUser(payload: LoginUserPayload): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/login/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
+}
+
 export interface SiteRiskRow {
   site_id: string
   site_name: string

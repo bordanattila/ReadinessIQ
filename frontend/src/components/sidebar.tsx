@@ -22,6 +22,12 @@ export default function Sidebar() {
           <li>
             <NavLink to="/suppliers">Suppliers</NavLink>
           </li>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
         </ul>
       </nav>
     </div>

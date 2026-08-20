@@ -1,6 +1,6 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('./api', () => ({
   fetchSitesRiskRanking: vi.fn(() => Promise.resolve([])),
@@ -42,6 +42,10 @@ const minimalSite = {
 }
 
 describe('App', () => {
+  afterEach(() => {
+    cleanup()
+  })
+
   it('renders product title and dashboard section', async () => {
     render(
       <MemoryRouter>
@@ -71,5 +75,18 @@ describe('App', () => {
     })
     expect(screen.getByText('Route Test Site')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: '← Overview' })).toHaveAttribute('href', '/')
+  })
+
+  it('renders the login route outside the dashboard shell', () => {
+    render(
+      <MemoryRouter initialEntries={['/login']}>
+        <App />
+      </MemoryRouter>,
+    )
+    expect(screen.getByText(/Sign in to your account/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Sign in/i })).toBeInTheDocument()
+    expect(
+      screen.queryByText(/Defense Logistics Readiness and Supply Visibility Platform/i),
+    ).not.toBeInTheDocument()
   })
 })
