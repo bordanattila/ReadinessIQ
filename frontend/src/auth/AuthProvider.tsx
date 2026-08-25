@@ -1,22 +1,6 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react'
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { fetchCurrentUser, type CurrentUser } from '../api'
-
-interface AuthContextValue {
-  user: CurrentUser | null
-  loading: boolean
-  refreshUser: () => Promise<CurrentUser | null>
-  clearUser: () => void
-}
-
-const AuthContext = createContext<AuthContextValue | null>(null)
+import { AuthContext } from './auth-context'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<CurrentUser | null>(null)
@@ -41,8 +25,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
-    void refreshUser()
-  }, [refreshUser])
+    let cancelled = false
+
+    fetchCurrentUser()
+      .then((currentUser) => {
+        if (!cancelled) {
+          setUser(currentUser)
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setUser(null)
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setLoading(false)
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const value = useMemo(
     () => ({ user, loading, refreshUser, clearUser }),
@@ -50,12 +55,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-}
-
-export function useAuth(): AuthContextValue {
-  const context = useContext(AuthContext)
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider')
-  }
-  return context
 }

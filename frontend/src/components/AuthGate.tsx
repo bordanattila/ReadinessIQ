@@ -1,6 +1,6 @@
 import { Link, Navigate, Outlet } from 'react-router-dom'
 import { requiresMfaVerification } from '../auth/routes'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
 import styles from './AuthGate.module.css'
 
 export default function AuthGate() {

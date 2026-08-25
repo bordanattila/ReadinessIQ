@@ -13,7 +13,7 @@ vi.mock('react-router-dom', async () => {
   }
 })
 
-vi.mock('../auth/AuthContext', () => ({
+vi.mock('../auth/useAuth', () => ({
   useAuth: vi.fn(),
 }))
 
@@ -21,7 +21,7 @@ vi.mock('../api', () => ({
   registerUser: vi.fn(),
 }))
 
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
 import { registerUser } from '../api'
 import RegisterPage from './RegisterPage'
 

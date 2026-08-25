@@ -34,7 +34,7 @@ vi.mock('./api', () => ({
 }))
 
 import App from './App'
-import { AuthProvider } from './auth/AuthContext'
+import { AuthProvider } from './auth/AuthProvider'
 import { fetchCurrentUser, fetchSitesRiskRanking } from './api'
 
 const minimalSite = {

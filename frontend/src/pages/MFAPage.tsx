@@ -1,7 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
 import { fetchMfaSetup, logoutUser, verifyMfa } from '../api'
 import styles from './AuthPage.module.css'
 
@@ -11,11 +11,11 @@ export default function MFAPage() {
   const [mfaCode, setMfaCode] = useState('')
   const [otpauthUrl, setOtpauthUrl] = useState<string | null>(null)
   const [mfaSecret, setMfaSecret] = useState<string | null>(null)
-  const [setupLoading, setSetupLoading] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const enrolling = user !== null && !user.mfa_enabled
+  const setupPending = enrolling && otpauthUrl === null && error === null
 
   useEffect(() => {
     if (loading) {
@@ -32,8 +32,6 @@ export default function MFAPage() {
     }
 
     let cancelled = false
-    setSetupLoading(true)
-    setError(null)
 
     void fetchMfaSetup()
       .then((setup) => {
@@ -47,11 +45,6 @@ export default function MFAPage() {
           setError(
             setupError instanceof Error ? setupError.message : 'Could not start MFA setup',
           )
-        }
-      })
-      .finally(() => {
-        if (!cancelled) {
-          setSetupLoading(false)
         }
       })
 
@@ -141,7 +134,7 @@ export default function MFAPage() {
             : 'Enter the code from your authenticator app'}
         </p>
 
-        {enrolling && setupLoading ? (
+        {enrolling && setupPending ? (
           <p className={styles.subtitle}>Preparing your MFA setup…</p>
         ) : null}
 
@@ -186,7 +179,7 @@ export default function MFAPage() {
             </p>
           ) : null}
 
-          <button className={styles.button} type="submit" disabled={submitting || setupLoading}>
+          <button className={styles.button} type="submit" disabled={submitting || setupPending}>
             {submitting ? 'Verifying…' : 'Verify'}
           </button>
           {enrolling ? (

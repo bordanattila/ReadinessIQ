@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
 import { logoutUser } from '../api'
 import logo from '../assets/readinessiq_logo.png'
 import styles from './sidebar.module.css'

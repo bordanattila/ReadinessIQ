@@ -1,6 +1,6 @@
 import { type FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
 import { authDestination } from '../auth/routes'
 import { loginUser } from '../api'
 import styles from './AuthPage.module.css'
