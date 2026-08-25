@@ -1,5 +1,6 @@
 /* React Aria date range picker — global class names (not CSS modules). */
-.riq-date-range-picker {
+.riq-date-range-picker,
+.riq-date-range-popover {
   --drp-spacing-1: 0.25rem;
   --drp-spacing-2: 0.5rem;
   --drp-spacing-3: 0.75rem;
@@ -17,11 +18,11 @@
   --drp-field-background: var(--riq-card-bg, #1a2234);
   --drp-border-color: var(--riq-border, #2d3748);
   --drp-focus-ring-color: var(--riq-link, #60a5fa);
-  --drp-button-background: rgba(124, 58, 237, 0.38);
-  --drp-tint-700: #6d28d9;
-  --drp-tint-1200: #ede9fe;
+  --drp-button-background: color-mix(in srgb, var(--riq-link, #2563eb) 28%, transparent);
+  --drp-tint-700: var(--riq-link, #2563eb);
+  --drp-tint-1200: var(--riq-text, #0f172a);
   --drp-invalid-color: var(--riq-error, #f87171);
-  --drp-highlight-background: #7c3aed;
+  --drp-highlight-background: var(--riq-link, #2563eb);
   --drp-highlight-foreground: #ffffff;
   --drp-popover-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
@@ -140,39 +141,42 @@
   outline-offset: 2px;
 }
 
-.riq-date-range-picker .react-aria-Popover[data-trigger='DateRangePicker'] {
+/* Popover is portaled to document.body — do not nest under .riq-date-range-picker */
+.riq-date-range-popover {
   max-width: unset;
 }
 
-.riq-date-range-picker .react-aria-Popover .react-aria-Dialog {
+.riq-date-range-popover .react-aria-Dialog {
   outline: none;
   padding: var(--drp-spacing-3);
   border: 1px solid var(--drp-border-color);
   border-radius: 12px;
   background: var(--drp-field-background);
   box-shadow: var(--drp-popover-shadow);
+  overflow-x: hidden;
 }
 
-.riq-date-range-picker .react-aria-RangeCalendar {
+.riq-date-range-popover .react-aria-RangeCalendar {
   display: flex;
   flex-direction: column;
   gap: var(--drp-spacing-2);
-  overflow: auto;
-  width: 100%;
-  max-width: fit-content;
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: fit-content;
+  max-width: 100%;
   font-size: var(--drp-font-size);
   color: var(--drp-text-color);
 }
 
-.riq-date-range-picker .react-aria-RangeCalendar header {
+.riq-date-range-popover .react-aria-RangeCalendar header {
   display: flex;
   align-items: center;
   margin: 0 var(--drp-spacing-1) var(--drp-spacing-3) var(--drp-spacing-1);
   min-height: var(--drp-spacing-8);
 }
 
-.riq-date-range-picker .react-aria-RangeCalendar .react-aria-Heading,
-.riq-date-range-picker .react-aria-RangeCalendar .react-aria-CalendarHeading {
+.riq-date-range-popover .react-aria-RangeCalendar .react-aria-Heading,
+.riq-date-range-popover .react-aria-RangeCalendar .react-aria-CalendarHeading {
   flex: 1;
   margin: 0;
   text-align: center;
@@ -180,7 +184,7 @@
   font-weight: 600;
 }
 
-.riq-date-range-picker .react-aria-RangeCalendar header .react-aria-Button {
+.riq-date-range-popover .react-aria-RangeCalendar header .react-aria-Button {
   width: 2rem;
   height: 2rem;
   padding: 0;
@@ -191,19 +195,20 @@
   cursor: pointer;
 }
 
-.riq-date-range-picker .react-aria-RangeCalendar header .react-aria-Button[data-focus-visible] {
+.riq-date-range-popover .react-aria-RangeCalendar header .react-aria-Button[data-focus-visible] {
   outline: 2px solid var(--drp-focus-ring-color);
   outline-offset: 2px;
 }
 
-.riq-date-range-picker .react-aria-CalendarGrid {
+.riq-date-range-popover .react-aria-CalendarGrid {
   border-collapse: separate;
   border-spacing: 0;
   width: calc(var(--drp-spacing-9) * 7);
   table-layout: fixed;
+  overflow: hidden;
 }
 
-.riq-date-range-picker .react-aria-CalendarHeaderCell {
+.riq-date-range-popover .react-aria-CalendarHeaderCell {
   width: var(--drp-spacing-9);
   height: var(--drp-spacing-7);
   font-size: var(--drp-font-size-sm);
@@ -213,7 +218,7 @@
   vertical-align: middle;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell {
+.riq-date-range-popover .react-aria-CalendarCell {
   width: var(--drp-spacing-9);
   height: var(--drp-spacing-9);
   margin: 2px 0;
@@ -226,7 +231,7 @@
   cursor: default;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell span {
+.riq-date-range-popover .react-aria-CalendarCell span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,11 +241,11 @@
   transition: scale 200ms;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-outside-month] {
+.riq-date-range-popover .react-aria-CalendarCell[data-outside-month] {
   color: var(--riq-text-subtle, #64748b);
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-selected] {
+.riq-date-range-popover .react-aria-CalendarCell[data-selected] {
   border-radius: 0;
   background: var(--drp-button-background);
   border-style: solid;
@@ -251,8 +256,8 @@
   margin: 1.5px 0;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-start],
-.riq-date-range-picker .react-aria-CalendarCell[data-selected]:is(td:first-child > *, [aria-disabled] + td > *) {
+.riq-date-range-popover .react-aria-CalendarCell[data-selected][data-selection-start],
+.riq-date-range-popover .react-aria-CalendarCell[data-selected]:is(td:first-child > *, [aria-disabled] + td > *) {
   border-start-start-radius: 9999px;
   border-end-start-radius: 9999px;
   border-inline-start-width: 0.5px;
@@ -260,8 +265,8 @@
   padding-inline-start: 0;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-end],
-.riq-date-range-picker .react-aria-CalendarCell[data-selected]:is(td:last-child > *, td:has(+ [aria-disabled]) > *) {
+.riq-date-range-popover .react-aria-CalendarCell[data-selected][data-selection-end],
+.riq-date-range-popover .react-aria-CalendarCell[data-selected]:is(td:last-child > *, td:has(+ [aria-disabled]) > *) {
   border-end-end-radius: 9999px;
   border-start-end-radius: 9999px;
   border-inline-end-width: 0.5px;
@@ -269,36 +274,36 @@
   padding-inline-end: 0;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-start],
-.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-end] {
+.riq-date-range-popover .react-aria-CalendarCell[data-selected][data-selection-start],
+.riq-date-range-popover .react-aria-CalendarCell[data-selected][data-selection-end] {
   z-index: 2;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-start] span,
-.riq-date-range-picker .react-aria-CalendarCell[data-selected][data-selection-end] span {
+.riq-date-range-popover .react-aria-CalendarCell[data-selected][data-selection-start] span,
+.riq-date-range-popover .react-aria-CalendarCell[data-selected][data-selection-end] span {
   background: var(--drp-highlight-background);
   color: var(--drp-highlight-foreground);
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-selected]:not([data-selection-start], [data-selection-end]) span {
+.riq-date-range-popover .react-aria-CalendarCell[data-selected]:not([data-selection-start], [data-selection-end]) span {
   color: var(--drp-tint-1200);
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-pressed] span {
+.riq-date-range-popover .react-aria-CalendarCell[data-pressed] span {
   scale: 0.9;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-focus-visible] {
+.riq-date-range-popover .react-aria-CalendarCell[data-focus-visible] {
   outline: none;
   z-index: 2;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-focus-visible] span {
+.riq-date-range-popover .react-aria-CalendarCell[data-focus-visible] span {
   outline: 2px solid var(--drp-focus-ring-color);
   outline-offset: 2px;
 }
 
-.riq-date-range-picker .react-aria-CalendarCell[data-disabled] {
+.riq-date-range-popover .react-aria-CalendarCell[data-disabled] {
   color: var(--riq-text-subtle, #64748b);
   cursor: not-allowed;
 }

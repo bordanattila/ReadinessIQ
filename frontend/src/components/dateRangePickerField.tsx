@@ -44,7 +44,7 @@ export function DateRangePickerField(
             ▾
           </Button>
         </Group>
-        <Popover>
+        <Popover className="riq-date-range-popover">
           <Dialog>
             <RangeCalendar>
               <header>
