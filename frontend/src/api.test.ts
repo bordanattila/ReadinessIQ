@@ -7,6 +7,10 @@ import {
   fetchSitesRiskRanking,
   fetchSupplierSummary,
   fetchSuppliersPerformance,
+  loginUser,
+  logoutUser,
+  registerUser,
+  fetchCurrentUser,
 } from './api'
 
 function mockFetchJson(body: unknown, ok = true, status = ok ? 200 : 500) {
@@ -306,5 +310,118 @@ describe('fetchSupplierSummary', () => {
   it('throws when API body reports error', async () => {
     vi.stubGlobal('fetch', mockFetchJson({ status: 'error', message: 'Supplier not found' }))
     await expect(fetchSupplierSummary('ACME')).rejects.toThrow('Supplier not found')
+  })
+})
+
+describe('registerUser', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('posts registration payload and returns message', async () => {
+    vi.stubGlobal(
+      'fetch',
+      mockFetchJson({ message: 'User registered successfully' }),
+    )
+    const result = await registerUser({
+      name: 'Jane',
+      email: 'jane@example.com',
+      password: 'secret123',
+    })
+    expect(result).toEqual({ message: 'User registered successfully' })
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/register_user/', {
+      credentials: 'include',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: 'Jane',
+        email: 'jane@example.com',
+        password: 'secret123',
+      }),
+    })
+  })
+
+  it('throws API detail when registration fails', async () => {
+    vi.stubGlobal(
+      'fetch',
+      mockFetchJson({ detail: 'Email already exists' }, false, 400),
+    )
+    await expect(
+      registerUser({ name: 'Jane', email: 'jane@example.com', password: 'secret123' }),
+    ).rejects.toThrow('Email already exists')
+  })
+})
+
+describe('loginUser', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('posts login payload and returns message', async () => {
+    vi.stubGlobal('fetch', mockFetchJson({ message: 'Login successful' }))
+    const result = await loginUser({
+      email: 'jane@example.com',
+      password: 'secret123',
+    })
+    expect(result).toEqual({ message: 'Login successful' })
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/login/', {
+      credentials: 'include',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'jane@example.com',
+        password: 'secret123',
+      }),
+    })
+  })
+
+  it('throws API detail when login fails', async () => {
+    vi.stubGlobal(
+      'fetch',
+      mockFetchJson({ detail: 'Invalid credentials' }, false, 401),
+    )
+    await expect(
+      loginUser({ email: 'jane@example.com', password: 'wrong' }),
+    ).rejects.toThrow('Invalid credentials')
+  })
+})
+
+describe('logoutUser', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('posts to logout with credentials', async () => {
+    vi.stubGlobal('fetch', mockFetchJson({ message: 'Logged out successfully' }))
+    const result = await logoutUser()
+    expect(result).toEqual({ message: 'Logged out successfully' })
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/logout/', {
+      credentials: 'include',
+      method: 'POST',
+    })
+  })
+})
+
+describe('fetchCurrentUser', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('fetches the current user with credentials', async () => {
+    vi.stubGlobal(
+      'fetch',
+      mockFetchJson({ id: 1, name: 'Jane', email: 'jane@example.com', mfa_verified: true, mfa_enabled: false }),
+    )
+    const result = await fetchCurrentUser()
+    expect(result).toEqual({
+      id: 1,
+      name: 'Jane',
+      email: 'jane@example.com',
+      mfa_verified: true,
+      mfa_enabled: false,
+    })
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/me/', {
+      credentials: 'include',
+    })
   })
 })

@@ -143,8 +143,8 @@ data/tmp/
 *.pickle
 *.joblib
 
-# Models / experiment tracking
-models/
+# Models / experiment tracking (repo-root ML artifacts only)
+/models/
 *.ckpt
 *.pt
 *.pth

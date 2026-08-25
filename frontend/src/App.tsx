@@ -1,23 +1,35 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
+import AuthGate from './components/AuthGate'
 import MetricsCardDashboard from './components/merticsCardDashboard'
 import RootCauseSummaryChart from './components/rootCauseSummaryChart'
 import Sidebar from './components/sidebar'
 import Top5Dashboard from './components/top5dashboard'
 import EntityDetailPage from './pages/EntityDetailPage'
+import LoginPage from './pages/LoginPage'
 import RankingViewAllPage from './pages/RankingViewAllPage'
+import RegisterPage from './pages/RegisterPage'
 import styles from './App.module.css'
+import DateRangePicker from './components/dateRangePicker'
+import MFAPage from './pages/MFAPage'
 
 function AppShell() {
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <h1 className={styles.title}>
-            Readiness<span className={styles.title_blue}>IQ</span>
-          </h1>
-          <p className={styles.subtitle}>
-            Defense Logistics Readiness and Supply Visibility Platform
-          </p>
+          <div className={styles.headerTop}>
+            <div>
+              <h1 className={styles.title}>
+                Readiness<span className={styles.title_blue}>IQ</span>
+              </h1>
+              <p className={styles.subtitle}>
+                Defense Logistics Readiness and Supply Visibility Platform
+              </p>
+            </div>
+            <div className={styles.dateRangePicker}>
+              <DateRangePicker />
+            </div>
+          </div>
           <div className={styles.meta}>
             <span>v0.1.0</span>
           </div>
@@ -53,14 +65,19 @@ function OverviewPage() {
 export default function App() {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/mfa" element={<MFAPage />} />
       <Route path="/" element={<AppShell />}>
-        <Route index element={<OverviewPage />} />
-        <Route path="sites" element={<RankingViewAllPage category="sites" />} />
-        <Route path="sites/:siteId" element={<EntityDetailPage category="sites" />} />
-        <Route path="parts" element={<RankingViewAllPage category="parts" />} />
-        <Route path="parts/:partId" element={<EntityDetailPage category="parts" />} />
-        <Route path="suppliers" element={<RankingViewAllPage category="suppliers" />} />
-        <Route path="suppliers/:supplierId" element={<EntityDetailPage category="suppliers" />} />
+        <Route element={<AuthGate />}>
+          <Route index element={<OverviewPage />} />
+          <Route path="sites" element={<RankingViewAllPage category="sites" />} />
+          <Route path="sites/:siteId" element={<EntityDetailPage category="sites" />} />
+          <Route path="parts" element={<RankingViewAllPage category="parts" />} />
+          <Route path="parts/:partId" element={<EntityDetailPage category="parts" />} />
+          <Route path="suppliers" element={<RankingViewAllPage category="suppliers" />} />
+          <Route path="suppliers/:supplierId" element={<EntityDetailPage category="suppliers" />} />
+        </Route>
       </Route>
     </Routes>
   )

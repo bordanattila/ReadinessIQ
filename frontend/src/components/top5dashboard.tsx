@@ -69,7 +69,7 @@ export default function Top5Dashboard() {
           error={cardError}
         />
         <Top5Card
-          title="Top 5 Readiness-Impact Parts"
+          title="Top 5 Readiness Impact Parts"
           icon="gear"
           columns={PART_COLUMNS_TOP5}
           rows={parts}

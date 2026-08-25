@@ -12,7 +12,11 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@internationalized/date": "^3.12.2",
+    "qrcode.react": "^4.2.0",
     "react": "^19.2.6",
+    "react-aria": "^3.49.0",
+    "react-aria-components": "^1.18.0",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.15.1"
   },

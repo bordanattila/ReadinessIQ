@@ -1,9 +1,123 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
 
+const AUTH_FETCH_INIT: RequestInit = { credentials: 'include' }
+
 function assertOk(body: { status?: string; message?: string }) {
   if (body.status === 'error') {
     throw new Error(typeof body.message === 'string' ? body.message : 'API error')
   }
+}
+
+async function parseApiError(response: Response): Promise<string> {
+  const body = (await response.json().catch(() => ({}))) as {
+    detail?: string | Array<{ msg?: string }>
+  }
+  if (typeof body.detail === 'string') {
+    return body.detail
+  }
+  if (Array.isArray(body.detail)) {
+    const messages = body.detail
+      .map((entry) => entry.msg)
+      .filter((msg): msg is string => typeof msg === 'string')
+    if (messages.length > 0) {
+      return messages.join(', ')
+    }
+  }
+  return `Request failed: ${response.status}`
+}
+
+export interface AuthMessageResponse {
+  message: string
+}
+
+export interface RegisterUserPayload {
+  name: string
+  email: string
+  password: string
+}
+
+export interface LoginUserPayload {
+  email: string
+  password: string
+}
+
+export interface CurrentUser {
+  id: number
+  name: string
+  email: string
+  mfa_verified: boolean
+  mfa_enabled: boolean
+}
+
+export async function registerUser(payload: RegisterUserPayload): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/register_user/`, {
+    ...AUTH_FETCH_INIT,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
+}
+
+export async function loginUser(payload: LoginUserPayload): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/login/`, {
+    ...AUTH_FETCH_INIT,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
+}
+
+export async function logoutUser(): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/logout/`, {
+    ...AUTH_FETCH_INIT,
+    method: 'POST',
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
+}
+
+export async function fetchCurrentUser(): Promise<CurrentUser> {
+  const response = await fetch(`${BASE_URL}/api/me/`, AUTH_FETCH_INIT)
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as CurrentUser
+}
+
+export interface MfaSetupResponse {
+  otpauth_url: string
+  secret: string
+}
+
+export async function fetchMfaSetup(): Promise<MfaSetupResponse> {
+  const response = await fetch(`${BASE_URL}/api/mfa/setup/`, AUTH_FETCH_INIT)
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as MfaSetupResponse
+}
+
+export async function verifyMfa(code: string): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/mfa/verify/`, {
+    ...AUTH_FETCH_INIT,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code }),
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
 }
 
 export interface SiteRiskRow {

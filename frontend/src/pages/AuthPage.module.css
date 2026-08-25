@@ -1,0 +1,223 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--riq-app-bg);
+  color: var(--riq-text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 28rem;
+  background: var(--riq-card-bg);
+  border: 1px solid var(--riq-card-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--riq-card-shadow);
+  padding: 2rem;
+}
+
+.brand {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.brandAccent {
+  color: var(--riq-link);
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--riq-text-muted);
+  font-size: 0.875rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--riq-text);
+}
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--riq-border);
+  border-radius: 0.5rem;
+  background: var(--bg);
+  color: var(--riq-text);
+  font: inherit;
+}
+
+.input:focus {
+  outline: 2px solid var(--riq-link);
+  outline-offset: 1px;
+}
+
+.button {
+  margin-top: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--riq-link);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--riq-error);
+  font-size: 0.875rem;
+}
+
+.success {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--riq-link);
+  font-size: 0.875rem;
+}
+
+.footer {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--riq-text-muted);
+}
+
+.footer a {
+  color: var(--riq-link);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--riq-link);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.qrWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.qrHelp {
+  margin: 0;
+  color: var(--riq-text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.secretWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.secret {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: 1px solid var(--riq-border);
+  border-radius: 0.5rem;
+  background: var(--bg);
+  color: var(--riq-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  word-break: break-all;
+  user-select: all;
+}
+
+.secondaryButton {
+  margin-top: 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--riq-border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--riq-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: var(--riq-link);
+  color: var(--riq-link);
+}
+
+.secondaryButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.dashboardLink {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--riq-link);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dashboardLink:hover {
+  opacity: 0.92;
+}
