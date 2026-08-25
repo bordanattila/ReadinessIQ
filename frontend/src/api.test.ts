@@ -410,10 +410,16 @@ describe('fetchCurrentUser', () => {
   it('fetches the current user with credentials', async () => {
     vi.stubGlobal(
       'fetch',
-      mockFetchJson({ id: 1, name: 'Jane', email: 'jane@example.com' }),
+      mockFetchJson({ id: 1, name: 'Jane', email: 'jane@example.com', mfa_verified: true, mfa_enabled: false }),
     )
     const result = await fetchCurrentUser()
-    expect(result).toEqual({ id: 1, name: 'Jane', email: 'jane@example.com' })
+    expect(result).toEqual({
+      id: 1,
+      name: 'Jane',
+      email: 'jane@example.com',
+      mfa_verified: true,
+      mfa_enabled: false,
+    })
     expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/me/', {
       credentials: 'include',
     })

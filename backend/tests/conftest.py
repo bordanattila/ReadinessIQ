@@ -122,7 +122,9 @@ def _create_users_table(engine: Engine) -> None:
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL,
                     email TEXT NOT NULL,
-                    password TEXT NOT NULL
+                    password TEXT NOT NULL,
+                    mfa_enabled BOOLEAN NOT NULL DEFAULT 0,
+                    mfa_secret TEXT
                 )
                 """
             )

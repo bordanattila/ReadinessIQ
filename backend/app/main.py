@@ -15,6 +15,7 @@ from app.routers.register_user import router as register_user_router
 from app.routers.login import router as login_router
 from app.routers.logout import router as logout_router
 from app.routers.api_me import router as api_me_router
+from app.routers.mfa import router as mfa_router
 
 app = FastAPI(
     title='ReadinessIQ API',
@@ -46,6 +47,7 @@ app.include_router(register_user_router)
 app.include_router(login_router)
 app.include_router(logout_router)
 app.include_router(api_me_router)
+app.include_router(mfa_router)
 
 @app.get('/')
 async def root():

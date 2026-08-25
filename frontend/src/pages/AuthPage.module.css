@@ -128,8 +128,96 @@
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .backLink:hover {
   text-decoration: underline;
+}
+
+.qrWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.qrHelp {
+  margin: 0;
+  color: var(--riq-text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.secretWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.secret {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: 1px solid var(--riq-border);
+  border-radius: 0.5rem;
+  background: var(--bg);
+  color: var(--riq-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  word-break: break-all;
+  user-select: all;
+}
+
+.secondaryButton {
+  margin-top: 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--riq-border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--riq-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: var(--riq-link);
+  color: var(--riq-link);
+}
+
+.secondaryButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.dashboardLink {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--riq-link);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dashboardLink:hover {
+  opacity: 0.92;
 }

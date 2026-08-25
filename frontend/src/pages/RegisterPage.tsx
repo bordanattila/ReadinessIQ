@@ -1,10 +1,13 @@
 import { type FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../auth/AuthContext'
+import { authDestination } from '../auth/routes'
 import { registerUser } from '../api'
 import styles from './AuthPage.module.css'
 
 export default function RegisterPage() {
   const navigate = useNavigate()
+  const { refreshUser } = useAuth()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -21,7 +24,8 @@ export default function RegisterPage() {
     try {
       const response = await registerUser({ name, email, password })
       setSuccess(response.message)
-      navigate('/login')
+      const user = await refreshUser()
+      navigate(authDestination(user))
     } catch (submitError) {
       setError(
         submitError instanceof Error ? submitError.message : 'Registration failed',

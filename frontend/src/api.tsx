@@ -45,6 +45,8 @@ export interface CurrentUser {
   id: number
   name: string
   email: string
+  mfa_verified: boolean
+  mfa_enabled: boolean
 }
 
 export async function registerUser(payload: RegisterUserPayload): Promise<AuthMessageResponse> {
@@ -90,6 +92,32 @@ export async function fetchCurrentUser(): Promise<CurrentUser> {
     throw new Error(await parseApiError(response))
   }
   return (await response.json()) as CurrentUser
+}
+
+export interface MfaSetupResponse {
+  otpauth_url: string
+  secret: string
+}
+
+export async function fetchMfaSetup(): Promise<MfaSetupResponse> {
+  const response = await fetch(`${BASE_URL}/api/mfa/setup/`, AUTH_FETCH_INIT)
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as MfaSetupResponse
+}
+
+export async function verifyMfa(code: string): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/mfa/verify/`, {
+    ...AUTH_FETCH_INIT,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code }),
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
 }
 
 export interface SiteRiskRow {

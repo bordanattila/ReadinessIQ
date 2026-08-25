@@ -39,7 +39,7 @@ async def register_user(
             registered_user_id = insert_result.fetchone().id
 
             session_id = create_session_id()
-            insert_session(conn, session_id, registered_user_id)
+            insert_session(conn, session_id, registered_user_id, mfa_verified=True)
             conn.commit()
             set_session_cookie(response, session_id)
             return {'message': 'User registered successfully'}

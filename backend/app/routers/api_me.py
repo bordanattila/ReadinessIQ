@@ -1,10 +1,8 @@
-from datetime import datetime
-
 from fastapi import APIRouter, Depends, HTTPException, Request
-from sqlalchemy import text
 from sqlalchemy.engine import Engine
 
 from app.db import get_engine
+from utils.session_auth import get_session_user
 
 router = APIRouter(prefix='/api/me', tags=['Me'])
 
@@ -15,27 +13,14 @@ async def get_current_user(request: Request, engine: Engine = Depends(get_engine
     session_id = request.cookies.get('session_id')
     if not session_id:
         raise HTTPException(status_code=401, detail='Unauthorized')
-    with engine.connect() as conn:
-        result = conn.execute(
-            text('SELECT * FROM sessions WHERE id = :session_id'),
-            {'session_id': session_id},
-        )
-        session = result.fetchone()
-        if session is None:
-            raise HTTPException(status_code=401, detail='Unauthorized')
-        if session.expires_at <= datetime.now():
-            raise HTTPException(status_code=401, detail='Session expired')
 
-        result = conn.execute(
-            text('SELECT * FROM users WHERE id = :user_id'),
-            {'user_id': session.user_id},
-        )
-        user = result.fetchone()
-        if user is None:
-            raise HTTPException(status_code=401, detail='Unauthorized')
+    with engine.connect() as conn:
+        session, user = get_session_user(conn, session_id)
 
     return {
         'id': user.id,
         'name': user.name,
         'email': user.email,
+        'mfa_verified': bool(session.mfa_verified),
+        'mfa_enabled': bool(getattr(user, 'mfa_enabled', False)),
     }

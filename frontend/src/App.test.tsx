@@ -22,10 +22,20 @@ vi.mock('./api', () => ({
       maintenance_demand_signals: 1,
     }),
   ),
+  fetchCurrentUser: vi.fn(() =>
+    Promise.resolve({
+      id: 1,
+      name: 'Jane',
+      email: 'jane@example.com',
+      mfa_verified: true,
+      mfa_enabled: false,
+    }),
+  ),
 }))
 
 import App from './App'
-import { fetchSitesRiskRanking } from './api'
+import { AuthProvider } from './auth/AuthContext'
+import { fetchCurrentUser, fetchSitesRiskRanking } from './api'
 
 const minimalSite = {
   site_id: 's1',
@@ -41,17 +51,32 @@ const minimalSite = {
   readiness_risk_score: 50,
 }
 
+function renderApp(initialEntries: string[] = ['/']) {
+  return render(
+    <MemoryRouter initialEntries={initialEntries}>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </MemoryRouter>,
+  )
+}
+
 describe('App', () => {
   afterEach(() => {
     cleanup()
+    vi.mocked(fetchCurrentUser).mockImplementation(() =>
+      Promise.resolve({
+        id: 1,
+        name: 'Jane',
+        email: 'jane@example.com',
+        mfa_verified: true,
+        mfa_enabled: false,
+      }),
+    )
   })
 
-  it('renders product title and dashboard section', async () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>,
-    )
+  it('renders product title and dashboard section when authenticated', async () => {
+    renderApp()
     expect(
       screen.getByRole('heading', { level: 1, name: /ReadinessIQ/i }),
     ).toBeInTheDocument()
@@ -65,24 +90,28 @@ describe('App', () => {
 
   it('renders the sites view-all route with the ViewAll template', async () => {
     vi.mocked(fetchSitesRiskRanking).mockResolvedValueOnce([minimalSite])
-    render(
-      <MemoryRouter initialEntries={['/sites']}>
-        <App />
-      </MemoryRouter>,
-    )
+    renderApp(['/sites'])
     await waitFor(() => {
       expect(screen.getByRole('heading', { name: /Sites — risk ranking/i })).toBeInTheDocument()
     })
-    expect(screen.getByText('Route Test Site')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText('Route Test Site')).toBeInTheDocument()
+    })
     expect(screen.getByRole('link', { name: '← Overview' })).toHaveAttribute('href', '/')
   })
 
+  it('shows the sign-in gate when unauthenticated', async () => {
+    vi.mocked(fetchCurrentUser).mockRejectedValueOnce(new Error('Not authenticated'))
+    renderApp()
+
+    expect(
+      await screen.findByRole('heading', { name: /Sign in required/i }),
+    ).toBeInTheDocument()
+    expect(screen.queryByRole('region', { name: /Top risk rankings/i })).not.toBeInTheDocument()
+  })
+
   it('renders the login route outside the dashboard shell', () => {
-    render(
-      <MemoryRouter initialEntries={['/login']}>
-        <App />
-      </MemoryRouter>,
-    )
+    renderApp(['/login'])
     expect(screen.getByText(/Sign in to your account/i)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Sign in/i })).toBeInTheDocument()
     expect(

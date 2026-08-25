@@ -6,6 +6,7 @@ fastapi
 uvicorn[standard]
 alembic
 bcrypt
+pyotp
 
 # Testing
 pytest

@@ -13,16 +13,37 @@ vi.mock('react-router-dom', async () => {
   }
 })
 
+vi.mock('../auth/AuthContext', () => ({
+  useAuth: vi.fn(),
+}))
+
 vi.mock('../api', () => ({
   registerUser: vi.fn(),
 }))
 
+import { useAuth } from '../auth/AuthContext'
 import { registerUser } from '../api'
 import RegisterPage from './RegisterPage'
 
 describe('RegisterPage', () => {
+  const refreshUser = vi.fn()
+
   beforeEach(() => {
     navigate.mockReset()
+    refreshUser.mockReset()
+    refreshUser.mockResolvedValue({
+      id: 1,
+      name: 'Jane Doe',
+      email: 'jane@example.com',
+      mfa_verified: false,
+      mfa_enabled: false,
+    })
+    vi.mocked(useAuth).mockReturnValue({
+      user: null,
+      loading: false,
+      refreshUser,
+      clearUser: vi.fn(),
+    })
     vi.mocked(registerUser).mockResolvedValue({
       message: 'User registered successfully',
     })
@@ -48,7 +69,7 @@ describe('RegisterPage', () => {
     expect(screen.getByRole('link', { name: /Sign in/i })).toHaveAttribute('href', '/login')
   })
 
-  it('submits registration data and redirects to login', async () => {
+  it('submits registration data and redirects to overview', async () => {
     const user = userEvent.setup()
 
     render(
@@ -70,7 +91,8 @@ describe('RegisterPage', () => {
       })
     })
 
-    expect(navigate).toHaveBeenCalledWith('/login')
+    expect(refreshUser).toHaveBeenCalled()
+    expect(navigate).toHaveBeenCalledWith('/')
   })
 
   it('shows an error when registration fails', async () => {

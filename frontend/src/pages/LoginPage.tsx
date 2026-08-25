@@ -1,10 +1,13 @@
 import { type FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../auth/AuthContext'
+import { authDestination } from '../auth/routes'
 import { loginUser } from '../api'
 import styles from './AuthPage.module.css'
 
 export default function LoginPage() {
   const navigate = useNavigate()
+  const { refreshUser } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -17,7 +20,8 @@ export default function LoginPage() {
 
     try {
       await loginUser({ email, password })
-      navigate('/')
+      const user = await refreshUser()
+      navigate(authDestination(user))
     } catch (submitError) {
       setError(
         submitError instanceof Error ? submitError.message : 'Login failed',

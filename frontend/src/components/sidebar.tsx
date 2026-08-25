@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../auth/AuthContext'
 import { logoutUser } from '../api'
 import logo from '../assets/readinessiq_logo.png'
 import styles from './sidebar.module.css'
 
 export default function Sidebar() {
   const navigate = useNavigate()
+  const { user, clearUser } = useAuth()
   const [loggingOut, setLoggingOut] = useState(false)
   const [logoutError, setLogoutError] = useState<string | null>(null)
 
@@ -14,7 +16,8 @@ export default function Sidebar() {
     setLogoutError(null)
     try {
       await logoutUser()
-      navigate('/login')
+      clearUser()
+      navigate('/')
     } catch (error) {
       setLogoutError(error instanceof Error ? error.message : 'Logout failed')
     } finally {
@@ -45,29 +48,44 @@ export default function Sidebar() {
       </nav>
 
       <div className={styles.authSection}>
-        <nav aria-label="Account">
-          <ul>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <button
-          type="button"
-          className={styles.logoutButton}
-          onClick={handleLogout}
-          disabled={loggingOut}
-        >
-          {loggingOut ? 'Signing out…' : 'Log out'}
-        </button>
-        {logoutError ? (
-          <p className={styles.logoutError} role="alert">
-            {logoutError}
-          </p>
-        ) : null}
+        {user ? (
+          <>
+            <p className={styles.userName}>{user.name}</p>
+            {!user.mfa_enabled ? (
+              <nav aria-label="Security">
+                <ul>
+                  <li>
+                    <NavLink to="/mfa">Set up MFA</NavLink>
+                  </li>
+                </ul>
+              </nav>
+            ) : null}
+            <button
+              type="button"
+              className={styles.logoutButton}
+              onClick={handleLogout}
+              disabled={loggingOut}
+            >
+              {loggingOut ? 'Signing out…' : 'Log out'}
+            </button>
+            {logoutError ? (
+              <p className={styles.logoutError} role="alert">
+                {logoutError}
+              </p>
+            ) : null}
+          </>
+        ) : (
+          <nav aria-label="Account">
+            <ul>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/register">Register</NavLink>
+              </li>
+            </ul>
+          </nav>
+        )}
       </div>
     </div>
   )

@@ -13,16 +13,37 @@ vi.mock('react-router-dom', async () => {
   }
 })
 
+vi.mock('../auth/AuthContext', () => ({
+  useAuth: vi.fn(),
+}))
+
 vi.mock('../api', () => ({
   loginUser: vi.fn(),
 }))
 
+import { useAuth } from '../auth/AuthContext'
 import { loginUser } from '../api'
 import LoginPage from './LoginPage'
 
 describe('LoginPage', () => {
+  const refreshUser = vi.fn()
+
   beforeEach(() => {
     navigate.mockReset()
+    refreshUser.mockReset()
+    refreshUser.mockResolvedValue({
+      id: 1,
+      name: 'Jane',
+      email: 'jane@example.com',
+      mfa_verified: false,
+      mfa_enabled: false,
+    })
+    vi.mocked(useAuth).mockReturnValue({
+      user: null,
+      loading: false,
+      refreshUser,
+      clearUser: vi.fn(),
+    })
     vi.mocked(loginUser).mockResolvedValue({ message: 'Login successful' })
   })
 
@@ -45,7 +66,7 @@ describe('LoginPage', () => {
     expect(screen.getByRole('link', { name: /Create one/i })).toHaveAttribute('href', '/register')
   })
 
-  it('submits credentials and navigates to overview on success', async () => {
+  it('submits credentials and navigates to overview when MFA is not enabled', async () => {
     const user = userEvent.setup()
 
     render(
@@ -63,6 +84,59 @@ describe('LoginPage', () => {
         email: 'jane@example.com',
         password: 'secret123',
       })
+    })
+    expect(refreshUser).toHaveBeenCalled()
+    expect(navigate).toHaveBeenCalledWith('/')
+  })
+
+  it('submits credentials and navigates to MFA when verification is required', async () => {
+    refreshUser.mockResolvedValueOnce({
+      id: 1,
+      name: 'Jane',
+      email: 'jane@example.com',
+      mfa_verified: false,
+      mfa_enabled: true,
+    })
+    const user = userEvent.setup()
+
+    render(
+      <MemoryRouter>
+        <LoginPage />
+      </MemoryRouter>,
+    )
+
+    await user.type(screen.getByLabelText(/Email/i), 'jane@example.com')
+    await user.type(screen.getByLabelText(/Password/i), 'secret123')
+    await user.click(screen.getByRole('button', { name: /Sign in/i }))
+
+    await waitFor(() => {
+      expect(loginUser).toHaveBeenCalled()
+    })
+    expect(navigate).toHaveBeenCalledWith('/mfa')
+  })
+
+  it('submits credentials and navigates to overview when MFA is already verified', async () => {
+    refreshUser.mockResolvedValueOnce({
+      id: 1,
+      name: 'Jane',
+      email: 'jane@example.com',
+      mfa_verified: true,
+      mfa_enabled: true,
+    })
+    const user = userEvent.setup()
+
+    render(
+      <MemoryRouter>
+        <LoginPage />
+      </MemoryRouter>,
+    )
+
+    await user.type(screen.getByLabelText(/Email/i), 'jane@example.com')
+    await user.type(screen.getByLabelText(/Password/i), 'secret123')
+    await user.click(screen.getByRole('button', { name: /Sign in/i }))
+
+    await waitFor(() => {
+      expect(loginUser).toHaveBeenCalled()
     })
     expect(navigate).toHaveBeenCalledWith('/')
   })

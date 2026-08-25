@@ -26,8 +26,13 @@ async def login(excisting_user: UserLogin, response: Response, engine: Engine = 
                 raise HTTPException(status_code=401, detail='Invalid credentials')
 
             session_id = create_session_id()
-           
-            insert_session(conn, session_id, existing_user.id)
+            mfa_enabled = bool(getattr(existing_user, 'mfa_enabled', False))
+            insert_session(
+                conn,
+                session_id,
+                existing_user.id,
+                mfa_verified=not mfa_enabled,
+            )
             conn.commit()
             set_session_cookie(response, session_id)
             return {'message': 'Login successful'}
