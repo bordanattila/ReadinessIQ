@@ -1,5 +1,7 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
 
+const AUTH_FETCH_INIT: RequestInit = { credentials: 'include' }
+
 function assertOk(body: { status?: string; message?: string }) {
   if (body.status === 'error') {
     throw new Error(typeof body.message === 'string' ? body.message : 'API error')
@@ -39,8 +41,15 @@ export interface LoginUserPayload {
   password: string
 }
 
+export interface CurrentUser {
+  id: number
+  name: string
+  email: string
+}
+
 export async function registerUser(payload: RegisterUserPayload): Promise<AuthMessageResponse> {
   const response = await fetch(`${BASE_URL}/api/register_user/`, {
+    ...AUTH_FETCH_INIT,
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -53,6 +62,7 @@ export async function registerUser(payload: RegisterUserPayload): Promise<AuthMe
 
 export async function loginUser(payload: LoginUserPayload): Promise<AuthMessageResponse> {
   const response = await fetch(`${BASE_URL}/api/login/`, {
+    ...AUTH_FETCH_INIT,
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -61,6 +71,25 @@ export async function loginUser(payload: LoginUserPayload): Promise<AuthMessageR
     throw new Error(await parseApiError(response))
   }
   return (await response.json()) as AuthMessageResponse
+}
+
+export async function logoutUser(): Promise<AuthMessageResponse> {
+  const response = await fetch(`${BASE_URL}/api/logout/`, {
+    ...AUTH_FETCH_INIT,
+    method: 'POST',
+  })
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as AuthMessageResponse
+}
+
+export async function fetchCurrentUser(): Promise<CurrentUser> {
+  const response = await fetch(`${BASE_URL}/api/me/`, AUTH_FETCH_INIT)
+  if (!response.ok) {
+    throw new Error(await parseApiError(response))
+  }
+  return (await response.json()) as CurrentUser
 }
 
 export interface SiteRiskRow {

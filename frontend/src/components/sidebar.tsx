@@ -1,12 +1,31 @@
-import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { logoutUser } from '../api'
 import logo from '../assets/readinessiq_logo.png'
 import styles from './sidebar.module.css'
 
 export default function Sidebar() {
+  const navigate = useNavigate()
+  const [loggingOut, setLoggingOut] = useState(false)
+  const [logoutError, setLogoutError] = useState<string | null>(null)
+
+  async function handleLogout() {
+    setLoggingOut(true)
+    setLogoutError(null)
+    try {
+      await logoutUser()
+      navigate('/login')
+    } catch (error) {
+      setLogoutError(error instanceof Error ? error.message : 'Logout failed')
+    } finally {
+      setLoggingOut(false)
+    }
+  }
+
   return (
     <div className={styles.sidebar}>
       <img src={logo} alt="ReadinessIQ" />
-      <nav>
+      <nav aria-label="Primary">
         <ul>
           <li>
             <NavLink to="/" end>
@@ -22,14 +41,34 @@ export default function Sidebar() {
           <li>
             <NavLink to="/suppliers">Suppliers</NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Register</NavLink>
-          </li>
         </ul>
       </nav>
+
+      <div className={styles.authSection}>
+        <nav aria-label="Account">
+          <ul>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+            <li>
+              <NavLink to="/register">Register</NavLink>
+            </li>
+          </ul>
+        </nav>
+        <button
+          type="button"
+          className={styles.logoutButton}
+          onClick={handleLogout}
+          disabled={loggingOut}
+        >
+          {loggingOut ? 'Signing out…' : 'Log out'}
+        </button>
+        {logoutError ? (
+          <p className={styles.logoutError} role="alert">
+            {logoutError}
+          </p>
+        ) : null}
+      </div>
     </div>
   )
 }

@@ -8,7 +8,9 @@ import {
   fetchSupplierSummary,
   fetchSuppliersPerformance,
   loginUser,
+  logoutUser,
   registerUser,
+  fetchCurrentUser,
 } from './api'
 
 function mockFetchJson(body: unknown, ok = true, status = ok ? 200 : 500) {
@@ -328,6 +330,7 @@ describe('registerUser', () => {
     })
     expect(result).toEqual({ message: 'User registered successfully' })
     expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/register_user/', {
+      credentials: 'include',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -362,6 +365,7 @@ describe('loginUser', () => {
     })
     expect(result).toEqual({ message: 'Login successful' })
     expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/login/', {
+      credentials: 'include',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -379,5 +383,39 @@ describe('loginUser', () => {
     await expect(
       loginUser({ email: 'jane@example.com', password: 'wrong' }),
     ).rejects.toThrow('Invalid credentials')
+  })
+})
+
+describe('logoutUser', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('posts to logout with credentials', async () => {
+    vi.stubGlobal('fetch', mockFetchJson({ message: 'Logged out successfully' }))
+    const result = await logoutUser()
+    expect(result).toEqual({ message: 'Logged out successfully' })
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/logout/', {
+      credentials: 'include',
+      method: 'POST',
+    })
+  })
+})
+
+describe('fetchCurrentUser', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('fetches the current user with credentials', async () => {
+    vi.stubGlobal(
+      'fetch',
+      mockFetchJson({ id: 1, name: 'Jane', email: 'jane@example.com' }),
+    )
+    const result = await fetchCurrentUser()
+    expect(result).toEqual({ id: 1, name: 'Jane', email: 'jane@example.com' })
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8000/api/me/', {
+      credentials: 'include',
+    })
   })
 })

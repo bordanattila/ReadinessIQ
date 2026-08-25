@@ -11,7 +11,7 @@ from __future__ import annotations
 import pandas as pd
 import pytest
 from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine
 from sqlalchemy.pool import StaticPool
 
@@ -111,10 +111,36 @@ def _create_empty_tables(engine: Engine) -> None:
 
 
 def _create_users_table(engine: Engine) -> None:
-    """Create the users table the register_user router writes to."""
-    pd.DataFrame(
-        columns=["id", "name", "email", "password"]
-    ).to_sql("users", engine, if_exists="replace", index=False)
+    """Create auth tables used by register/login/session routers."""
+    with engine.connect() as conn:
+        conn.execute(text("DROP TABLE IF EXISTS sessions"))
+        conn.execute(text("DROP TABLE IF EXISTS users"))
+        conn.execute(
+            text(
+                """
+                CREATE TABLE users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name TEXT NOT NULL,
+                    email TEXT NOT NULL,
+                    password TEXT NOT NULL
+                )
+                """
+            )
+        )
+        conn.execute(
+            text(
+                """
+                CREATE TABLE sessions (
+                    id TEXT PRIMARY KEY,
+                    user_id INTEGER NOT NULL,
+                    created_at TEXT NOT NULL,
+                    expires_at TEXT NOT NULL,
+                    mfa_verified BOOLEAN NOT NULL DEFAULT 0
+                )
+                """
+            )
+        )
+        conn.commit()
 
 
 def _seed_inventory(engine: Engine) -> None:
